@@ -4,6 +4,7 @@
 var crypto = require('crypto');
 var mongoose = require('mongoose');
 var unique = require('mongoose-unique-validator');
+var models = require('./');
 
 var schema = new mongoose.Schema({
     review: {type: String, 
@@ -28,6 +29,7 @@ schema.pre('save', function (next) {
     		if (product !== null && user !== null){
     			next();
     		} else {
+                console.log ('YOU DUN GOOFED')
     			res.sendFile('err');
     		}
     	})

@@ -13,7 +13,7 @@ var schema = new mongoose.Schema({
 
 schema.pre('save', function(next) {
     var ord = this;
-    if (ord.user!='none' || ord.session!='none'){
+    if (ord.user!=='none' || ord.session!=='none'){
         next();
     }
 });
