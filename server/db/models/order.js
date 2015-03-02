@@ -3,8 +3,9 @@ var crypto = require('crypto');
 var mongoose = require('mongoose');
 
 var schema = new mongoose.Schema({
-    user:Boolean,
-    session:Boolean,
+    user:{type:String, default: 'none'},
+    session:{type:String, default: 'none'},
+    products:[String],
     status:String,
     Paid:Boolean
 });
@@ -19,3 +20,4 @@ schema.pre('save', function(next) {
 
 mongoose.model('Order', schema);
 
+//change user, session to strings, default 'none', check to make sure both are not none

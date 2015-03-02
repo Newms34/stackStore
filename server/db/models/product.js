@@ -12,7 +12,7 @@ var schema = new mongoose.Schema({
     price: Number,
     category: {
         type: [String],
-        required
+        required:true
     },
     photo: {
         type: String,
