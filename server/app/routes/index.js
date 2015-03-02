@@ -2,4 +2,12 @@
 var router = require('express').Router();
 module.exports = router;
 
-router.use('/tutorial', require('./tutorial'));
+
+
+
+
+
+router.use('/stackStoreRoutes', require('./stackStoreRoutes'));
+
+
+// router.use('/tutorial', require('./tutorial'));
