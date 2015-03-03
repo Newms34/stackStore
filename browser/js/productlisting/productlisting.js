@@ -2,13 +2,13 @@
 app.config(function ($stateProvider) {
 
     $stateProvider.state('coffee', {
-        url: '/coffee',
+        url: '/product/coffee',
         controller: 'ProductCtrl',
         templateUrl: 'js/productlisting/productlisting.html'
     });
 
     $stateProvider.state('mint', {
-      url: '/mint',
+      url: '/product/mint',
       controller: 'ProductCtrl',
       templateUrl: 'js/productlisting/productlisting.html'
     });
@@ -16,7 +16,7 @@ app.config(function ($stateProvider) {
 
 app.controller('ProductCtrl', function ($scope, ProductFactory) {
 
-  $scope.getCoffeeProducts = function() {
+  $scope.getProducts = function() {
     ProductFactory.getCoffee().then(function(data) {
       $scope.coffee = data;
     });
@@ -24,7 +24,4 @@ app.controller('ProductCtrl', function ($scope, ProductFactory) {
       $scope.mint = data;
     });
   };
-
-  // $scope.getMintProducts = function() {
-  // };
 });
