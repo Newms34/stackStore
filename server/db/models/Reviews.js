@@ -14,21 +14,23 @@ var schema = new mongoose.Schema({
     	type: String
     },
     user: {
-    	type: String
+    	type: String, 
+        required:true,
     }
 });
 
-schema.pre('save', function (next) {
+schema.pre('save', function(next) {
     var review = this;
-    mongoose.model('User').findOne({email: review.user}, function (user){
-    	mongoose.model('Product').findOne({title: review.product}, function(product){
-    		if (product !== null && user !== null){
-    			next();
-    		} else {
-                console.log ('YOU DUN GOOFED');
-    			return err.error.type;//do we HAVE an err? I don't think we do
-    		}
-    	})
+    //look up mongoose population
+    mongoose.model('Product').findOne({
+        title: review.product
+    }, function(err, product) {
+        if (product !== null) {
+            next();
+        } else {
+            console.log('YOU DUN GOOFED');
+            return err.error.type; //do we HAVE an err? I don't think we do
+        }
     });
 });
 
