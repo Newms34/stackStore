@@ -12,7 +12,7 @@ var schema = new mongoose.Schema({
     price: Number,
     category: {
         type: [String],
-        required:true
+        required: true
     },
     photo: {
         type: String,
@@ -25,4 +25,4 @@ schema.pre('save', function(next) {
     next();
 });
 
-mongoose.model('Prod', schema);
+mongoose.model('Product', schema);

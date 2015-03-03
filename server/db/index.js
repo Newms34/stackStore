@@ -12,6 +12,13 @@ var db = mongoose.connect(DATABASE_URI).connection;
 // so the rest of the application can simply call mongoose.model('User')
 // anywhere the User model needs to be used.
 require('./models/user');
+require('./models/Reviews');
+require('./models/product');
+require('./models/order');
+
+console.log("MONGOOSE ", mongoose);
+console.log("MONGOOSE Model: ", mongoose.model('User'));
+console.log("TESTING ", mongoose.models.User);
 
 var startDbPromise = new Q(function (resolve, reject) {
     db.on('open', resolve);
