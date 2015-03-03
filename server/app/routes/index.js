@@ -9,3 +9,4 @@ router.use('/orders', require('./orders'));
 
 router.use('/mint', require('./mint'));
 router.use('/coffee', require('./coffee'));
+router.use('/signup', require('./signup'));
