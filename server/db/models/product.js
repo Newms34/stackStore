@@ -10,6 +10,10 @@ var schema = new mongoose.Schema({
     },
     description: String,
     price: Number,
+    coffeeormint: {
+        type: String,
+        required: true
+    },
     category: {
         type: [String],
         required: true
@@ -26,3 +30,5 @@ schema.pre('save', function(next) {
 });
 
 mongoose.model('Product', schema);
+
+
