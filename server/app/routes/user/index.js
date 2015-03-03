@@ -5,4 +5,4 @@ module.exports = router;
 router.get('/newUser', function(req,res){
   console.log('hi');
 	res.send('Go away.')
-})
+});

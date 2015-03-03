@@ -16,10 +16,6 @@ require('./models/Reviews');
 require('./models/product');
 require('./models/order');
 
-console.log("MONGOOSE ", mongoose);
-console.log("MONGOOSE Model: ", mongoose.model('User'));
-console.log("TESTING ", mongoose.models.User);
-
 var startDbPromise = new Q(function (resolve, reject) {
     db.on('open', resolve);
     db.on('error', reject);
