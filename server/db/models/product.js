@@ -6,10 +6,17 @@ var unique = require('mongoose-unique-validator');
 var schema = new mongoose.Schema({
     title: {
         type: String,
+        required: true
         unique: true
     },
-    description: String,
-    price: Number,
+    description: {
+        type: String,
+        required: true
+    }, 
+    price: {
+        type: Number,
+        required: true
+    }, // must be cents
     isCoffee: {
         type: Boolean,
         required: true
@@ -30,5 +37,3 @@ schema.pre('save', function(next) {
 });
 
 mongoose.model('Product', schema);
-
-

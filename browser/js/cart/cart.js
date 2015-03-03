@@ -2,7 +2,7 @@
 app.config(function ($stateProvider) {
 
     $stateProvider.state('cart', {
-        url: '/',
+        url: '/cart',
         controller: 'cartCtrl',
         templateUrl: 'js/cart/cart.html'
     });
@@ -10,7 +10,6 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('cartCtrl', function ($scope) {
-
 
 	
 });
