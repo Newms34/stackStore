@@ -1,0 +1,19 @@
+<div ng-controller="ProductCtrl">
+  <h1 ng-click="getProducts()">Products</h1>
+  <div ng-repeat="stuff in coffee">
+    <ul>
+      <li>Title: {{ stuff.title }}<br>
+          Price: {{ stuff.price }}<br>
+          Category: {{ stuff.category.join(', ') }}
+      </li>
+    </ul>
+  </div>
+  <div ng-repeat="stuff in mint">
+    <ul>
+      <li>Title: {{ stuff.title }}<br>
+          Price: {{ stuff.price }}<br>
+          Category: {{ stuff.category.join(', ') }}
+      </li>
+    </ul>
+  </div>
+</div>
