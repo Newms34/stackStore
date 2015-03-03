@@ -10,4 +10,7 @@ app.config(function ($stateProvider) {
 });
 
 app.controller('HomeCtrl', function ($scope) {
+
+
+	
 });

@@ -6,12 +6,13 @@ app.factory('RandomGreetings', function () {
     };
 
     var greetings = [
-        'Hello, world!',
-        'At long last, I live!',
-        'Hello, simple human.',
-        'What a beautiful day!',
-        'I\'m like any other project, except that I am yours. :)',
-        'This empty string is for Lindsay Levine.'
+        'I know that you just drank some coffee... have a mint...',
+        'Ummm...... You need a mint...',
+        'Hello, smelly human.',
+        'So... how do you feel about having a mint right now?',
+        'Dude. You cannot eat egg salad with coffee unless you take a mint.',
+        'Seriously. Coffee with salmon salad? Take a mint.', 
+        'What\'s your problem with mints? You need one.'
     ];
 
     return {
