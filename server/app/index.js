@@ -18,6 +18,6 @@ app.get('/*', function (req, res) {
 
 // Error catching endware.
 app.use(function (err, req, res, next) {
-    res.status(err.status).send({ error: err.message });
+    res.status(err.status).render('./errorpage.html');
 });
 
