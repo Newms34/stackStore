@@ -3,10 +3,9 @@ var router = require('express').Router();
 module.exports = router;
 var mongoose = require('mongoose');
 
-router.get('/getUser', function(req, res) {
-
 
 router.get('/newUser', function(req, res) {
+
     res.send('Go away.')
 });
 
