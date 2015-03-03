@@ -1,4 +1,22 @@
 <section id="cart">
-    <div id='cartChart'></div>
-   
+    <div id='cartChart'>
+    	<div id='cartTitle'>Cart</div>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr id='cart-single-order' ng-repeat='order in seshOrders' ng-class '{mintProd:!isCoffee, coffeeProd:isCoffee}'>
+                <td>order.title</td>
+                <td>order.description</td>
+                <td>order.priceOut</td>
+                <td>order.howMany</td>
+                <td>order.sTot</td>
+            </tr>
+        </table>
+        <div id='clearCart'>Clear Your Cart</div>
+    </div>
 </section>

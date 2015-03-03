@@ -1,13 +1,15 @@
 'use strict';
 var crypto = require('crypto');
 var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var User = require('./user.js');
+var Product = require('./product.js');
 // var Product = require()
-
-var schema = new mongoose.Schema({
+var schema = new Schema({
     // user reference should be object id http://mongoosejs.com/docs/api.html#schema-objectid-js
-    user:{type:ObjectId, default: 'none'},
+    user:{type: Schema.Types.ObjectId, ref:'User'},
     products:[{
-    	prodId:ObjectId,
+    	prodId:{type: Schema.Types.ObjectId, ref:'Product'},
     	Price:Number,
     	Quantity:Number
     }],
