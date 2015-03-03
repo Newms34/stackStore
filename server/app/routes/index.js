@@ -4,6 +4,6 @@ module.exports = router;
 
 router.use('/user', require('./user'));
 
-router.use('/stackStoreRoutes', require('./stackStoreRoutes'));
+router.use('/orders', require('./orders'));
 
 
