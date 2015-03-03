@@ -2,6 +2,7 @@
 var router = require('express').Router();
 module.exports = router;
 var mongoose = require('mongoose');
+
 router.get('/newUser', function(req, res) {
     res.send('Go away.')
 });

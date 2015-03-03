@@ -3,7 +3,5 @@ var router = require('express').Router();
 module.exports = router;
 
 router.use('/user', require('./user'));
-
-router.use('/stackStoreRoutes', require('./stackStoreRoutes'));
-
-
+router.use('/mint', require('./mint'));
+router.use('/coffee', require('./coffee'));
