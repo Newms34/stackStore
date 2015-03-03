@@ -2,4 +2,8 @@
 var router = require('express').Router();
 module.exports = router;
 
-router.use('/tutorial', require('./tutorial'));
+router.use('/user', require('./user'));
+
+router.use('/stackStoreRoutes', require('./stackStoreRoutes'));
+
+
