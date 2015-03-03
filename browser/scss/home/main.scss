@@ -1,13 +1,28 @@
 #home {
+<<<<<<< HEAD
   stack {
     padding-top: 30px;
     width: 150px;
     margin: 0 auto;
 
   }
+=======
+>>>>>>> 6e8528c14f22b8e7a186b69c2197bab500e6ebae
   h1 {
     margin-top: 40px;
     text-align: center;
   }
 }
 
+.buy{
+	border-radius:5%;
+	width:80px;
+	height:50px;
+	background-color: #149c02;
+	color:#fff;
+	box-shadow:4px 4px 9px #000;
+	&:hover{
+		background-color: #1fb405;
+		box-shadow: 2px 2px 5px #000;
+	}
+}

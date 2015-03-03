@@ -1,10 +1,11 @@
 'use strict';
 var crypto = require('crypto');
 var mongoose = require('mongoose');
+var unique = require('mongoose-unique-validator');
 
 var schema = new mongoose.Schema({
     email: {
-        type: String
+        type: String, unique: true
     },
     password: {
         type: String
@@ -25,6 +26,7 @@ var schema = new mongoose.Schema({
         id: String
     }
 });
+schema.plugin(unique);
 
 // generateSalt, encryptPassword and the pre 'save' and 'correctPassword' operations
 // are all used for local authentication security.
@@ -47,6 +49,8 @@ schema.pre('save', function (next) {
         user.salt = generateSalt();
         user.password = encryptPassword(user.password, user.salt);
     }
+
+    var emailValid = user.email.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/);
 
     next();
 
