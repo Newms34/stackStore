@@ -3,11 +3,13 @@ var router = require('express').Router();
 module.exports = router;
 var mongoose = require('mongoose');
 
+
 router.get('/newUser', function(req, res) {
+
     res.send('Go away.')
 });
 
-router.post('/newUser/submit', function(req, res, next) {
+router.post('/submit', function(req, res, next) {
     var email = req.body.email;
     var password = req.body.passwords;
     var twitter = {
@@ -31,8 +33,7 @@ router.post('/newUser/submit', function(req, res, next) {
             var newUser = new mongoose.model('User')({'email': email, 'password': password, 'twitter': twitter, 'facebook': facebook, 'google': google});
             newUser.save(
             	mongoose.model('User').findOne({email:email},function(err,doneUsr){
-            			var truncEmail = email.slice(0,email.indexOf('@'));
-            			res.redirect('/user/:truncEmail')
+            			res.redirect('/api/user/:email')
             		})
             	);
         }
