@@ -25,8 +25,8 @@ schema.pre('save', function (next) {
     		if (product !== null && user !== null){
     			next();
     		} else {
-                console.log ('YOU DUN GOOFED')
-    			return err.error.type;
+                console.log ('YOU DUN GOOFED');
+    			return err.error.type;//do we HAVE an err? I don't think we do
     		}
     	})
     });

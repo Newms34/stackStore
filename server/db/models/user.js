@@ -5,7 +5,8 @@ var unique = require('mongoose-unique-validator');
 
 var schema = new mongoose.Schema({
     email: {
-        type: String, unique: true
+        type: String,
+        unique: true
     },
     password: {
         type: String
@@ -30,18 +31,18 @@ schema.plugin(unique);
 
 // generateSalt, encryptPassword and the pre 'save' and 'correctPassword' operations
 // are all used for local authentication security.
-var generateSalt = function () {
+var generateSalt = function() {
     return crypto.randomBytes(16).toString('base64');
 };
 
-var encryptPassword = function (plainText, salt) {
+var encryptPassword = function(plainText, salt) {
     var hash = crypto.createHash('sha1');
     hash.update(plainText);
     hash.update(salt);
     return hash.digest('hex');
 };
 
-schema.pre('save', function (next) {
+schema.pre('save', function(next) {
 
     var user = this;
 
@@ -51,12 +52,14 @@ schema.pre('save', function (next) {
     }
 
     var emailValid = user.email.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/);
+    if (emailValid !== null) {
+        next();
+    }
 
-    next();
 
 });
 
-schema.method('correctPassword', function (candidatePassword) {
+schema.method('correctPassword', function(candidatePassword) {
     return encryptPassword(candidatePassword, this.salt) === this.password;
 });
 
