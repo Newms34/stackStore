@@ -1,7 +1,6 @@
 'use strict';
 var router = require('express').Router();
 module.exports = router;
-router.get('/newUser',function(req,res){
-	res.send('Go away.')
+router.get('/',function(req,res){
+	res.send('Sorry');
 })
-
