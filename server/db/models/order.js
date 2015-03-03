@@ -1,11 +1,16 @@
 'use strict';
 var crypto = require('crypto');
 var mongoose = require('mongoose');
+// var Product = require()
 
 var schema = new mongoose.Schema({
     user:{type:String, default: 'none'},
     session:{type:String, default: 'none'},
-    products:[String],
+    products:[{
+    	prodId:String,
+    	Price:Number,
+    	Quantity:Number
+    }],
     status:String,
     Paid:Boolean
 });

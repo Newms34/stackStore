@@ -2,12 +2,10 @@
 var router = require('express').Router();
 module.exports = router;
 
+router.use('/user', require('./user'));
+
+router.use('/orders', require('./orders'));
 
 
-
-
-
-router.use('/stackStoreRoutes', require('./stackStoreRoutes'));
-
-
-// router.use('/tutorial', require('./tutorial'));
+router.use('/mint', require('./mint'));
+router.use('/coffee', require('./coffee'));
