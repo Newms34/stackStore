@@ -1,5 +1,15 @@
 'use strict';
-var app = angular.module('FullstackGeneratedApp', ['ui.router', 'fsaPreBuilt']);
+var app = angular.module('FullstackGeneratedApp', ['ui.router', 'fsaPreBuilt', 'ngCookies']);
+
+app.controller('MainController', function ($scope, $cookies, $cookieStore) {
+
+
+    console.log($window);
+    
+    console.log($cookieStore, 'this is cookie store');
+    $cookieStore.put('cart', 'temp');
+    console.log($cookies, 'this is cookie');
+
 
 app.controller('MainController', function($scope) {
 
@@ -26,7 +36,6 @@ app.controller('MainController', function($scope) {
     label: 'Cart',
     state: 'cart'
   }];
-
 });
 
 
