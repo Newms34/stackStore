@@ -10,15 +10,24 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('signUpController', function ($scope) {
+app.controller('signUpController', function ($scope, $window, $location) {
 
 	$scope.user = {
 
 	}
-    
     // $scope.signUpForm = function (user){
     // 	signupFactory.addNewUser(user).then(function(){
-
     // 	});
     // };
+
+    $scope.login = function (){
+        $window.location.href = '/auth/google';
+    };
+
+    $scope.loginfb = function (){
+        $window.location.href = '/auth/facebook';
+    };
+
+    
 });
+

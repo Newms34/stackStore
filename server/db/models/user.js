@@ -24,7 +24,8 @@ var schema = new mongoose.Schema({
         id: String
     },
     google: {
-        id: String
+        id: String,
+        email: String
     }
 });
 schema.plugin(unique);
@@ -45,17 +46,17 @@ var encryptPassword = function(plainText, salt) {
 schema.pre('save', function(next) {
 
     var user = this;
+    console.log("hello, ", user);
 
     if (user.isModified('password')) {
         user.salt = generateSalt();
         user.password = encryptPassword(user.password, user.salt);
     }
 
-    var emailValid = user.email.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/);
+    var emailValid = user.google.email.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/);
     if (emailValid !== null) {
         next();
     }
-
 
 });
 
