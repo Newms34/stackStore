@@ -8,6 +8,7 @@ navbar {
   height:50px;
   margin-bottom:0;
   z-index:2;
+  box-shadow: 2px 0 4px #000;
 
   a {
     color: white;
@@ -16,10 +17,7 @@ navbar {
       color: white;
     }
   }
-
-
   .nav > li {
-
     cursor: pointer;
     color:#fff;
     position:relative;

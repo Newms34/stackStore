@@ -1,16 +1,19 @@
 .prodDetailImg {
-    min-width: 50vw;
-    min-height: 50vh;
+    width: 20vw;
+    height: 20vw;
     box-shadow: 4px 4px 9px #000;
     position: relative;
     margin-left: auto;
     margin-right: auto;
+    background-size: cover;
+    margin-bottom:20px;
 }
 .prodDetailBlurb {
     width: 90vw;
     height: 300px;
     background-color: rgba(255, 255, 255, .8);
     position: relative;
+    top:0px;
     margin-left: auto;
     margin-right: auto;
 }
