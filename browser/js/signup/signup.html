@@ -1,7 +1,7 @@
  <section id="signup">
-	<div ng-controller="signUpController" id="login">
-		    <form name="signUpForm" ng-submit="signUpForm(user)">
-		    Email: <input required ng-minlegnth="5" type="text" ng-model="user.email" />
+	<div id="login">
+		    <form name="signUpForm" ng-submit="signUpForm(user)" height="100" width="500">
+		    Email: <input required ng-minlegnth="5" type="text" ng-model="user.email" /><br>
 		    Password: <input required ng-minlegnth="10" type="text" ng-model="user.password" />
 		    <button type="submit">Submit</button>
 			</form>
