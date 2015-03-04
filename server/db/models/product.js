@@ -12,7 +12,7 @@ var schema = new mongoose.Schema({
     description: {
         type: String,
         required: true
-    }, 
+    },
     price: {
         type: Number,
         required: true
@@ -27,7 +27,7 @@ var schema = new mongoose.Schema({
     },
     photo: {
         type: String,
-        default: 'none'
+        default: 'http://bayfieldcoffeecompany.com/wp-content/uploads/2013/11/coffee1.jpeg'
     }
 });
 
