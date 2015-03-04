@@ -8,17 +8,17 @@ app.controller('MainController', function($scope) {
     label: 'Home',
     state: 'home'
   }, {
-    label: 'About',
-    state: 'about'
-  }, {
-    label: 'SignUp',
-    state: 'signup'
-  }, {
     label: 'Coffee',
     state: 'coffee'
   }, {
     label: 'Mint',
     state: 'mint'
+  }, {
+    label: 'About',
+    state: 'about'
+  }, {
+    label: 'SignUp',
+    state: 'signup'
   }, {
     label: 'Sign In',
     state: 'signIn'
@@ -28,6 +28,7 @@ app.controller('MainController', function($scope) {
   }];
 
 });
+
 
 app.config(function($urlRouterProvider, $locationProvider) {
   // This turns off hashbang urls (/#about) and changes it to something normal (/about)

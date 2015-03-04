@@ -2,15 +2,15 @@ navbar {
 
   display: block;
   background: #1b311a;
-
-  stack {
-    padding-top: 10px;
-    margin-right: 20px;
-    width: 30px;
-  }
+  position:fixed;
+  width: 100vw;
+  height:50px;
+  margin-bottom:px;
+  z-index:2;
 
   a {
     color: white;
+    background: #1b311a!important;
     &:hover {
       color: white;
     }
@@ -25,12 +25,13 @@ navbar {
     display:inline-block;
     width:10%;
     text-align: center;
-    height:50px;
+    height:100%;
     transition-duration:.5s;
+
     &:hover{
-      background-color: #356831;
-      transform:rotate(5deg);
-      border:1px outset #356831;
+      font-size:large;
+      font-weight:bold;
+
     }
   }
 
