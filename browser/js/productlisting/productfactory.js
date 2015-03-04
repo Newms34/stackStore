@@ -1,16 +1,11 @@
 'use strict';
 
-app.factory('ProductFactory', function ($http) {
-    return {
-        getCoffee: function() {
-            return $http.get('/api/coffee').then(function(response) {
-                return response.data;
-            });
-        },
-        getMints: function() {
-            return $http.get('api/mint').then(function(response) {
-                return response.data;
-            });
-        }
-    };
+app.factory('ProductFactory', function($http) {
+  return {
+    getProductsDb: function() {
+      return $http.get('/api/products').then(function(response) {
+        return response.data;
+      });
+    }
+  };
 });

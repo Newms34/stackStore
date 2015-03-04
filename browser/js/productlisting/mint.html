@@ -1,0 +1,11 @@
+<div>
+    <h1 ng-click="showProducts()">Mint</h1>
+    <div ng-repeat="mint in products | filter: {isCoffee: false}">
+        <ul>
+            <li>Title: {{ mint.title }}
+                <br> Price: {{ mint.price }}
+                <br> Category: {{ mint.category.join(', ') }}
+            </li>
+        </ul>
+    </div>
+</div>
