@@ -9,9 +9,9 @@ var schema = new Schema({
     // user reference should be object id http://mongoosejs.com/docs/api.html#schema-objectid-js
     user:{type: Schema.Types.ObjectId, ref:'User'},
     products:[{
-        prodId:{type: Schema.Types.ObjectId, ref:'Product'},
-        Price:Number,
-        Quantity:Number
+    	prodId:{type: Schema.Types.ObjectId, ref:'Product'},
+    	Price:Number,
+    	Quantity:Number
     }],
     status:String
 });
