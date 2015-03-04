@@ -23,12 +23,12 @@ module.exports = function (app) {
             if (user) {
                 done(null, user);
             } else {
-                console.log("profile, ", profile);
+                // console.log("profile, ", profile);
                 UserModel.create(
                 {
                     google: {
-                        id: profile.id,
-                        email: profile._json.email
+                    id: profile.id,
+                    email: profile._json.email
                     }
                 }).then(function (user) {
                     done(null, user);
@@ -37,7 +37,6 @@ module.exports = function (app) {
                 });
             }
         });
-
     };
 
     passport.use(new GoogleStrategy(googleCredentials, verifyCallback));
@@ -52,7 +51,6 @@ module.exports = function (app) {
     app.get('/auth/google/callback',
         passport.authenticate('google', { failureRedirect: '/login' }),
         function (req, res) {
-            console.log("hello!!!");
             res.redirect('/');
         });
 
