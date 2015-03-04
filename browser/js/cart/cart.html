@@ -1,13 +1,14 @@
 <section id="cart">
+	<div id='title' style='background-image: url("images/carts.jpg");'>Cart</div>
     <div id='cartChart' class='cartMisc'>
-    	<div id='cartTitle'>Cart</div>
+    	<b>Your cart:</b>
         <table class='cartMisc'>
             <tr>
-                <td width='20%'>Title</td>
-                <td>Description</td>
-                <td>Price</td>
-                <td>Quantity</td>
-                <td>Subtotal</td>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Subtotal</th>
             </tr>
             <tr id='cart-single-order' ng-repeat='order in seshOrders' ng-class '{mintProd:!isCoffee, coffeeProd:isCoffee}'>
                 <td>{{order.title}}</td>
@@ -17,7 +18,7 @@
                 <td>{{order.sTot}}</td>
             </tr>
         </table>
-        Total: {{total}}
-        <div id='clearCart'>Clear Your Cart</div>
+        Total: {{total}}<br/>
+        <div id='clearCart' class='cartBut'>Clear Your Cart</div><div id='checkOut' class='cartBut'>Checkout!</div>
     </div>
 </section>
