@@ -1,7 +1,9 @@
 app.factory('AddToCart', function() {
 
             var cartcontent = {
+                user: req.body.cookies.cart;
                 products: []
+
             };
 
             return {
@@ -22,4 +24,6 @@ app.factory('AddToCart', function() {
                 }
 
 
-            })
+            }
+
+        });
