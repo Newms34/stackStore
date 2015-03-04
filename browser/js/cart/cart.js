@@ -10,6 +10,7 @@ app.config(function($stateProvider) {
 });
 
 app.controller('cartCtrl', function($scope) {
+
     //TEMPORARY! FOR TESTING
     //this renders the cart
     $scope.seshOrders = [{
@@ -46,4 +47,5 @@ app.controller('cartCtrl', function($scope) {
     });
 
     $scope.total = '$' + $scope.total/100
+
 });
