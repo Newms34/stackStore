@@ -1,3 +1,4 @@
+"use strict";
 app.factory('signupFactory', function($http){
 	return {
 		addNewUser : function (user) {

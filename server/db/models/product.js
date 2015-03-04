@@ -27,7 +27,7 @@ var schema = new mongoose.Schema({
     },
     photo: {
         type: String,
-        default: 'pic.jpg'
+        default: 'none'
     }
 });
 
