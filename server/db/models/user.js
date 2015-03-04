@@ -24,9 +24,11 @@ var schema = new mongoose.Schema({
         id: String
     },
     google: {
-        id: String
+        id: String,
+        email: String
     }
 });
+
 schema.plugin(unique);
 
 // generateSalt, encryptPassword and the pre 'save' and 'correctPassword' operations
@@ -45,18 +47,21 @@ var encryptPassword = function(plainText, salt) {
 schema.pre('save', function(next) {
 
     var user = this;
+    console.log("User, ", user);
 
     if (user.isModified('password')) {
         user.salt = generateSalt();
         user.password = encryptPassword(user.password, user.salt);
     }
 
-    var emailValid = user.email.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/);
-    if (emailValid !== null) {
+    // var emailValid = user.google.email.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/);
+    // if (emailValid !== null) {
+    //     next();
+    // }
+
+    if(user.google.email.match(/\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b/)){
         next();
     }
-
-
 });
 
 schema.method('correctPassword', function(candidatePassword) {
