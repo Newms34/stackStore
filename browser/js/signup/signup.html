@@ -1,15 +1,18 @@
-<div id="signup">
-
-    <form name="signUpForm" ng-submit="signUpForm(user)" ng-controller="NewCardFormCtrl">
-    Email: <input required ng-minlegnth="5" type="text" ng-model="user.email" />
-    Password: <input required ng-minlegnth="10" type="text" ng-model="user.password" />
-    <button type="submit">Submit</button>
-	</form>
-<!-- login with facebook -->
-<img src="https://cache.dreamsocial.co/img/login-facebook.png">
-<!-- <img src="smiley.gif" alt="Smiley face" height="42" width="42"> -->
-
-</div>
-
-<!-- 
-<a ui-sref="tutorial">tutorial</a> -->
+ <section id="signup">
+	<div id="login">
+		    <form name="signUpForm" ng-submit="signUpForm(user)" height="100" width="500">
+		    Email: <input required ng-minlegnth="5" type="text" ng-model="user.email" /><br>
+		    Password: <input required ng-minlegnth="10" type="text" ng-model="user.password" />
+		    <button type="submit">Submit</button>
+			</form>
+		
+			<!-- login with Facebook or Google-->
+		
+			<!-- <img src="smiley.gif" alt="Smiley face" height="42" width="42"> -->
+		
+			<button ng-click="loginfb()"><img src="https://cache.dreamsocial.co/img/login-facebook.png" height="100" width="500"></button>
+			<br>
+			<button ng-click="login()"><img src="https://developers.google.com/accounts/images/sign-in-with-google.png" height="100" width="500"></button>	
+	</div>
+</section>
+	

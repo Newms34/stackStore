@@ -1,0 +1,38 @@
+[{
+    "title": "Starbucks",
+    "Description": "Its Starbucks coffee. If you havent heard of it yet...",
+    "Price": 899,
+    "isCoffee": true,
+    "category": ["overpriced", "made by monkeys", "contains orphan tears"]
+}, {
+    "title": "Dunkin Donuts",
+    "Description": "Like Starbucks, but cheaper and with more orphan tears",
+    "Price": 399,
+    "isCoffee": true,
+    "category": ["may contain actual coffee", "ubiquitous", "contains orphan tears"],
+    "photo": "images/dunk.jpeg"
+}, {
+    "title": "Your Moms Coffee",
+    "Description": "Home brewed. Coffee. Tastes like nostalgia",
+    "Price": 100,
+    "isCoffee": true,
+    "category": ["cheap", "tasty", "made by mom"]
+}, {
+    "title": "Spearmint",
+    "Description": "Fun fact: so called because the ancient Romans used to use pieces of spearmint candy as arrowheads",
+    "Price": 2001,
+    "isCoffee": false,
+    "category": ["middle-price", "cenaturi te salutamus", "spearmint"]
+}, {
+    "title": "Wintergreen",
+    "Description": "Taken from the northern slopes of Narnia.",
+    "Price": 2099,
+    "isCoffee": false,
+    "category": ["may contain traces of elves", "cenaturi te salutamus", "spearmint"]
+}, {
+    "title": "Stuff I Found On The Sidewalk",
+    "Description": "Im not sure what this is. It might be a minty. Or just poison.",
+    "Price": 10,
+    "isCoffee": false,
+    "category": ["nearly free", "dubious", "almost as bad as Starbucks coffee"]
+}]

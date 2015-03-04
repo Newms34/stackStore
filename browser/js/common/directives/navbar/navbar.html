@@ -1,11 +1,12 @@
-
-       <nav class="navbar navbar-static-top">
+<nav class="navbar navbar-static-top">
     <div class="container">
-
         <ul class="nav">
-            <li>HOME</li><li>COFF</li><li>MINT</li> <li>CART</li><li class='rightNav'>HELP</li><li class='rightNav'>SIGN</li>
-
+            <li ng-repeat="item in items">
+                <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
+            </li>
         </ul>
     </div>
 
 </nav>
+
+

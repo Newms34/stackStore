@@ -11,7 +11,33 @@
 }
 
 body {
-	background: white;
+	background-image: url('images/coffBg.png');
+	background-attachment: fixed;
+}
+
+
+#whiteBgThingy{
+	width: 96vw;
+	background-color:rgba(250,250,250,.7);
+	box-shadow:4px 4px 9px #000;
+	position:relative;
+	top:60px;
+	margin-left: auto;
+	margin-right:auto;
+}
+
+#title{
+	margin:10px;
+	font-size:xx-large;
+	text-align: center;
+	position:relative;
+	left:5%;
+	font-style:italic;
+	font-weight: bold;
+	width:20%;
+	background-attachment: fixed;
+	background-size: contain;
+	color:#000;
 }
 
 @import 'directives/main';
@@ -19,3 +45,4 @@ body {
 @import 'about/main';
 @import 'products/prod';
 @import 'cart/cart';
+@import 'signup/signup';

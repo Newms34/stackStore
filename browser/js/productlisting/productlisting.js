@@ -1,27 +1,24 @@
 'use strict';
-app.config(function ($stateProvider) {
+app.config(function($stateProvider) {
 
-    $stateProvider.state('coffee', {
-        url: '/product/coffee',
-        controller: 'ProductCtrl',
-        templateUrl: 'js/productlisting/productlisting.html'
-    });
+  $stateProvider.state('coffee', {
+    url: '/product/coffee',
+    controller: 'ProductCtrl',
+    templateUrl: 'js/productlisting/coffee.html'
+  });
 
-    $stateProvider.state('mint', {
-      url: '/product/mint',
-      controller: 'ProductCtrl',
-      templateUrl: 'js/productlisting/productlisting.html'
-    });
+  $stateProvider.state('mint', {
+    url: '/product/mint',
+    controller: 'ProductCtrl',
+    templateUrl: 'js/productlisting/mint.html'
+  });
 });
 
-app.controller('ProductCtrl', function ($scope, ProductFactory) {
+app.controller('ProductCtrl', function($scope, ProductFactory) {
 
-  $scope.getProducts = function() {
-    ProductFactory.getCoffee().then(function(data) {
-      $scope.coffee = data;
-    });
-    ProductFactory.getMints().then(function(data) {
-      $scope.mint = data;
+  $scope.showProducts = function() {
+    ProductFactory.getProductsDb().then(function(data) {
+      $scope.products = data;
     });
   };
 });

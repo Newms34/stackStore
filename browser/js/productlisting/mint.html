@@ -1,0 +1,12 @@
+<div class="product=list">
+    <h1 ng-init="showProducts()">Mint</h1>
+    <div class="product-listing" ng-repeat="mint in products | filter: {isCoffee: false}">
+        <img class="product-pictures" ng-src="{{ mint.photo }}"/>
+        <ul>
+            <li>Title: {{ mint.title }}
+                <br> Price: {{ mint.price }}
+                <br> Category: {{ mint.category.join(', ') }}
+            </li>
+        </ul>
+    </div>
+</div>

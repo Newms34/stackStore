@@ -1,5 +1,8 @@
 #cartChart {
-    background: rgba(255, 255, 255, .7);
+    background: rgba(200, 255, 200, .7);
+    width:98%;
+    margin-left:auto;
+    margin-right: auto;
 }
 #cart-single-order {
     width: 100%;
@@ -11,7 +14,42 @@
     padding: 10px;
 }
 
-th, td {
+td {
 	border: 1px solid #fff;
 	background-color:rgba(255,200,200,.7);
+}
+
+th{
+	border: 1px solid #fff;
+	background-color:rgb(155,100,100);
+	color:#fff;
+	padding:2px;
+	text-align: center;
+}
+.cartBut{
+	box-shadow:2px 2px 4px #000;
+	position: relative;
+	display:inline-block;
+	width:120px;
+	height:30px;
+	padding-top:5px;
+	cursor:pointer;
+	text-align: center;
+	transition-duration:.5s;
+	border-radius:15%;
+	&:hover{
+		box-shadow:1px 1px 2px #000;
+	}
+}
+#clearCart{
+	color:#fff;
+	background-color:#955;
+	left:0px;
+}
+
+#checkOut{
+	color:#000;
+	background-color:#0f0;
+	right:0px;
+	float:right;
 }
