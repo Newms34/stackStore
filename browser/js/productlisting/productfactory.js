@@ -2,8 +2,13 @@
 
 app.factory('ProductFactory', function($http) {
   return {
-    getProductsDb: function() {
-      return $http.get('/api/products').then(function(response) {
+    getCoffeeDb: function() {
+      return $http.get('/api/coffee').then(function(response) {
+        return response.data;
+      });
+    },
+    getMintsDb: function() {
+      return $http.get('/api/mints').then(function(response) {
         return response.data;
       });
     }
