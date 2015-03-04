@@ -23,7 +23,6 @@ app.controller('prodDetailCtrl', function($scope,$stateParams) {
 
     $scope.prod.photo = 'images/' + $scope.prod.photo;
     if ($scope.prod.isCoffee && $scope.prod.photo === 'images/none') {
-        console.log('beans')
         $scope.prod.photo = 'images/placeholderCof.jpg';
     } else if (!$scope.prod.isCoffee && $scope.prod.photo === 'images/none') {
         $scope.prod.photo = 'images/placeholderMint.png';

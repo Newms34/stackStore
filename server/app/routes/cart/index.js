@@ -10,4 +10,4 @@ router.get('/newUser', function(req, res) {
 
 router.post('/submit', function(req, res, next) {
 
-})
+});
