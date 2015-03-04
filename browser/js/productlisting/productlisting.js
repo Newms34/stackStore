@@ -16,9 +16,15 @@ app.config(function($stateProvider) {
 
 app.controller('ProductCtrl', function($scope, ProductFactory) {
 
-  $scope.showProducts = function() {
-    ProductFactory.getProductsDb().then(function(data) {
-      $scope.products = data;
+  $scope.showCoffee = function() {
+    ProductFactory.getCoffeeDb().then(function(data) {
+      $scope.coffee = data;
+    });
+  };
+
+  $scope.showMints = function() {
+    ProductFactory.getMintsDb().then(function(data) {
+      $scope.mints = data;
     });
   };
 });
