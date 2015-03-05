@@ -49,32 +49,6 @@ app.config(function($urlRouterProvider, $locationProvider) {
 'use strict';
 app.config(function($stateProvider) {
 
-  // Register our *about* state.
-  $stateProvider.state('about', {
-    url: '/about',
-    controller: 'AboutController',
-    templateUrl: 'js/about/about.html'
-  });
-
-});
-
-app.controller('AboutController', function($scope) {
-
-  // Images of beautiful Fullstack people.
-  $scope.images = [
-    'https://pbs.twimg.com/media/B7gBXulCAAAXQcE.jpg:large',
-    'https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/10862451_10205622990359241_8027168843312841137_o.jpg',
-    'https://pbs.twimg.com/media/B-LKUshIgAEy9SK.jpg',
-    'https://pbs.twimg.com/media/B79-X7oCMAAkw7y.jpg',
-    'https://pbs.twimg.com/media/B-Uj9COIIAIFAh0.jpg:large',
-    'https://pbs.twimg.com/media/B6yIyFiCEAAql12.jpg:large'
-  ];
-
-});
-
-'use strict';
-app.config(function($stateProvider) {
-
     $stateProvider.state('cart', {
         url: '/cart',
         controller: 'cartCtrl',
@@ -121,6 +95,32 @@ app.controller('cartCtrl', function($scope) {
     });
 
     $scope.total = '$' + $scope.total/100;
+
+});
+
+'use strict';
+app.config(function($stateProvider) {
+
+  // Register our *about* state.
+  $stateProvider.state('about', {
+    url: '/about',
+    controller: 'AboutController',
+    templateUrl: 'js/about/about.html'
+  });
+
+});
+
+app.controller('AboutController', function($scope) {
+
+  // Images of beautiful Fullstack people.
+  $scope.images = [
+    'https://pbs.twimg.com/media/B7gBXulCAAAXQcE.jpg:large',
+    'https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/10862451_10205622990359241_8027168843312841137_o.jpg',
+    'https://pbs.twimg.com/media/B-LKUshIgAEy9SK.jpg',
+    'https://pbs.twimg.com/media/B79-X7oCMAAkw7y.jpg',
+    'https://pbs.twimg.com/media/B-Uj9COIIAIFAh0.jpg:large',
+    'https://pbs.twimg.com/media/B6yIyFiCEAAql12.jpg:large'
+  ];
 
 });
 
@@ -252,38 +252,38 @@ app.config(function ($stateProvider) {
 app.controller('HomeCtrl', function ($scope) {
 
 
-	
+
 });
 'use strict';
 app.config(function($stateProvider) {
 
-    $stateProvider.state('prodDetail', {
-        url: '/product/:produ',
-        controller: 'prodDetailCtrl',
-        templateUrl: 'js/proddetail/proddetail.html'
-    });
+  $stateProvider.state('prodDetail', {
+    url: '/product/:produ',
+    controller: 'prodDetailCtrl',
+    templateUrl: 'js/proddetail/proddetail.html'
+  });
 
 });
 
-app.controller('prodDetailCtrl', function($scope,$stateParams) {
-    //TEMPORARY! FOR TESTING
-    console.log($stateParams);
-    $scope.prod = {
-        title: 'Sample Product',
-        description: 'This product is so awesome! It\'s tasty.',
-        price: 3999,
-        isCoffee: false,
-        category: ['tasty', 'beans', 'mmm', 'srsly i got nothin'],
-        photo:'none'
-    };
+app.controller('prodDetailCtrl', function($scope, $stateParams) {
+  //TEMPORARY! FOR TESTING
+  console.log($stateParams);
+  $scope.prod = {
+    title: 'Sample Product',
+    description: 'This product is so awesome! It\'s tasty.',
+    price: 3999,
+    isCoffee: false,
+    category: ['tasty', 'beans', 'mmm', 'srsly i got nothin'],
+    photo: 'none'
+  };
 
-    $scope.prod.photo = 'images/' + $scope.prod.photo;
-    if ($scope.prod.isCoffee && $scope.prod.photo === 'images/none') {
-        $scope.prod.photo = 'images/placeholderCof.jpg';
-    } else if (!$scope.prod.isCoffee && $scope.prod.photo === 'images/none') {
-        $scope.prod.photo = 'images/placeholderMint.png';
-    }
-    $scope.prod.priceOut = '$'+($scope.prod.price/100);
+  $scope.prod.photo = 'images/' + $scope.prod.photo;
+  if ($scope.prod.isCoffee && $scope.prod.photo === 'images/none') {
+    $scope.prod.photo = 'images/placeholderCof.jpg';
+  } else if (!$scope.prod.isCoffee && $scope.prod.photo === 'images/none') {
+    $scope.prod.photo = 'images/placeholderMint.png';
+  }
+  $scope.prod.priceOut = '$' + ($scope.prod.price / 100);
 
 });
 
@@ -303,6 +303,7 @@ app.factory('ProductFactory', function($http) {
     }
   };
 });
+
 
 'use strict';
 app.config(function($stateProvider) {
@@ -334,7 +335,6 @@ app.controller('ProductCtrl', function($scope, ProductFactory) {
     });
   };
 });
-
 'use strict';
 app.config(function ($stateProvider) {
 
@@ -382,7 +382,7 @@ app.factory('RandomGreetings', function () {
         'Hello, smelly human.',
         'So... how do you feel about having a mint right now?',
         'Dude. You cannot eat egg salad with coffee unless you take a mint.',
-        'Seriously. Coffee with salmon salad? Take a mint.', 
+        'Seriously. Coffee with salmon salad? Take a mint.',
         'What\'s your problem with mints? You need one.'
     ];
 
