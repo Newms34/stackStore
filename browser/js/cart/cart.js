@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('cartCtrl', function($scope) {
+app.controller('cartCtrl', function($scope, $state) {
 
     //TEMPORARY! FOR TESTING
     //this renders the cart
@@ -31,7 +31,7 @@ app.controller('cartCtrl', function($scope) {
     }, {
         title: 'Test Item 04',
         description: 'Family Sized Test item!',
-        price: 7999,
+        price: 8999,
         howMany: 1
     }];
 
@@ -47,5 +47,9 @@ app.controller('cartCtrl', function($scope) {
     });
 
     $scope.total = '$' + $scope.total/100;
+    $scope.goPay = function(){
+        sessionStorage.thisCart = angular.toJson($scope.seshOrders);
+        $state.go('pay');
+    };
 
 });

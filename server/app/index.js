@@ -1,6 +1,7 @@
 'use strict';
 var express = require('express');
 var app = express();
+// var require('stripe')('myapikey');
 module.exports = app;
 require('./configure')(app);
 
