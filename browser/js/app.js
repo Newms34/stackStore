@@ -2,9 +2,11 @@
 var app = angular.module('FullstackGeneratedApp', ['ui.router', 'fsaPreBuilt', 'ngCookies']);
 
 app.controller('MainController', function ($scope, $cookies, $cookieStore) {
+
+    $cookieStore.remove("products");
     
-    console.log($cookieStore, 'this is cookie store');
-    $cookieStore.put('cart', 'temp');
+
+    $cookieStore.put('products', []);
     console.log($cookies, 'this is cookie');
 
   // Given to the <navbar> directive to show the menu.

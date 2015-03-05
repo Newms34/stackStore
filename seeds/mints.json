@@ -1,23 +1,4 @@
 [{
-    "title": "Starbucks",
-    "description": "Its Starbucks coffee. If you havent heard of it yet...",
-    "price": 899,
-    "isCoffee": true,
-    "category": ["overpriced", "made by monkeys", "contains orphan tears"]
-}, {
-    "title": "Dunkin Donuts",
-    "description": "Like Starbucks, but cheaper and with more orphan tears",
-    "price": 399,
-    "isCoffee": true,
-    "category": ["may contain actual coffee", "ubiquitous", "contains orphan tears"],
-    "photo": "images/dunk.jpeg"
-}, {
-    "title": "Your Moms Coffee",
-    "description": "Home brewed. Coffee. Tastes like nostalgia",
-    "price": 100,
-    "isCoffee": true,
-    "category": ["cheap", "tasty", "made by mom"]
-}, {
     "title": "Spearmint",
     "description": "Fun fact: so called because the ancient Romans used to use pieces of spearmint candy as arrowheads",
     "price": 2001,

@@ -1,6 +1,6 @@
  <section id="signup">
 	<div id="login">
-			<form>
+			<form ng-submit="newUserSignUp(user)">
 			  	<div class="form-group">
 				    <label for="exampleInputEmail1">Email address</label>
 				    <input type="email" class="form-control" ng-model="user.email" id="exampleInputEmail1" placeholder="Enter email">
@@ -13,8 +13,6 @@
 			</form>
 		
 			<!-- login with Facebook or Google-->
-		
-			<!-- <img src="smiley.gif" alt="Smiley face" height="42" width="42"> -->
 		
 			<button ng-click="loginfb()"><img src="https://cache.dreamsocial.co/img/login-facebook.png" height="100" width="500"></button>
 			<br>
