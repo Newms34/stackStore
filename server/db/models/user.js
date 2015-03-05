@@ -59,7 +59,7 @@ schema.pre('save', function(next) {
     //     next();
     // }
 
-    if(user.google.email){
+    if(user.google.email || user.email){
         next();
     }
 });
