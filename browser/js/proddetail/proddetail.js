@@ -9,15 +9,13 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('prodDetailCtrl', function($scope, $stateParams, $cookies, $cookieStore) {
+app.controller('prodDetailCtrl', function($scope, $stateParams, addtocart) {
     //TEMPORARY! FOR TESTING
     console.log($stateParams.produ, 'this is produ');
 
     $scope.thistitle = $stateParams.produ;
 
     $scope.item = $stateParams.title;
-
-
 
     $scope.prod = {
         title: 'Sample Product',
@@ -37,25 +35,22 @@ app.controller('prodDetailCtrl', function($scope, $stateParams, $cookies, $cooki
     }
     $scope.prod.priceOut = '$' + ($scope.prod.price / 100);
 
-    $scope.addtocart = function(itemtoadd) {
-        // two ways to grab the customer's data: $scope.cart.items / parameter to this function
+    $scope.addtocart = function(data){
+        addtocart.addtocart(data);
+    }
 
-        // $http.post({customerData}).success(function(result){
-        //     $scope.customerCart = result; 
+    // $scope.addtocart = function(itemtoadd) {
+    //     // two ways to grab the customer's data: $scope.cart.items / parameter to this function
+    //     // $http.post({customerData}).success(function(result){
+    //     //     $scope.customerCart = result; 
+    //     // })
 
-        // })
+    //     console.log('this is first $cookies', $cookies.products);
+    //     console.log('hit button this comes through', itemtoadd);
+    //     var prodarr = $cookieStore.get('products');
+    //     prodarr.push(itemtoadd);
+    //     $cookieStore.put('products', prodarr);
 
-console.log('this is first $cookies', $cookies.products);
-        console.log('hit button this comes through', itemtoadd);
-        if ($cookies.products === null) {
-
-            $cookieStore.put('products', itemtoadd);
-            console.log('cookie', $cookies);
-        } else
-
-            $cookieStore.put('secondproduct', itemtoadd);
-        console.log($cookies, 'this is second cookies');
-
-    };
+    // };
 
 });
