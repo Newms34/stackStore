@@ -47,7 +47,6 @@ var encryptPassword = function(plainText, salt) {
 schema.pre('save', function(next) {
 
     var user = this;
-    console.log("User, ", user);
 
     if (user.isModified('password')) {
         user.salt = generateSalt();
