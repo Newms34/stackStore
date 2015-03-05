@@ -1,7 +1,7 @@
 app.factory('AddToCart', function() {
 
             var cartcontent = {
-                user: req.body.cookies.cart;
+                user: req.body.cookies.cart,
                 products: []
 
             };

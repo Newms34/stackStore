@@ -1,4 +1,4 @@
-<div class="product=list">
+<div ng-controller="prodDetailCtrl" class="product=list">
     <h1 ng-init="showProducts()">Mint</h1>
     <div class="product-listing" ng-repeat="mint in products | filter: {isCoffee: false}">
         <img class="product-pictures" ng-src="{{ mint.photo }}"/>
@@ -6,6 +6,8 @@
             <li>Title: {{ mint.title }}
                 <br> Price: {{ mint.price }}
                 <br> Category: {{ mint.category.join(', ') }}
+                <br>
+                <button ng-click="addtocart(mint.title)" class="addtocart">Add to Cart</button>
             </li>
         </ul>
     </div>
