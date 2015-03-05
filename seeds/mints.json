@@ -1,0 +1,19 @@
+[{
+    "title": "Spearmint",
+    "description": "Fun fact: so called because the ancient Romans used to use pieces of spearmint candy as arrowheads",
+    "price": 2001,
+    "isCoffee": false,
+    "category": ["middle-price", "cenaturi te salutamus", "spearmint"]
+}, {
+    "title": "Wintergreen",
+    "description": "Taken from the northern slopes of Narnia.",
+    "price": 2099,
+    "isCoffee": false,
+    "category": ["may contain traces of elves", "cenaturi te salutamus", "spearmint"]
+}, {
+    "title": "Stuff I Found On The Sidewalk",
+    "description": "Im not sure what this is. It might be a minty. Or just poison.",
+    "price": 10,
+    "isCoffee": false,
+    "category": ["nearly free", "dubious", "almost as bad as Starbucks coffee"]
+}]
