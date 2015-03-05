@@ -10,24 +10,30 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('signUpController', function ($scope, $window, $location) {
-
+app.controller('signUpController', function ($scope, $window, $location, signupFactory) {
 	$scope.user = {
-
+        email: "",
+        password: ""
 	};
-    // $scope.signUpForm = function (user){
-    // 	signupFactory.addNewUser(user).then(function(){
-    // 	});
-    // };
+
+    $scope.getCreatedUser = function(){
+        signupFactory.getUser().then(function(data){
+            $scope.user = data;
+        });
+    };
+
+    $scope.newUserSignUp = function(newUser){
+        signupFactory.addNewUser(newUser).then(function(){
+            console.log("success");
+            res.redirect('/');
+        });
+    };
 
     $scope.login = function (){
         $window.location.href = '/auth/google';
     };
-
     $scope.loginfb = function (){
         $window.location.href = '/auth/facebook';
     };
-
-
 });
 

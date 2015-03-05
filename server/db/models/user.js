@@ -47,7 +47,6 @@ var encryptPassword = function(plainText, salt) {
 schema.pre('save', function(next) {
 
     var user = this;
-    console.log("User, ", user);
 
     if (user.isModified('password')) {
         user.salt = generateSalt();
@@ -59,7 +58,7 @@ schema.pre('save', function(next) {
     //     next();
     // }
 
-    if(user.google.email){
+    if(user.google.email || user.email){
         next();
     }
 });

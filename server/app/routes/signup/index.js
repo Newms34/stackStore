@@ -8,8 +8,8 @@ router.get('/', function(req, res){
 });
 
 
-router.post('/', function (req, res, next) {
-
+router.post('/newUser', function (req, res, next) {
+  console.log("newUser!!! ");
   var email = req.body.email;
   var password = req.body.password;
 
@@ -20,11 +20,16 @@ router.post('/', function (req, res, next) {
     	console.log("You already have an account!");
     	res.redirect('/signup');
     } else {
-    	mongoose.model('User').create({'email': email, 'password': password}, function(err, done){
+    	mongoose.model('User').create({'email': email, 'password': password}, function(err, user){
     		if (err) return next(err);
-    		done();
+    		// done();
     	});
     }
+
+    // try create user first becasue email is unique!!
+
+    // User.save();
+    
     res.json(user);
   });
 });

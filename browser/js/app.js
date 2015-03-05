@@ -3,12 +3,9 @@ var app = angular.module('FullstackGeneratedApp', ['ui.router', 'fsaPreBuilt', '
 
 app.controller('MainController', function ($scope, $cookies, $cookieStore) {
 
-    $cookieStore.remove("counter");
-    $cookieStore.remove("secondproduct");
     $cookieStore.remove("products");
-
     
-    console.log($cookieStore, 'this is cookie store');
+
     $cookieStore.put('products', []);
     console.log($cookies, 'this is cookie');
 
