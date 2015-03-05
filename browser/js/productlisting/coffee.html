@@ -1,6 +1,8 @@
 <div class="product-list">
-    <h1 ng-init="showProducts()">Coffee</h1>
-    <div ng-controller="prodDetailCtrl" class="product-listing" ng-repeat="coffee in products | filter: {isCoffee: true} | limitTo: 6">
+
+    <h1 ng-init="showCoffee()">Coffee</h1>
+    <div ng-controller="prodDetailCtrl" class="product-listing" ng-repeat="coffee in coffee| limitTo: 6">
+
         <img class="product-pictures" ng-src="{{ coffee.photo }}" />
         <br>
         <div class="product-listing-info ng-binding ng-scope">

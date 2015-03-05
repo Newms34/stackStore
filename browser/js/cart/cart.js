@@ -33,12 +33,12 @@ app.controller('cartCtrl', function($scope) {
         description: 'Family Sized Test item!',
         price: 7999,
         howMany: 1
-    }]
+    }];
 
     $scope.seshOrders.map(function(el) {
         el.priceOut = '$' + el.price / 100;
         el.sTot = '$' + ((el.price * el.howMany) / 100);
-    })
+    });
 
     $scope.total = 0;
 
@@ -46,6 +46,6 @@ app.controller('cartCtrl', function($scope) {
         $scope.total += el.price * el.howMany;
     });
 
-    $scope.total = '$' + $scope.total/100
+    $scope.total = '$' + $scope.total/100;
 
 });

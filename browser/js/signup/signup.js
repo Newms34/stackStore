@@ -14,7 +14,7 @@ app.controller('signUpController', function ($scope, $window, $location) {
 
 	$scope.user = {
 
-	}
+	};
     // $scope.signUpForm = function (user){
     // 	signupFactory.addNewUser(user).then(function(){
     // 	});
@@ -28,6 +28,6 @@ app.controller('signUpController', function ($scope, $window, $location) {
         $window.location.href = '/auth/facebook';
     };
 
-    
+
 });
 
