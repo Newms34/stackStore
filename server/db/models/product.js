@@ -1,7 +1,8 @@
 'use strict';
-var crypto = require('crypto');
-var mongoose = require('mongoose');
-var unique = require('mongoose-unique-validator');
+var crypto = require('crypto'),
+    mongoose = require('mongoose'),
+    unique = require('mongoose-unique-validator'),
+    extend = require('mongoose-schema-extend');
 
 var schema = new mongoose.Schema({
     title: {
@@ -17,10 +18,6 @@ var schema = new mongoose.Schema({
         type: Number,
         required: true
     }, // must be cents
-    isCoffee: {
-        type: Boolean,
-        required: true
-    },
     category: {
         type: [String],
         required: true
@@ -31,9 +28,8 @@ var schema = new mongoose.Schema({
     }
 });
 
-
 schema.pre('save', function(next) {
     next();
 });
 
-mongoose.model('Product', schema);
+module.exports = mongoose.model('Product', schema);
