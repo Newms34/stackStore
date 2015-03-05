@@ -1,3 +1,4 @@
+'use strict';
 var mongoose = require('mongoose'),
     chai = require('chai'),
     expect = chai.expect;

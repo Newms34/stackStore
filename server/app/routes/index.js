@@ -7,3 +7,4 @@ router.use('/orders', require('./orders'));
 router.use('/coffee', require('./coffee'));
 router.use('/mints', require('./mints'));
 router.use('/signup', require('./signup'));
+router.use('/subpay', require('./subpay'));
