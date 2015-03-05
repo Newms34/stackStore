@@ -26,6 +26,7 @@ module.exports = function (app) {
                 // console.log("profile, ", profile);
                 UserModel.create(
                 {
+                    email: profile._json.email,
                     google: {
                     id: profile.id,
                     email: profile._json.email
@@ -34,6 +35,7 @@ module.exports = function (app) {
                     done(null, user);
                 }, function(err){
                     console.log("err:", err);
+                    done(err);
                 });
             }
         });
