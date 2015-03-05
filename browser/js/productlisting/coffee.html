@@ -1,14 +1,16 @@
 <div class="product-list">
+
     <h1 ng-init="showCoffee()">Coffee</h1>
-    <div class="product-listing" ng-repeat="coffee in coffee | filter: {isCoffee: true} | limitTo: 6">
+    <div ng-controller="prodDetailCtrl" class="product-listing" ng-repeat="coffee in coffee| limitTo: 6">
+
         <img class="product-pictures" ng-src="{{ coffee.photo }}" />
         <br>
-        <div class="product-listing-info">
+        <div class="product-listing-info ng-binding ng-scope">
             Title: {{ coffee.title }}
             <br> Price: {{ coffee.price.toString() | currency }}
             <br> Category: {{ coffee.category.join(', ') }}
             <br>
-            <button class="addtocart">Add to Cart</button>
+            <button ng-click='addtocart(coffee.title);' class="addtocart">Add to Cart</button>
         </div>
     </div>
 </div>
