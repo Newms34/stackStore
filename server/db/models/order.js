@@ -4,7 +4,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var User = require('./user.js');
 var Product = require('./product.js');
-// var Product = require()
+
 var schema = new Schema({
   // user reference should be object id http://mongoosejs.com/docs/api.html#schema-objectid-js
   user: {

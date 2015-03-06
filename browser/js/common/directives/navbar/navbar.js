@@ -3,7 +3,9 @@ app.directive('navbar', function() {
   return {
     restrict: 'E',
     scope: {
-      items: '='
+      items: '=',
+      stuffs: '=',
+      profile: '='
     },
     templateUrl: 'js/common/directives/navbar/navbar.html'
   };
