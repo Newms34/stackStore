@@ -19,6 +19,13 @@ app.controller('adminController', function($scope, adminFactory, $state) {
         two: 'Coffee'
     };
     console.log($scope.allProdCats);
+    $scope.checkForAdmin = function(){
+        adminFactory.checkUser.then(function(isUsr){
+            if(!isUsr){
+                $state.go('home');
+            }
+        })
+    }
     $scope.getAllUsr = function() {
         adminFactory.getUsers().then(function(data) {
             $scope.users = data;
