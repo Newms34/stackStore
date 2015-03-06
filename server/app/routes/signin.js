@@ -30,9 +30,3 @@ router.post('/newUser', function (req, res, next) {
   });
 });
 
-
-router.post('/submit', function (req, res, next){
-
-});
-
-
