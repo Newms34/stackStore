@@ -16,21 +16,22 @@ module.exports = {
     //     "clientSecret": process.env.GOOGLE_CLIENT_SECRET,
     //     "callbackURL": process.env.CALLBACK_URL
     // }
-    "DATABASE_URI": "mongodb://heroku_app34344585:kf2j6lu0q0n479f5gnu87l2db0@ds029787.mongolab.com:29787/heroku_app34344585",
-    "SESSION_SECRET": "Optimus Prime is my real dad",
-    "TWITTER": {
-        "consumerKey": "ZVQ2NZscYX1aa6nZI81Fg8HBg",
-        "consumerSecret": "FkNrAsPhXVwr1qKgV5fSMGtuTsQNoWqybHlkKFf4g6FG1n4J1V",
-        "callbackUrl": "http://127.0.0.1:1337/auth/twitter/callback"
-    },
-    "FACEBOOK": {
-        "clientID": "336560806541655",
-        "clientSecret": "2f117d2a289fd321e411fdb568d263f2",
-        "callbackURL": "http://localhost:1337/auth/facebook/callback"
-    },
-    "GOOGLE": {
-        "clientID": "369003002521-88250fc9kjpkfqvhicu7vokbnvu88ud6.apps.googleusercontent.com",
-        "clientSecret": "DB1-q81E4ODEuL8cFGCm5QS1",
-        "callbackURL": "http://localhost:1337/auth/google/callback"
-    }
+  // "DATABASE_URI": "mongodb://heroku_app34612086:eotpkuschu3ftm137op9oq688q@ds051851.mongolab.com:51851/heroku_app34612086",
+  "SESSION_SECRET": "Optimus Prime is my real dad",
+  "TWITTER": {
+    "consumerKey": "ZVQ2NZscYX1aa6nZI81Fg8HBg",
+    "consumerSecret": "FkNrAsPhXVwr1qKgV5fSMGtuTsQNoWqybHlkKFf4g6FG1n4J1V",
+    "callbackUrl": "http://127.0.0.1:1337/auth/twitter/callback"
+  },
+  "FACEBOOK": {
+    "clientID": "336560806541655",
+    "clientSecret": "2f117d2a289fd321e411fdb568d263f2",
+    "callbackURL": "http://localhost:1337/auth/facebook/callback"
+  },
+  "GOOGLE": {
+    "clientID": "369003002521-88250fc9kjpkfqvhicu7vokbnvu88ud6.apps.googleusercontent.com",
+    "clientSecret": "DB1-q81E4ODEuL8cFGCm5QS1",
+    "callbackURL": "http://localhost:1337/auth/google/callback"
+  }
+
 };

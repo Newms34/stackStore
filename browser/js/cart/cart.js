@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('cartCtrl', function($scope, $state) {
+app.controller('cartCtrl', function($scope, removeitem, clearcart) {
 
     //TEMPORARY! FOR TESTING
     //this renders the cart
@@ -51,5 +51,13 @@ app.controller('cartCtrl', function($scope, $state) {
         sessionStorage.thisCart = angular.toJson($scope.seshOrders);
         $state.go('pay');
     };
+
+    $scope.deleteitem = function(data){
+        removeitem.removefromcart(data)
+    } 
+
+    $scope.clearthecart = function(info){
+        clearcart.clearoutcart(info);
+    }
 
 });
