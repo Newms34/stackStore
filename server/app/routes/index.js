@@ -8,3 +8,4 @@ router.use('/coffee', require('./coffee-route'));
 router.use('/mints', require('./mint-route'));
 router.use('/signup', require('./signup'));
 router.use('/subpay', require('./subpay'));
+router.use('/admin',require('./admin'));

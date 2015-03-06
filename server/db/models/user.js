@@ -26,6 +26,10 @@ var schema = new mongoose.Schema({
     google: {
         id: String,
         email: String
+    },
+    isAdmin: {
+        type: boolean,
+        default: false
     }
 });
 
@@ -58,7 +62,7 @@ schema.pre('save', function(next) {
     //     next();
     // }
 
-    if(user.google.email || user.email){
+    if (user.google.email || user.email) {
         next();
     }
 });
