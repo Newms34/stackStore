@@ -28,7 +28,7 @@ var schema = new mongoose.Schema({
         email: String
     },
     isAdmin: {
-        type: boolean,
+        type: Boolean,
         default: false
     }
 });
