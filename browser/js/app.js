@@ -25,6 +25,9 @@ app.controller('MainController', function($scope, $cookies, $cookieStore) {
   }, {
     label: 'Cart',
     state: 'cart'
+  },{
+    label: 'Profile',
+    state: 'profile'
   }];
 
   $scope.signInItems = [{
