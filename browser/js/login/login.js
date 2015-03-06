@@ -10,17 +10,25 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('loginController', function ($scope, $state, $location, AuthService, loginFactory) {
+app.controller('loginController', function ($scope, $window, $state, $location, AuthService, loginFactory) {
 	// $scope.user = {
  //        email: "",
  //        password: ""
 	// };
 
     $scope.userLogin = function(users){
-        console.log("users: ", users);
         loginFactory.checkUser(users).then(function(loggedin){
             sessionStorage.loggedinUser = loggedin.email;
             $state.go('home');
+        }).catch(function(e){
+            console.log("your password and id do not match");
         });
+    };
+
+     $scope.login = function (){
+        $window.location.href = '/auth/google';
+    };
+    $scope.loginfb = function (){
+        $window.location.href = '/auth/facebook';
     };
 });
