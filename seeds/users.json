@@ -1,6 +1,7 @@
 [{
     "email": "test@test.com",
-    "password": "test"
+    "password": "bleh",
+    "isAdmin": true
 }, {
     "email": "derp@merp.com",
     "password": "derp"

@@ -11,12 +11,13 @@ app.config(function($stateProvider) {
 });
 
 app.controller('adminController', function($scope, adminFactory) {
+    $scope.users = {};
     adminFactory.getUsers().then(function(data) {
         $scope.users = data;
-    })();
+    });
     $scope.adminify = function(name){
         adminFactory.adminUser(name).then(function(data){
-            $digest();
+            console.log('done!')
         });
     };
 });
