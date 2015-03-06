@@ -40,3 +40,20 @@ router.post('/getProds', function(req, res, next) {
         }
     });
 });
+
+router.post('/chkUsr', function(req, res, next) {
+    var userToAdmin = req.body.user;
+
+    mongoose.model('User').findOne({
+        email: userToAdmin
+    }, function(err, usr) {
+        if (err) return next(err);
+        console.log(usr);
+        if (usr !== null && usr.isAdmin) {
+            res.send('yes');
+        }
+        else{
+            res.send('no')
+        }
+    });
+});

@@ -20,12 +20,17 @@ app.controller('adminController', function($scope, adminFactory, $state) {
     };
     console.log($scope.allProdCats);
     $scope.checkForAdmin = function(){
-        adminFactory.checkUser.then(function(isUsr){
-            if(!isUsr){
+        console.log('checkin user:')
+        adminFactory.checkUser().then(function(response){
+            console.log(response.data);
+            if(response.data == 'no'){
                 $state.go('home');
             }
-        })
-    }
+            else{
+            }
+        });
+    };
+    $scope.checkForAdmin();
     $scope.getAllUsr = function() {
         adminFactory.getUsers().then(function(data) {
             $scope.users = data;
