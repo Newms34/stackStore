@@ -25,8 +25,6 @@ app.controller('MainController', function ($scope, $cookies, $cookieStore) {
   }, {
     label: 'SignUp',
     state: 'signup'
-  }, {    label: 'Sign In',
-    state: 'signin'
   }, {    label: 'Log In',
     state: 'login'
   },{

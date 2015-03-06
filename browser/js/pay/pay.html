@@ -3,16 +3,16 @@
     <div id='cartChart' class='cartMisc'>
         Thanks for buying from us! Your total: {{totalOut}}
         <form name='cardForm' ng-submit='submitCard(card)'>
-            <label for='cardNum'>Name on card: </label>
+            <label for='cardName'>Name on card: </label>
             <input type='text' name='cardName' ng-model='card.name' required/>
             <br/>
             <label for='cardNum'>Card Number: </label>
             <input type='text' name='cardNum' ng-model='card.num' required/>
             <br/>
             <b>Expiration Date:</b>
-            <label for='cardExp'>Mo: </label>
+            <label for='cardExpmo'>Mo: </label>
             <input type='text' name='cardExpmo' ng-model='card.expmo' maxlength=2 size=2 required/>
-            <label for='cardExp'> Yr: </label>
+            <label for='cardExpyr'> Yr: </label>
             <input type='text' name='cardExpyr' ng-model='card.expyr' maxlength=2 size=2 required/>
             <br/>
             <label for='cvv'>CVV Code: </label>

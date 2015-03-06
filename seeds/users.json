@@ -1,23 +1,16 @@
 [{
-    "email": "test@test.com",
-    "password": "bleh",
-    "isAdmin": true
-}, {
-    "email": "derp@merp.com",
-    "password": "derp"
-}, {
-    "email": "newms3450@msn.com",
-    "password": "newms34"
-}, {
-    "email": "bob@dole.com",
-    "password": "meh"
-}, {
-    "email": "noelle@noelle.com",
-    "password": "noelle"
-}, {
-    "email": "sehwan@sehwan.com",
-    "password": "sehwan"
-}, {
-    "email": "michael@michael.com",
-    "password": "michael"
-} ]
+    "email": "dave@test.com",
+    "password": "d485caf39b4ef6d44674193ae80c8ad9f8735508",
+    "isAdmin": true,
+    "salt":"qqNC8KAjWFntsR2apvnuiQ=="
+},  {
+    "email": "meep@test.com",
+    "password": "bbace498db5a554630adb4f44b4b3035093d64b1",
+    "isAdmin": false,
+    "salt":"Zv0NupeNmmoFZIXTzu4x7w=="
+},  {
+    "email": "notDave@test.com",
+    "password": "f6d2da1880282f2be4c3a9dcbe47ac48b93f20cd",
+    "isAdmin": false,
+    "salt":"C7MPT5KwkAF8ggAD39HbSg=="
+}]

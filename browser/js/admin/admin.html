@@ -1,7 +1,92 @@
- <section id="admin">
- 	Administration Page:
-	<div id="userManage">
-		<li ng-repeat = 'user in users' class='adminUserList'>User: <span>{{user.email}}</span><button class='adminButs alreadyAdmin' disabled ng-show='user.isAdmin==true'>Already an administrator!</button><button class='adminButs makeAdmin' ng-show='user.isAdmin==false' ng-click='adminify(user.email)'>Make this user an administrator!</button></li>
-	</div>
+<section id="admin">
+    Administration Page:
+    <div id="userManage">
+        Give users administrator priviledge:
+        <li ng-repeat='user in users' class='adminUserList'>User: <span>{{user.email}}</span>
+            <button class='adminButs alreadyAdmin' disabled ng-show='user.isAdmin==true'>Already an administrator!</button>
+            <button class='adminButs makeAdmin' ng-show='user.isAdmin==false' ng-click='adminify(user.email)'>Make this user an administrator!</button>
+        </li>
+    </div>
+    <div id='prodRem'>
+        Remove Products:
+        <br/>
+        <div class='mintTab adminTab' ng-repeat='cat in allProdCats' ng-class="{active:whichProd==cat}" ng-click='pickCat(cat)'>{{cat}}</div>
+        <table>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Categories</th>
+                <th>Remove</th>
+            </tr>
+            <tr ng-repeat='prod in prods'>
+                <td><b>{{prod.title}}</b>
+                </td>
+                <td>{{prod.description}}</td>
+                <td>{{prod.priceOut | currency}}</td>
+                <td>{{prod.kittens}}</td>
+                <th title='Remove "{{prod.title}}"'>
+                    <button ng-click='removeProd(prod.title)'>X</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+    <div id='prodAdd'>
+        Add an item:
+        <form name='addForm' ng-submit='submitItem(add)'>
+            <table>
+                <tr>
+                    <td>
+                        <label for='itemName'>Title of item: </label>
+                    </td>
+                    <td>
+                        <input type='text' name='itemName' ng-model='add.name' required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='itemDesc'>Description of item: </label>
+                    </td>
+                    <td>
+                        <input type='text' name='itemDesc' ng-model='add.desc' required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='itemPrice'>Price of item: ($)</label>
+                    </td>
+                    <td>
+                        <input type='text' name='itemPrice' ng-model='add.price' required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='itemKeys'>Keywords of item (separate by commas): </label>
+                    </td>
+                    <td>
+                        <input type='text' name='itemKeys' ng-model='add.keys' required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='itemFile'>Want a picture?: </label>
+                    </td>
+                    <td>
+                        <input type='file' name='itemFile' ng-model='add.file' required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='itemType'>And what kind of item is this?: </label>
+                    </td>
+                    <td>
+                        <select ng-model="add.type" name ='itemType' ng-options="opt for opt in allProdCats">
+                        </select>
+                    </td>
+                </tr>
+            </table>
+
+            <button type='submit'>Add the item!</button>
+        </form>
+    </div>
 </section>
-	
