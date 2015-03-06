@@ -9,8 +9,6 @@ router.get('/', function(req, res){
 
 
 router.post('/newUser', function (req, res, next) {
-  console.log("hello");
-
   var email = req.body.email;
   var password = req.body.password;
 

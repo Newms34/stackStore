@@ -8,7 +8,7 @@ router.get('/', function(req, res){
 });
 
 
-router.post('/newUser', function (req, res, next) {
+router.post('/users', function (req, res, next) {
   console.log("hello");
 
   var email = req.body.email;
@@ -18,13 +18,16 @@ router.post('/newUser', function (req, res, next) {
     if (err) return next(err);
 
     if (user !== null){
-    	console.log("You already have an account!");
-    	res.redirect('/signup');
+    	console.log("login Success");
+    	res.json(user);
     } else {
-    	mongoose.model('User').create({'email': email, 'password': password}, function(err, done){
-    		if (err) return next(err);
-        res.json(user);
-    	});
+
+      res.redirect('/signup');
+    	
+     //  mongoose.model('User').create({'email': email, 'password': password}, function(err, done){
+    	// 	if (err) return next(err);
+     //    res.json(user);
+    	// });
     }
   
   });
