@@ -15,6 +15,15 @@ body {
 	background-attachment: fixed;
 }
 
+table {
+	margin:5px;
+	tr{
+		border-bottom:#6c554d;
+		td{
+			padding:5px;
+		}
+	}
+}
 
 #whiteBgThingy{
 	width: 96vw;
@@ -24,6 +33,7 @@ body {
 	top:60px;
 	margin-left: auto;
 	margin-right:auto;
+	padding-bottom: 100px;
 }
 
 #title{
