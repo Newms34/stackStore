@@ -2,7 +2,7 @@
 app.factory('signupFactory', function($http){
 	return {
 		getUser: function(){
-			return $http.get('/api/newUser').then(function(response){
+			return $http.get('/api/user/').then(function(response){
 				return response.data;
 			});
 		},

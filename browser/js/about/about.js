@@ -14,12 +14,12 @@ app.controller('AboutController', function($scope) {
 
   // Images of beautiful Fullstack people.
   $scope.images = [
-    'https://pbs.twimg.com/media/B7gBXulCAAAXQcE.jpg:large',
-    'https://fbcdn-sphotos-c-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/10862451_10205622990359241_8027168843312841137_o.jpg',
-    'https://pbs.twimg.com/media/B-LKUshIgAEy9SK.jpg',
-    'https://pbs.twimg.com/media/B79-X7oCMAAkw7y.jpg',
-    'https://pbs.twimg.com/media/B-Uj9COIIAIFAh0.jpg:large',
-    'https://pbs.twimg.com/media/B6yIyFiCEAAql12.jpg:large'
+    'http://www.itsugar.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/g/r/grumpy_cat_you_need_a_mint.jpg',
+    'http://www.itsugar.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/g/r/grumpy_cat_you_need_a_mint.jpg',
+    'http://www.itsugar.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/g/r/grumpy_cat_you_need_a_mint.jpg',
+    'http://www.itsugar.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/g/r/grumpy_cat_you_need_a_mint.jpg',
+    'http://www.itsugar.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/g/r/grumpy_cat_you_need_a_mint.jpg',
+    'http://www.itsugar.com/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/g/r/grumpy_cat_you_need_a_mint.jpg'
   ];
 
 });

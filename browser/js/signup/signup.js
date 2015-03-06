@@ -23,9 +23,9 @@ app.controller('signUpController', function ($scope, $window, $location, signupF
     };
 
     $scope.newUserSignUp = function(newUser){
-        signupFactory.addNewUser(newUser).then(function(){
+        signupFactory.addNewUser(newUser).then(function(data){
+            if (data.success === true)
             console.log("success");
-            $window.location.href = '/';
         });
     };
 
