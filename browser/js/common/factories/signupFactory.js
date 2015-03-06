@@ -6,6 +6,7 @@ app.factory('signupFactory', function($http){
 				return response.data;
 			});
 		},
+
 		addNewUser : function (user) {
 			return $http.post('/api/signup/newUser', user);
 		}

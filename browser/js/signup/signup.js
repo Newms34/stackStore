@@ -17,9 +17,9 @@ app.controller('signUpController', function ($scope, $window, $location, signupF
 	};
 
     $scope.getCreatedUser = function(){
-        signupFactory.getUser().then(function(data){
-            $scope.user = data;
-        });
+        // signupFactory.getUser().then(function(data){
+        //     $scope.user = data;
+        // });
     };
 
     $scope.newUserSignUp = function(newUser){
