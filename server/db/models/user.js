@@ -26,12 +26,11 @@ var schema = new mongoose.Schema({
     google: {
         id: String,
         email: String
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     }
-    // },
-    // isAdmin: {
-    //     type: boolean,
-    //     default: false
-    // }
 });
 
 schema.plugin(unique);
