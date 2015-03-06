@@ -16,7 +16,7 @@ module.exports = {
     //     "clientSecret": process.env.GOOGLE_CLIENT_SECRET,
     //     "callbackURL": process.env.CALLBACK_URL
     // }
-  "DATABASE_URI": "mongodb://heroku_app34612086:eotpkuschu3ftm137op9oq688q@ds051851.mongolab.com:51851/heroku_app34612086",
+  // "DATABASE_URI": "mongodb://heroku_app34612086:eotpkuschu3ftm137op9oq688q@ds051851.mongolab.com:51851/heroku_app34612086",
   "SESSION_SECRET": "Optimus Prime is my real dad",
   "TWITTER": {
     "consumerKey": "ZVQ2NZscYX1aa6nZI81Fg8HBg",
