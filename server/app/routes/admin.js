@@ -43,7 +43,6 @@ router.post('/getProds', function(req, res, next) {
 
 router.post('/chkUsr', function(req, res, next) {
     var userToAdmin = req.body.user;
-
     mongoose.model('User').findOne({
         email: userToAdmin
     }, function(err, usr) {
@@ -55,5 +54,17 @@ router.post('/chkUsr', function(req, res, next) {
         else{
             res.send('no')
         }
+    });
+});
+
+router.post('/remProd', function(req, res, next) {
+    var prod = req.body.theProd;
+    var col = req.body.theCat;
+    mongoose.model(col).findOneAndRemove({
+        title: prod
+    }, function(err, prod) {
+        if (err) return next(err);
+        console.log('What? You don\'t like '+prod+' ?!');
+        res.send(prod);
     });
 });

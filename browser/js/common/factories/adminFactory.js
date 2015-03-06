@@ -18,9 +18,10 @@ app.factory('adminFactory', function($http) {
                 return response.data;
             });
         },
-        remProd: function(prod) {
+        remProd: function(prod,cat) {
             return $http.post('/api/admin/remProd', {
-                theProd: prod
+                theProd: prod,
+                theCat: cat
             });
         },
         checkUser: function() {
