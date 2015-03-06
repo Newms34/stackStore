@@ -7,7 +7,7 @@ app.factory('adminFactory', function($http){
 			});
 		},
 		adminUser : function (user) {
-			return $http.post('/api/admin/adminUser', user);
+			return $http.post('/api/admin/adminUser', {email:user});
 		}
 	};
 });

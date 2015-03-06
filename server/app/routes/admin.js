@@ -4,27 +4,27 @@ module.exports = router;
 var mongoose = require('mongoose');
 
 router.post('/adminUser', function(req, res, next) {
-    var userToAdmin = req.body.email
+    console.log('getting user')
+    var userToAdmin = req.body.email;
+    console.log(userToAdmin);
+    res.send('yo')
     mongoose.model('User').findOne({
-        email: email
+        email: userToAdmin
     }, function(err, usr) {
         if (err) return next(err);
-        //search for user to see if this user already exists
-        if (usr == null) {
-            var newUser = new mongoose.model('User')({
-                'email': email,
-                'password': password,
-                'twitter': twitter,
-                'facebook': facebook,
-                'google': google
-            });
-            newUser.save(
-                mongoose.model('User').findOne({
-                    email: email
-                }, function(err, doneUsr) {
-                    res.redirect('/api/user/:email');
-                })
+        //adminify!
+        if (usr !== null) {
+            usr.isAdmin = true;
+            usr.save(
+                res.send('Adminified!')
             );
         }
+    });
+});
+
+router.get('/allUsers', function(req, res, next) {
+    mongoose.model('User').find({}, function(err, users) {
+        if (err) return next(err);
+        res.json(users);
     });
 });
