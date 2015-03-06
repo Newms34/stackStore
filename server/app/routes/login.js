@@ -3,12 +3,7 @@ var router = require('express').Router();
 module.exports = router;
 var mongoose = require('mongoose');
 
-router.get('/', function(req, res){
-	console.log("hello");
-});
-
-
-router.post('/users', function (req, res, next) {
+router.post('/', function (req, res, next) {
   console.log("hello");
 
   var email = req.body.email;
@@ -21,15 +16,7 @@ router.post('/users', function (req, res, next) {
     	console.log("login Success");
     	res.json(user);
     } else {
-
       res.redirect('/signup');
-    	
-     //  mongoose.model('User').create({'email': email, 'password': password}, function(err, done){
-    	// 	if (err) return next(err);
-     //    res.json(user);
-    	// });
     }
-  
   });
 });
-

@@ -11,8 +11,9 @@ app.factory('RandomGreetings', function () {
         'Hello, smelly human.',
         'So... how do you feel about having a mint right now?',
         'Dude. You cannot eat egg salad with coffee unless you take a mint.',
-        'Seriously. Coffee with salmon salad? Take a mint.', 
-        'What\'s your problem with mints? You need one.'
+        'Seriously. Coffee with salmon salad? Take a mint.',
+        'What\'s your problem with mints? You need one.',
+        'Your breath stinks.'
     ];
 
     return {
