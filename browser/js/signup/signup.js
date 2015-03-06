@@ -17,15 +17,15 @@ app.controller('signUpController', function ($scope, $window, $location, signupF
 	};
 
     $scope.getCreatedUser = function(){
-        signupFactory.getUser().then(function(data){
-            $scope.user = data;
-        });
+        // signupFactory.getUser().then(function(data){
+        //     $scope.user = data;
+        // });
     };
 
     $scope.newUserSignUp = function(newUser){
-        signupFactory.addNewUser(newUser).then(function(){
+        signupFactory.addNewUser(newUser).then(function(data){
+            if (data.success === true)
             console.log("success");
-            $window.location.href = '/';
         });
     };
 
