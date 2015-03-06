@@ -8,6 +8,14 @@ app.factory('adminFactory', function($http){
 		},
 		adminUser : function (user) {
 			return $http.post('/api/admin/adminUser', {email:user});
+		},
+		getProds: function(prod){
+			return $http.post('/api/admin/getProds',{theProd:prod}).then(function(response){
+				return response.data;
+			});
+		},
+		remProd: function(prod){
+			return $http.post('/api/admin/remProd',{theProd:prod});
 		}
 	};
 });
