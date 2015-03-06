@@ -19,16 +19,19 @@ app.controller('payCtrl', function($scope, $stateParams, $http) {
         $scope.total += (el.price) * (el.howMany);
     })
     $scope.totalOut = '$' + ($scope.total / 100);
+    //clear card data
     $scope.card = {
-        num: "",
-        exp: "",
-        cvv: ""
+        name:"",
+        num: 0,
+        expmo: 0,
+        expyr:0,
+        cvv: 0,
+        total:0
     }
     $scope.submitCard = function(card) {
         console.log('card: ',card)
-        $http.post('api/subpay/',card).success(function(stuff) {
-            console.log(stuff);
-        });
+        card.total = $scope.total;
+        $http.post('/api/subpay',card);
     };
 
 });
