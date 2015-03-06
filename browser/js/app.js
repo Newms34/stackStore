@@ -1,13 +1,13 @@
 'use strict';
 var app = angular.module('FullstackGeneratedApp', ['ui.router', 'fsaPreBuilt', 'ngCookies']);
 
-app.controller('MainController', function ($scope, $cookies, $cookieStore) {
+app.controller('MainController', function($scope, $cookies, $cookieStore) {
 
-    $cookieStore.remove("products");
-    
+  $cookieStore.remove("products");
 
-    $cookieStore.put('products', []);
-    console.log($cookies, 'this is cookie');
+
+  $cookieStore.put('products', []);
+  console.log($cookies, 'this is cookie');
 
   // Given to the <navbar> directive to show the menu.
   $scope.menuItems = [{
@@ -23,16 +23,25 @@ app.controller('MainController', function ($scope, $cookies, $cookieStore) {
     label: 'About',
     state: 'about'
   }, {
-    label: 'SignUp',
-    state: 'signup'
-  }, {    label: 'Sign In',
-    state: 'signin'
-  }, {    label: 'Log In',
-    state: 'login'
-  },{
     label: 'Cart',
     state: 'cart'
   }];
+
+  $scope.signInItems = [{
+    label: 'Sign Up',
+    state: 'signup'
+  }, {
+    label: 'Log In',
+    state: 'login'
+  }];
+
+  $scope.profile = {
+    label: 'Profile',
+    state: 'profile'
+  };
+
+  //
+  $scope.loggedIn = sessionStorage.loggedinUser || undefined;
 });
 
 
