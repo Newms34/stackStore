@@ -1,7 +1,20 @@
  <section id="admin">
  	Administration Page:
 	<div id="userManage">
+		Give users administrator priviledge:
 		<li ng-repeat = 'user in users' class='adminUserList'>User: <span>{{user.email}}</span><button class='adminButs alreadyAdmin' disabled ng-show='user.isAdmin==true'>Already an administrator!</button><button class='adminButs makeAdmin' ng-show='user.isAdmin==false' ng-click='adminify(user.email)'>Make this user an administrator!</button></li>
+	</div>
+	<div id='prodRem'>
+		Remove Products:<br/>
+		<div class='mintTab adminTab' ng-repeat='cat in allProdCats' ng-class = "{active:whichProd==cat}" ng-click='pickCat(cat)'>{{cat}}</div>
+		<table>
+			<tr>
+				<th>Title</th><th>Description</th><th>Price</th><th>Categories</th>
+			</tr>
+			<tr ng-repeat='prod in prods'>
+				<td>{{prod.title}}</td><td>{{prod.description}}</td><td>{{prod.price}}</td><td>{{prod.category}}</td>
+			</tr>
+		</table>
 	</div>
 </section>
 	
