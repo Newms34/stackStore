@@ -16,9 +16,10 @@
                 <td>{{order.priceOut}}</td>
                 <td>{{order.howMany}}</td>
                 <td>{{order.sTot}}</td>
+                <td><button class='cartBut' ng-click="deleteitem(order.title)" type="submit">Remove Item</button></td>
             </tr>
         </table>
         Total: {{total}}<br/>
-        <div id='clearCart' class='cartBut'>Clear Your Cart</div><div id='checkOut' class='cartBut'>Checkout!</div>
+        <div id='clearCart' class='cartBut' ng-click="clearthecart(orders)">Clear Your Cart</div><div id='checkOut' class='cartBut'>Checkout!</div>
     </div>
 </section>

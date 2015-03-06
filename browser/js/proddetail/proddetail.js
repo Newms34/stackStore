@@ -39,18 +39,5 @@ app.controller('prodDetailCtrl', function($scope, $stateParams, addtocart) {
         addtocart.addtocart(data);
     }
 
-    // $scope.addtocart = function(itemtoadd) {
-    //     // two ways to grab the customer's data: $scope.cart.items / parameter to this function
-    //     // $http.post({customerData}).success(function(result){
-    //     //     $scope.customerCart = result; 
-    //     // })
-
-    //     console.log('this is first $cookies', $cookies.products);
-    //     console.log('hit button this comes through', itemtoadd);
-    //     var prodarr = $cookieStore.get('products');
-    //     prodarr.push(itemtoadd);
-    //     $cookieStore.put('products', prodarr);
-
-    // };
 
 });
