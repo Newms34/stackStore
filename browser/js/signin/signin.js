@@ -18,7 +18,8 @@ app.controller('signInController', function ($scope, $window, $location, signinF
 
 
     $scope.userSignIn = function(newUser){
-        signinFactory.getUser(newUser).then(function(){
+        console.log("success");
+        signinFactory.getUsers(newUser).then(function(){
             console.log("success");
             $window.location.href = '/';
         });

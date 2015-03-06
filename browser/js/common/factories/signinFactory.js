@@ -1,7 +1,8 @@
 "use strict";
 app.factory('signinFactory', function($http){
 	return {
-		getUser: function(user){
+		getUsers: function(user){
+			console.log("getuser: ", getUser);
 			return $http.post('/api/signin/users', user);
 		},
 		addNewUser : function (user) {
