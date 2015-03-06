@@ -1,24 +1,24 @@
 <section id="cart">
-	<div id='title' style='background-image: url("images/carts.jpg");'>Cart</div>
+    <div id='title' style='background-image: url("images/carts.jpg");'>Cart</div>
     <div id='cartChart' class='cartMisc'>
-    	<b>Your cart:</b>
-        <table class='cartMisc'>
-            <tr>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-            </tr>
-            <tr id='cart-single-order' ng-repeat='order in seshOrders' ng-class '{mintProd:!isCoffee, coffeeProd:isCoffee}'>
-                <td>{{order.title}}</td>
-                <td>{{order.description}}</td>
-                <td>{{order.priceOut}}</td>
-                <td>{{order.howMany}}</td>
-                <td>{{order.sTot}}</td>
-            </tr>
-        </table>
-        Total: {{total}}<br/>
-        <div id='clearCart' class='cartBut'>Clear Your Cart</div><div id='checkOut' class='cartBut'>Checkout!</div>
+        Thanks for buying from us! Your total: {{totalOut}}
+        <form name='cardForm' ng-submit='submitCard(card)'>
+            <label for='cardNum'>Name on card: </label>
+            <input type='text' name='cardName' ng-model='card.name' required/>
+            <br/>
+            <label for='cardNum'>Card Number: </label>
+            <input type='text' name='cardNum' ng-model='card.num' required/>
+            <br/>
+            <b>Expiration Date:</b>
+            <label for='cardExp'>Mo: </label>
+            <input type='text' name='cardExpmo' ng-model='card.expmo' maxlength=2 size=2 required/>
+            <label for='cardExp'> Yr: </label>
+            <input type='text' name='cardExpyr' ng-model='card.expyr' maxlength=2 size=2 required/>
+            <br/>
+            <label for='cvv'>CVV Code: </label>
+            <input type='text' name='cvv' ng-model='card.cvv' maxlength=4 size=4 required/>
+            <br/>
+            <button type='submit'>Pay</button>
+        </form>
     </div>
 </section>

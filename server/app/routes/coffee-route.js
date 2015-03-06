@@ -5,8 +5,8 @@ var router = require('express').Router(),
 module.exports = router;
 
 router.get('/', function(req, res, next) {
-  mongoose.model('Product').find({isCoffee: false}, function(err, mints) {
+  mongoose.model('Coffee').find({}, function(err, coffee) {
     if (err) return next(err);
-    res.json(mints);
+    res.json(coffee);
   });
 });
