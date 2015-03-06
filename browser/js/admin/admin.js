@@ -41,10 +41,13 @@ app.controller('adminController', function($scope, adminFactory, $state) {
     $scope.getAllProds = function(type) {
         adminFactory.getProds(type).then(function(data) {
             $scope.prods = data;
-            console.log($scope.prods);
+            $scope.prods.map(function(el){
+                el.priceOut = el.price/100;
+                el.kittens = el.category.join(', ');
+            })
         });
     };
-
+    $scope.getAllProds($scope.whichProd);
     $scope.pickCat = function(prod) {
         $scope.whichProd = prod;
         $scope.getAllProds($scope.whichProd);
@@ -52,8 +55,14 @@ app.controller('adminController', function($scope, adminFactory, $state) {
 
     $scope.adminify = function(name) {
         adminFactory.adminUser(name).then(function(data) {
-            console.log(data);
             $scope.getAllUsr();
+        });
+    };
+
+    $scope.removeProd = function(prod){
+        adminFactory.remProd(prod,$scope.whichProd).then(function(data){
+            console.log('Removed: '+data)
+            $scope.getAllProds($scope.whichProd);
         });
     };
 });
