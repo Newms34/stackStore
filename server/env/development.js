@@ -7,13 +7,13 @@ module.exports = {
     "callbackUrl": "http://127.0.0.1:1337/auth/twitter/callback"
   },
   "FACEBOOK": {
-    "clientID": "336560806541655",
-    "clientSecret": "2f117d2a289fd321e411fdb568d263f2",
+    "clientID": "375592052644640",
+    "clientSecret": "ff9ca279a390ece0b2b5a24bbedc7b97",
     "callbackURL": "http://localhost:1337/auth/facebook/callback"
   },
   "GOOGLE": {
-    "clientID": "369003002521-88250fc9kjpkfqvhicu7vokbnvu88ud6.apps.googleusercontent.com",
-    "clientSecret": "DB1-q81E4ODEuL8cFGCm5QS1",
-    "callbackURL": "http://localhost:1337/auth/google/callback"
+    "clientID": "493618907544-5gdjmsm88e6n1pqu1f0ij7f8nvh2kn28.apps.googleusercontent.com",
+    "clientSecret": "mL5-7L6fb1pzfHXQv4vT0UFU",
+    "callbackURL": "https://tranquil-ocean-8233.herokuapp.com/oauth2callback"
   }
 };

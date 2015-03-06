@@ -9,6 +9,7 @@ router.get('/', function(req, res){
 
 
 router.post('/newUser', function (req, res, next) {
+
   var email = req.body.email;
   var password = req.body.password;
 
@@ -29,8 +30,8 @@ router.post('/newUser', function (req, res, next) {
 });
 
 
-router.post('/submit', function (req, res, next){
+// router.post('/submit', function (req, res, next){
 
-});
+// });
 
 
