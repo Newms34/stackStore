@@ -4,12 +4,12 @@ module.exports = router;
 var mongoose = require('mongoose');
 
 
-router.get('/newUser', function(req, res) {
+router.get('user/newUser', function(req, res) {
 
   res.send('Go away.');
 });
 
-router.post('/submit', function(req, res, next) {
+router.post('user/submit', function(req, res, next) {
   var email = req.body.email;
   var password = req.body.passwords;
   var twitter = {
