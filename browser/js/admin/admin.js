@@ -14,20 +14,14 @@ app.controller('adminController', function($scope, adminFactory, $state) {
     $scope.users = {};
     $scope.prods = {};
     $scope.whichProd = 'Mint';
-    $scope.allProdCats = {
-        one: 'Mint',
-        two: 'Coffee'
-    };
-    console.log($scope.allProdCats);
-    $scope.checkForAdmin = function(){
+    $scope.allProdCats = ['Mint','Coffee'];
+    $scope.checkForAdmin = function() {
         console.log('checkin user:')
-        adminFactory.checkUser().then(function(response){
+        adminFactory.checkUser().then(function(response) {
             console.log(response.data);
-            if(response.data == 'no'){
+            if (response.data == 'no') {
                 $state.go('home');
-            }
-            else{
-            }
+            } else {}
         });
     };
     $scope.checkForAdmin();
@@ -41,8 +35,8 @@ app.controller('adminController', function($scope, adminFactory, $state) {
     $scope.getAllProds = function(type) {
         adminFactory.getProds(type).then(function(data) {
             $scope.prods = data;
-            $scope.prods.map(function(el){
-                el.priceOut = el.price/100;
+            $scope.prods.map(function(el) {
+                el.priceOut = el.price / 100;
                 el.kittens = el.category.join(', ');
             })
         });
@@ -59,10 +53,29 @@ app.controller('adminController', function($scope, adminFactory, $state) {
         });
     };
 
-    $scope.removeProd = function(prod){
-        adminFactory.remProd(prod,$scope.whichProd).then(function(data){
-            console.log('Removed: '+data)
+    $scope.removeProd = function(prod) {
+        adminFactory.remProd(prod, $scope.whichProd).then(function(data) {
+            console.log('Removed: ' + data)
             $scope.getAllProds($scope.whichProd);
         });
+    };
+    $scope.submitItem = function(prod) {
+        var keys = prod.keys.split(',');
+        keys = keys.map(function(el){
+            return el.trim();
+        })
+        var objToAddData = {
+            name:prod.name,
+            desc:prod.desc,
+            price: parseInt(prod.price*100),
+            type:prod.type,
+            file:prod.file,
+            keys:keys
+        };
+
+        adminFactory.addProd(objToAddData).then(function(data){
+            console.log('Added: '+data);
+            $scope.getAllProds($scope.whichProd);
+        })
     };
 });

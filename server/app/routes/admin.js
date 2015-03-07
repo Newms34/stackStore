@@ -50,9 +50,8 @@ router.post('/chkUsr', function(req, res, next) {
         console.log(usr);
         if (usr !== null && usr.isAdmin) {
             res.send('yes');
-        }
-        else{
-            res.send('no')
+        } else {
+            res.send('no');
         }
     });
 });
@@ -64,7 +63,28 @@ router.post('/remProd', function(req, res, next) {
         title: prod
     }, function(err, prod) {
         if (err) return next(err);
-        console.log('What? You don\'t like '+prod+' ?!');
+        console.log('What? You don\'t like ' + prod + ' ?!');
         res.send(prod);
+    });
+});
+
+router.post('/addProd', function(req, res, next) {
+    var title = req.body.name;
+    var col = req.body.type;
+    mongoose.model(col).findOne({
+        title: title
+    }, function(err, prod) {
+        if (err) return next(err);
+        if (prod === null) {
+            mongoose.model(col).create({
+                'title':req.body.name,
+                'description':req.body.desc,
+                'price':req.body.price,
+                'category':req.body.keys
+            });
+            res.send(title);
+        } else {
+            res.send('Err: That product already exists!');
+        }
     });
 });
