@@ -1,10 +1,10 @@
 'use strict';
-app.config(function ($stateProvider) {
+app.config(function($stateProvider) {
 
-    $stateProvider.state('home', {
-        url: '/',
-        controller: 'HomeCtrl',
-        templateUrl: 'js/home/home.html'
-    });
+  $stateProvider.state('home', {
+    url: '/',
+    controller: 'HomeCtrl',
+    templateUrl: 'js/home/home.html'
+  });
 
 });

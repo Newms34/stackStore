@@ -53,11 +53,11 @@ app.controller('cartCtrl', function($scope, removeitem, clearcart,$state) {
     };
 
     $scope.deleteitem = function(data){
-        removeitem.removefromcart(data)
-    } 
+        removeitem.removefromcart(data);
+    };
 
     $scope.clearthecart = function(info){
         clearcart.clearoutcart(info);
-    }
+    };
 
 });
