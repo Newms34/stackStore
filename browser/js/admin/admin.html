@@ -17,6 +17,7 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Categories</th>
+                <th>Edit</th>
                 <th>Remove</th>
             </tr>
             <tr ng-repeat='prod in prods'>
@@ -25,9 +26,12 @@
                 <td>{{prod.description}}</td>
                 <td>{{prod.priceOut | currency}}</td>
                 <td>{{prod.kittens}}</td>
-                <th title='Remove "{{prod.title}}"'>
+                <td title='Edit "{{prod.title}}"'>
+                    <button ng-click='editItem(prod.title)'>&#9998;</button>
+                </td>
+                <td title='Remove "{{prod.title}}"'>
                     <button ng-click='removeProd(prod.title)'>X</button>
-                </th>
+                </td>
             </tr>
         </table>
     </div>

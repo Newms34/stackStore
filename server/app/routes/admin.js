@@ -88,3 +88,19 @@ router.post('/addProd', function(req, res, next) {
         }
     });
 });
+
+router.post('/editProd', function(req, res, next) {
+    var title = req.body.name;
+    var col = req.body.type;
+    mongoose.model(col).findOne({
+        title: title
+    }, function(err, prod) {
+        if (err) return next(err);
+        if (prod !== null) {
+            prod.save();
+            res.send(title);
+        } else {
+            res.send('Err: That product already exists!');
+        }
+    });
+});

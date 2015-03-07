@@ -78,4 +78,7 @@ app.controller('adminController', function($scope, adminFactory, $state) {
             $scope.getAllProds($scope.whichProd);
         })
     };
+    $scope.editItem = function(prod){
+        console.log(prod);
+    }
 });

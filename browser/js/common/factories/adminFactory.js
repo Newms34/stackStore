@@ -35,10 +35,15 @@ app.factory('adminFactory', function($http) {
             });
         },
         addProd: function(prodObj) {
-        	console.log('Factory received and is sending: ',prodObj)
             return $http.post('/api/admin/addProd', prodObj).then(function(response) {
                 return response.data;
-            })
+            });
+        },
+        editProd: function(title){
+        	// return $http.post('/api/admin/editProd',prodObj).then(function(response){
+        	// 	return response.data;
+        	// })
+			//ask user for update info
         }
     };
 });
