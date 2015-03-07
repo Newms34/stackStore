@@ -9,3 +9,4 @@ router.use('/mints', require('./mint-route.js'));
 router.use('/signup', require('./signup.js'));
 router.use('/subpay', require('./subpay'));
 router.use('/admin', require('./admin.js'));
+router.use('/profile', require('./profile.js'));
