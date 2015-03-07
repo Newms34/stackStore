@@ -19,7 +19,7 @@ app.controller('loginController', function ($scope, $window, $state, $location, 
     $scope.userLogin = function(users){
         loginFactory.checkUser(users).then(function(loggedin){
             sessionStorage.loggedinUser = loggedin.email;
-            $state.go('home');
+            $window.location.href = '/profile';
         }).catch(function(e){
             console.log("your password and id do not match");
         });

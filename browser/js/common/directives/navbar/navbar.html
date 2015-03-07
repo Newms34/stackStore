@@ -4,11 +4,8 @@
             <li ng-repeat="item in items">
                 <a ui-sref-active="active" ui-sref="{{ item.state }}">{{ item.label }}</a>
             </li>
-            <li ng-show="!loggedIn" ng-repeat="stuff in stuffs">
-                <a ui-sref-active="active" ui-sref="{{ stuff.state }}">{{ stuff.label }}</a>
-            </li>
-            <li ng-show="!loggedIn">
-              <a ui-sref-active="active" ui-sref="{{ profile.state }}">{{ profile.label }}</a>
+            <li ng-click="byebye()">
+              <a>Log Out</a>
             </li>
         </ul>
     </div>

@@ -21,12 +21,12 @@ app.controller('payCtrl', function($scope, $stateParams, $http) {
     $scope.totalOut = '$' + ($scope.total / 100);
     //clear card data
     $scope.card = {
-        name:"",
-        num: 0,
-        expmo: 0,
-        expyr:0,
-        cvv: 0,
-        total:0
+        name:'',
+        num:'',
+        expmo:'',
+        expyr:'',
+        cvv:'',
+        total:''
     }
     $scope.submitCard = function(card) {
         console.log('card: ',card)

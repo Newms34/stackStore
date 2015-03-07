@@ -1,10 +1,11 @@
 'use strict';
 var app = angular.module('FullstackGeneratedApp', ['ui.router', 'fsaPreBuilt', 'ngCookies']);
 
-app.controller('MainController', function($scope, $cookies, $cookieStore) {
+app.controller('MainController', function($scope, $cookies, $cookieStore, $window) {
 
   $cookieStore.remove("products");
 
+  $scope.loggedIn = sessionStorage.loggedinUser || undefined;
 
   $cookieStore.put('products', []);
   console.log($cookies, 'this is cookie');
@@ -25,26 +26,22 @@ app.controller('MainController', function($scope, $cookies, $cookieStore) {
   }, {
     label: 'Cart',
     state: 'cart'
-  },{
-    label: 'Profile',
-    state: 'profile'
-  }];
-
-  $scope.signInItems = [{
+  }, {
     label: 'Sign Up',
     state: 'signup'
   }, {
     label: 'Log In',
     state: 'login'
-  }];
-
-  $scope.profile = {
+  }, {
     label: 'Profile',
     state: 'profile'
-  };
+  }];
 
-  //
-  $scope.loggedIn = sessionStorage.loggedinUser || undefined;
+  // removes tabs based on login state
+  if ($scope.loggedIn) $scope.menuItems.splice(5, 2);
+  else $scope.menuItems.splice(7, 1);
+
+
 });
 
 
