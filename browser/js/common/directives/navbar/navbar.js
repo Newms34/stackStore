@@ -2,10 +2,9 @@
 app.directive('navbar', function() {
   return {
     restrict: 'E',
+    transclude: true,
     scope: {
       items: '=',
-      stuffs: '=',
-      profile: '='
     },
     templateUrl: 'js/common/directives/navbar/navbar.html'
   };

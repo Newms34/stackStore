@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('cartCtrl', function($scope, removeitem, clearcart) {
+app.controller('cartCtrl', function($scope, $state) {
 
     //TEMPORARY! FOR TESTING
     //this renders the cart
@@ -53,11 +53,11 @@ app.controller('cartCtrl', function($scope, removeitem, clearcart) {
     };
 
     $scope.deleteitem = function(data){
-        removeitem.removefromcart(data)
-    } 
+        removeitem.removefromcart(data);
+    };
 
     $scope.clearthecart = function(info){
         clearcart.clearoutcart(info);
-    }
+    };
 
 });
