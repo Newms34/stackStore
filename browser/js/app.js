@@ -35,11 +35,14 @@ app.controller('MainController', function($scope, $cookies, $cookieStore, $windo
   }, {
     label: 'Profile',
     state: 'profile'
+  }, {
+    label: 'Log Out',
+    state: 'logout'
   }];
 
-  // removes tabs based on login state
+  // removes tabs based on login state ++ removed logout link in navbar from navbar.html and added logout state  
   if ($scope.loggedIn) $scope.menuItems.splice(5, 2);
-  else $scope.menuItems.splice(7, 1);
+  else $scope.menuItems.splice(7, 2);
 
 
 });
