@@ -27,6 +27,12 @@
     width: 50%;
     margin-left: 10%;
     position: relative;
+    table{
+        z-index: 2;
+    }
+    table > tr > td > button {
+        border-radius:10%;
+    }
 }
 .adminTab {
     width: 90px;
@@ -38,6 +44,8 @@
     display: inline-block;
     position: relative;
     text-align: center;
+    box-shadow:0 0 4px 2px #777;
+    z-index: 1;
     font-size: 18pt;
         background-color: #9ac399;
     cursor: pointer;
@@ -48,4 +56,5 @@
 .active{
 	font-weight:600;
 	background-color: #cfc;
+    box-shadow:0 0 7px 4px #777;
 }

@@ -17,6 +17,7 @@
                 <th>Description</th>
                 <th>Price</th>
                 <th>Categories</th>
+                <th>Edit</th>
                 <th>Remove</th>
             </tr>
             <tr ng-repeat='prod in prods'>
@@ -25,9 +26,12 @@
                 <td>{{prod.description}}</td>
                 <td>{{prod.priceOut | currency}}</td>
                 <td>{{prod.kittens}}</td>
-                <th title='Remove "{{prod.title}}"'>
+                <td title='Edit "{{prod.title}}"'>
+                    <button ng-click='editItem(prod.title)'>&#9998;</button>
+                </td>
+                <td title='Remove "{{prod.title}}"'>
                     <button ng-click='removeProd(prod.title)'>X</button>
-                </th>
+                </td>
             </tr>
         </table>
     </div>
@@ -72,7 +76,7 @@
                         <label for='itemFile'>Want a picture?: </label>
                     </td>
                     <td>
-                        <input type='file' name='itemFile' ng-model='add.file' required/>
+                        <input type='text' name='itemFile' ng-model='add.file'/>
                     </td>
                 </tr>
                 <tr>
@@ -80,7 +84,8 @@
                         <label for='itemType'>And what kind of item is this?: </label>
                     </td>
                     <td>
-                        <select ng-model="add.type" name ='itemType' ng-options="opt for opt in allProdCats">
+                        <select ng-model="add.type" name ='itemType'>
+                        	<option ng-repeat = 'flavor in allProdCats' value='{{flavor}}'>{{flavor}}</option>
                         </select>
                     </td>
                 </tr>

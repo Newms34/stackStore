@@ -21,17 +21,43 @@ app.controller('payCtrl', function($scope, $stateParams, $http) {
     $scope.totalOut = '$' + ($scope.total / 100);
     //clear card data
     $scope.card = {
-        name:'',
-        num:'',
-        expmo:'',
-        expyr:'',
-        cvv:'',
-        total:''
+        name: "",
+        num: 0,
+        expmo: 0,
+        expyr: 0,
+        cvv: 0,
+        total: 0
     }
-    $scope.submitCard = function(card) {
-        console.log('card: ',card)
-        card.total = $scope.total;
-        $http.post('/api/subpay',card);
-    };
+    $scope.manifest = 'Nothing bought right now!';
+
+    jQuery(function($) {
+      $('#cardForm').submit(function(e) {
+        var $form = $(this);
+
+        // Disable the submit button to prevent repeated clicks
+        $form.find('button').prop('disabled', true);
+
+        Stripe.card.createToken($form, stripeResponseHandler);
+
+        // Prevent the form from submitting with the default action
+        return false;
+      });
+    });
+
+    function stripeResponseHandler(status, response) {
+        var $form =$('cardForm');
+        if (response.error) {
+            console.log(response.error.message)
+        } else {
+            var token = response.id;
+            $http.post('/api/subpay/payCard', {
+                token: token,
+                total: $scope.total,
+                manifest: $scope.manifest
+            }).then(function(response) {
+                console.log(response.data)
+            });
+        }
+    }
 
 });

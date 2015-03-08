@@ -24,7 +24,7 @@ var schema = new mongoose.Schema({
     },
     photo: {
         type: String,
-        default: 'http://bayfieldcoffeecompany.com/wp-content/uploads/2013/11/coffee1.jpeg'
+        default: '/images/placeHolder.jpg'
     }
 });
 

@@ -18,7 +18,7 @@ app.factory('adminFactory', function($http) {
                 return response.data;
             });
         },
-        remProd: function(prod,cat) {
+        remProd: function(prod, cat) {
             return $http.post('/api/admin/remProd', {
                 theProd: prod,
                 theCat: cat
@@ -27,12 +27,23 @@ app.factory('adminFactory', function($http) {
         checkUser: function() {
             if (sessionStorage.loggedinUser) {
                 var user = sessionStorage.loggedinUser;
-            }else{
-            	var user = 'none';
+            } else {
+                var user = 'none';
             }
             return $http.post('/api/admin/chkUsr', {
                 user: user
             });
+        },
+        addProd: function(prodObj) {
+            return $http.post('/api/admin/addProd', prodObj).then(function(response) {
+                return response.data;
+            });
+        },
+        editProd: function(title){
+        	// return $http.post('/api/admin/editProd',prodObj).then(function(response){
+        	// 	return response.data;
+        	// })
+			//ask user for update info
         }
     };
 });
