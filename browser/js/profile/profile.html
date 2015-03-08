@@ -1,18 +1,16 @@
 <div class="product-list">
     <h1>Profile</h1>
     <div ng-controller="profileController" class="product-listing">
-
         <img class="product-pictures" ng-src="{{ coffee.photo }}" />
         <br>
-
         <div class="product-listing-info ng-binding ng-scope">
-            {{ userinfo }}
+           UserID: {{ email }}
+
            <!--  Title: {{ coffee.title }}
             <br> Price: {{ coffee.price.toString() | currency }}
             <br> Category: {{ coffee.category.join(', ') }}
             <br>
             <button ng-click='addtocart(coffee.title);' class="addtocart">Add to Cart</button> -->
         </div>
-
     </div>
 </div>
