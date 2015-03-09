@@ -41,12 +41,10 @@ app.controller('MainController', function($scope, $cookies, $cookieStore, $windo
   }];
 
   // removes tabs based on login state ++ removed logout link in navbar from navbar.html and added logout state  
+
   if ($scope.loggedIn) $scope.menuItems.splice(5, 2);
   else $scope.menuItems.splice(7, 2);
-
-
 });
-
 
 app.config(function($urlRouterProvider, $locationProvider) {
   // This turns off hashbang urls (/#about) and changes it to something normal (/about)

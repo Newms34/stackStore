@@ -17,11 +17,12 @@ app.controller('logoutController', function ($scope, $window, $location){
 	// else $scope.menuItems.splice(7, 2);
 
 
-	sessionStorage.loggedinUser = undefined;
-	$scope.menuItems.splice(7, 2);
+	// sessionStorage.loggedinUser = undefined;
+	$scope.menuItems.splice(5, 2);
 
 
 	window.setTimeout(function() {
+		sessionStorage.loggedinUser = undefined;
     	window.location.href = '/';
 	}, 5000);
 });
