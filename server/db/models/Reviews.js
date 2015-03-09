@@ -1,5 +1,3 @@
-Reviews.js
-
 'use strict';
 var crypto = require('crypto');
 var mongoose = require('mongoose');
@@ -11,12 +9,12 @@ var schema = new mongoose.Schema({
     	minLength: 20
     },
     product: {
-    	type: mongoose.Schema.Types.ObjectId, 
-    	ref: 'Review'
+    	type: String,
+        required: true
     },
     user: {
-    	type: String,
-        required:true,
+        type: String,
+        required: true
     }
 });
 

@@ -27,10 +27,11 @@ var schema = new mongoose.Schema({
         default: '/images/placeHolder.jpg'
     },
     reviews: [{
-        type: mongoose.Schema.Types.ObjectId, 
-        ref: 'Product'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Review'
     }]
 });
+
 
 schema.pre('save', function(next) {
     next();

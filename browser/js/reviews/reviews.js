@@ -1,24 +1,13 @@
 'use strict';
-app.config(function ($stateProvider) {
+app.config(function($stateProvider) {
 
-    // Register our *about* state.
-    $stateProvider.state('reviews', {
-        url: '/reviews/:id',
-        controller: 'reviewController',
-        templateUrl: 'js/reviews/reviews.html'
-    });
+  $stateProvider.state('reviews', {
+    url: '/reviews/:reviewId',
+    controller: 'ReviewCtrl',
+    templateUrl: 'js/reviews/reviews.html'
+  });
 });
 
-
-app.controller('reviewController', function($scope){
-    $scope.item = "hello";
+app.controller('ReviewCtrl', function($scope, $state, $stateParams, CoffeeFactory, MintFactory) {
+  console.log('Hello');
 });
-
-// app.controller('profileController', function ($scope, $state,  AuthService, profileFactory) {
-
-//     profileFactory.getProfile().then(function(data){
-//         $scope.userinfo = data[0];
-//         $scope.email = data[0].email;
-//         // $scope.useremail = data[0].email;
-//     })
-// });
