@@ -10,9 +10,10 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('adminController', function($scope, adminFactory, $state, ngDialog) {
+app.controller('adminController', function($scope, adminFactory, prodsFactory, promoFactory, $state, ngDialog) {
     $scope.users = {};
     $scope.prods = {};
+    $scope.proms = {};
     $scope.whichProd = 'Mint';
     $scope.allProdCats = ['Mint', 'Coffee'];
     $scope.checkForAdmin = function() {
@@ -33,7 +34,7 @@ app.controller('adminController', function($scope, adminFactory, $state, ngDialo
     $scope.getAllUsr();
 
     $scope.getAllProds = function(type) {
-        adminFactory.getProds(type).then(function(data) {
+        prodsFactory.getProds(type).then(function(data) {
             $scope.prods = data;
             $scope.prods.map(function(el) {
                 el.priceOut = el.price / 100;
@@ -54,7 +55,7 @@ app.controller('adminController', function($scope, adminFactory, $state, ngDialo
     };
 
     $scope.removeProd = function(prod) {
-        adminFactory.remProd(prod, $scope.whichProd).then(function(data) {
+        prodsFactory.remProd(prod, $scope.whichProd).then(function(data) {
             console.log('Removed: ' + data)
             $scope.getAllProds($scope.whichProd);
         });
@@ -73,7 +74,7 @@ app.controller('adminController', function($scope, adminFactory, $state, ngDialo
             keys: keys
         };
 
-        adminFactory.addProd(objToAddData).then(function(data) {
+        prodsFactory.addProd(objToAddData).then(function(data) {
             console.log('Added: ' + data);
             $scope.getAllProds($scope.whichProd);
         })
@@ -91,12 +92,30 @@ app.controller('adminController', function($scope, adminFactory, $state, ngDialo
     $scope.$on('ngDialog.closed',function(){
         $scope.getAllProds($scope.whichProd);
     })
+    $scope.addNewPromo = function(newPromo){
+        console.log('Attempting to add: ',newPromo)
+        // promoFactory.addPromo(newPromo).then(function(data){
+        //     $scope.getAllPromos();
+        // });
+    };
+    $scope.getAllPromos = function(){
+        promoFactory.getAllProms().then(function(data){
+            if (data!=null){
+                $scope.proms = data;
+            }
+            else{
+                $scope.proms = {};
+            }
+            console.log($scope.proms);
+        })
+    }
+    $scope.getAllPromos();
 });
 
 
-app.controller('editCont', function($scope,adminFactory,ngDialog) {
+app.controller('editCont', function($scope,prodsFactory,ngDialog) {
     $scope.currObj={};
-    adminFactory.editProd($scope.ngDialogData).then(function(data){
+    prodsFactory.editProd($scope.ngDialogData).then(function(data){
         console.log(data);
         $scope.updateForm(data);
     })
@@ -115,9 +134,9 @@ app.controller('editCont', function($scope,adminFactory,ngDialog) {
             'file': edit.photo,
             'title':edit.title
         };
-        adminFactory.editProdSub(editObj).then(function(data){
+        prodsFactory.editProdSub(editObj).then(function(data){
             $scope.currObj = data;
-            $scope.updateForm($scope.currObj)
+            $scope.updateForm($scope.currObj);
         });
     }
 });

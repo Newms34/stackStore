@@ -11,7 +11,7 @@
 
         <div class="product-listing-info ng-binding ng-scope">
             Title: {{ coffee.title }}
-            <br> Price: {{ coffee.price.toString() | currency }}
+            <br> Price: {{ coffee.price/100 | currency }}
             <br> Category: {{ coffee.category.join(', ') }}
             <br> ProdcutId: {{ coffee._id}}
             <br>
