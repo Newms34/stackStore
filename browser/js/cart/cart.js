@@ -17,22 +17,26 @@ app.controller('cartCtrl', function($scope, removeitem, clearcart,$state) {
         title: 'Test Item 01',
         description: 'Almost as good as Test Item 02!',
         price: 3999,
-        howMany: 5
+        howMany: 5,
+        isCoffee:false
     }, {
         title: 'Test Item 02',
         description: 'New and Improved!!',
         price: 4299,
-        howMany: 3
+        howMany: 3,
+        isCoffee:true
     }, {
         title: 'Test Item 03',
         description: 'Bargain Test Item!',
         price: 1999,
-        howMany: 6
+        howMany: 6,
+        isCoffee:false
     }, {
         title: 'Test Item 04',
         description: 'Family Sized Test item!',
         price: 8999,
-        howMany: 1
+        howMany: 1,
+        isCoffee:true
     }];
 
     $scope.seshOrders.map(function(el) {

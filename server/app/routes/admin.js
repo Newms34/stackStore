@@ -113,7 +113,7 @@ router.post('/editSubmit', function(req, res, next) {
     }, function(err, prod) {
         if (err) return next(err);
         prod.description = req.body.desc;
-        prod.price = parseInt(req.body.price*100);
+        prod.price = parseInt(req.body.price * 100);
         prod.category = req.body.keys;
         prod.photo = req.body.file;
         prod.save();
@@ -121,32 +121,29 @@ router.post('/editSubmit', function(req, res, next) {
     });
 });
 
-router.get('/proms',function(req,res,next){
-    mongoose.model('Promo').find({},function(err,proms){
+router.get('/proms', function(req, res, next) {
+    mongoose.model('Promo').find({}, function(err, proms) {
         if (err) return next(err);
-        console.log('Proms ',proms)
-        res.send('Hi');
+        res.send(proms);
     });
 });
 
-router.post('/addProm',function(req,res,next){
-    var code = req.body.code;
-    var expDate = req.body.expDate;
-    var creDate = req.body.creDate;
-    var cat = req.body.cat;
-    var pricePerc = req.body.pricePerc;
+router.post('/addProm', function(req, res, next) {
     mongoose.model('Promo').create({
-        'code':code,
-        'creationDate':creDate,
-        'expireDate':expDate,
-        'promotionOn': cat,
-        'pricePerc':pricePerc
+        'code': req.body.code,
+        'creationDate': req.body.creationDate,
+        'expireDate': req.body.expireDate,
+        'promotionOn': req.body.promotionOn,
+        'pricePerc': parseInt(req.body.pricePerc)
     });
 })
 
-router.post('/remProm',function(req,res,next){
+router.post('/remProm', function(req, res, next) {
     var code = req.body.code;
-    mongoose.model('Promo').findOneAndRemove({code:code},function(err,response){
+    console.log('in rem requiescat ',code);
+    mongoose.model('Promo').findOneAndRemove({
+        code: code
+    }, function(err, response) {
         res.send(response);
     })
 })

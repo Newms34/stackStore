@@ -53,3 +53,20 @@ th{
 	right:0px;
 	float:right;
 }
+
+#invalSpan{
+	color:#fff;
+	background-color:#900;
+	padding:2px;
+	margin-left:10px;
+	font-style:italic;
+	box-shadow: 0 0 5px 4px #900;
+}
+
+#tot{
+	background-color:rgba(255,250,200,.7);
+	display:block;
+	width:20%;
+	margin-top:5px;
+	box-shadow: 0 0 5px 4px rgba(255,250,200,.7);
+}
