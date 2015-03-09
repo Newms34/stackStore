@@ -1,7 +1,6 @@
 'use strict';
 // var stripe = require("stripe")("sk_test_WhzuBvvju6AKl7KyIKtdWiQf");
 app.config(function($stateProvider) {
-
     $stateProvider.state('pay', {
         url: '/pay',
         controller: 'payCtrl',
@@ -10,15 +9,18 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('payCtrl', function($scope, $stateParams, $http) {
+app.controller('payCtrl', function($scope, $stateParams, $http, promoFactory) {
     $scope.cartToPay = angular.fromJson(sessionStorage.thisCart);
+    $scope.codeLen = 0;
+    $scope.validCode=0;
     console.log('Your cart: ', $scope.cartToPay);
     $scope.total = 0;
     $scope.proms = {};
-    $scope.cartToPay.forEach(function(el) {
-        $scope.total += (el.price) * (el.howMany);
-    })
-    $scope.totalOut = '$' + ($scope.total / 100);
+    $scope.currPromo={
+            item:'Mint',
+            amount:0
+        }
+
     //clear card data
     $scope.card = {
         name: "",
@@ -96,4 +98,42 @@ app.controller('payCtrl', function($scope, $stateParams, $http) {
             }
         })
     }
+    $scope.getAllPromos();
+    $scope.checkCode = function(){
+        $scope.codeLen = $scope.card.promo.length;
+        $scope.validCode=0;
+        $scope.currPromo.item='Mint';
+        //default back to mint. the code is in... mint condition
+        //HUEHUEHUEHUEHUE
+        $scope.currPromo.amount=0;
+        $scope.proms.forEach(function(el){
+            if (el.code==$scope.card.promo){
+                $scope.validCode=1;
+                $scope.currPromo.item=el.promotionOn;
+                $scope.currPromo.amount=el.pricePerc;
+            }
+            $scope.adjustPrice();
+        });
+    }
+    $scope.adjustPrice = function(){
+        console.log($scope.cartToPay);
+        $scope.total = 0;
+        var discountedPricePerc = (100-$scope.currPromo.amount)/100;
+        $scope.cartToPay.forEach(function(el){
+            if (el.isCoffee && $scope.currPromo.item=='Coffee'){
+                //promo on coffee! reduced price on all 1,3,7-Trimethylpurine-2,6-dione stimulants
+                $scope.total += (el.price*discountedPricePerc*el.howMany);
+            }
+            else if (!el.isCoffee && $scope.currPromo.item=='Mint'){
+                //promo on coffee! reduced price on all Methyl 2-hydroxybenzoate neurotoxins!
+                $scope.total += (el.price*discountedPricePerc*el.howMany);
+            }
+            else{
+                //I got nothin clever to say here
+                $scope.total+=(el.howMany*el.price);
+            }
+        })
+    }
+    $scope.adjustPrice();
+
 });
