@@ -28,7 +28,7 @@
     display: inline-block;
     background-color: white;
     &:hover {
-        opacity: 0.5;
+        opacity: 0.85;
     }
 }
 .product-pictures {
@@ -58,4 +58,8 @@
 
 .product-list h1 {
     text-align: center;
+}
+
+.quantity-box {
+    width: 45px;
 }

@@ -3,7 +3,7 @@ var app = angular.module('FullstackGeneratedApp', ['ui.router', 'fsaPreBuilt', '
 
 app.controller('MainController', function($scope, $cookies, $cookieStore, $window) {
 
-  $cookieStore.remove("products");
+  $cookieStore.remove('products');
 
   $scope.loggedIn = sessionStorage.loggedinUser || undefined;
 
@@ -40,7 +40,7 @@ app.controller('MainController', function($scope, $cookies, $cookieStore, $windo
     state: 'logout'
   }];
 
-  // removes tabs based on login state ++ removed logout link in navbar from navbar.html and added logout state  
+  // removes tabs based on login state ++ removed logout link in navbar from navbar.html and added logout state
   if ($scope.loggedIn) $scope.menuItems.splice(5, 2);
   else $scope.menuItems.splice(7, 2);
 

@@ -4,8 +4,6 @@ app.factory('loginFactory', function($http, AuthService){
 		checkUser : function (users) {
 			console.log("You are in login Factory!");
 			return AuthService.login(users);
-
-			// return $http.post('/api/login/newUser', user);
 		}
 	};
 });

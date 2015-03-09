@@ -11,7 +11,10 @@
             <br> Price: {{ product.price.toString() | currency }}
             <br> Category: {{ product.category.join(', ') }}
             <br>
-            <button ng-click='addtocart(product.title);' class="addtocart">Add to Cart</button>
+            <form>
+                <input class="quantity-box" name="quantity" type="number" min="1" value="1" >
+                <button ng-click="addtocart({product: product._id, quantity: product.quantity})" class="addtocart">Add to Cart</button>
+            <form>
         </div>
     </div>
 </div>

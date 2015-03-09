@@ -1,9 +1,9 @@
 'use strict';
 app.factory('AddToCart', function() {
 
-            var cartcontent = {
-                user: req.body.cookies.cart,
-                products: []
+  var cartcontent = {
+    user: req.body.cookies.cart,
+    products: []
 
   };
 
