@@ -12,7 +12,8 @@ app.config(function ($stateProvider) {
 app.controller('profileController', function ($scope, $state,  AuthService, profileFactory) {
 
     profileFactory.getProfile().then(function(data){
-        console.log("Userdata :", data);
-        $scope.userinfo = data;
+        $scope.userinfo = data[0];
+        $scope.email = data[0].email;
+        // $scope.useremail = data[0].email;
     })
 });

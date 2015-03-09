@@ -10,3 +10,5 @@ router.use('/signup', require('./signup.js'));
 router.use('/subpay', require('./subpay'));
 router.use('/admin', require('./admin.js'));
 router.use('/profile', require('./profile.js'));
+router.use('/login', require('./login.js'));
+router.use('/logout', require('./logout.js'));

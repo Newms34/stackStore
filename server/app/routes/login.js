@@ -16,7 +16,9 @@ router.post('/', function (req, res, next) {
     	console.log("login Success");
     	res.json(user);
     } else {
-      res.redirect('/signup');
+      // use ngDialog 
+      console.log("create new id");
+      res.json(user);
     }
   });
 });
