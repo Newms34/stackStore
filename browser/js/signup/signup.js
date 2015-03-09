@@ -16,16 +16,10 @@ app.controller('signUpController', function ($scope, $window, $location, signupF
         password: ""
 	};
 
-    $scope.getCreatedUser = function(){
-        // signupFactory.getUser().then(function(data){
-        //     $scope.user = data;
-        // });
-    };
-
     $scope.newUserSignUp = function(newUser){
         signupFactory.addNewUser(newUser).then(function(data){
-            if (data.success === true)
-            console.log("success");
+            if(data !== null) 
+            $window.location.href = '/login';
         });
     };
 

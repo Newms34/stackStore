@@ -18,7 +18,7 @@ router.post('/newUser', function (req, res, next) {
 
     if (user !== null){
     	console.log("You already have an account!");
-    	res.redirect('/signup');
+    	res.json(user);
     } else {
     	mongoose.model('User').create({'email': email, 'password': password}, function(err, done){
     		if (err) return next(err);
