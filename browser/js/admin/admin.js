@@ -10,11 +10,11 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('adminController', function($scope, adminFactory, $state) {
+app.controller('adminController', function($scope, adminFactory, $state, ngDialog) {
     $scope.users = {};
     $scope.prods = {};
     $scope.whichProd = 'Mint';
-    $scope.allProdCats = ['Mint','Coffee'];
+    $scope.allProdCats = ['Mint', 'Coffee'];
     $scope.checkForAdmin = function() {
         console.log('checkin user:')
         adminFactory.checkUser().then(function(response) {
@@ -61,24 +61,63 @@ app.controller('adminController', function($scope, adminFactory, $state) {
     };
     $scope.submitItem = function(prod) {
         var keys = prod.keys.split(',');
-        keys = keys.map(function(el){
+        keys = keys.map(function(el) {
             return el.trim();
         })
         var objToAddData = {
-            name:prod.name,
-            desc:prod.desc,
-            price: parseInt(prod.price*100),
-            type:prod.type,
-            file:prod.file,
-            keys:keys
+            name: prod.name,
+            desc: prod.desc,
+            price: parseInt(prod.price * 100),
+            type: prod.type,
+            file: prod.file,
+            keys: keys
         };
 
-        adminFactory.addProd(objToAddData).then(function(data){
-            console.log('Added: '+data);
+        adminFactory.addProd(objToAddData).then(function(data) {
+            console.log('Added: ' + data);
             $scope.getAllProds($scope.whichProd);
         })
     };
-    $scope.editItem = function(prod){
+    $scope.editItem = function(prod) {
         console.log(prod);
+        var editDiag = ngDialog.openConfirm({
+            template: '/js/admin/editProd.html', 
+            className:'ngdialog-theme-default',
+            data:{title:prod,type:$scope.whichProd},
+            overlay:false,
+            controller:'editCont'
+        });
+    };
+    $scope.$on('ngDialog.closed',function(){
+        $scope.getAllProds($scope.whichProd);
+    })
+});
+
+
+app.controller('editCont', function($scope,adminFactory,ngDialog) {
+    $scope.currObj={};
+    adminFactory.editProd($scope.ngDialogData).then(function(data){
+        console.log(data);
+        $scope.updateForm(data);
+    })
+    $scope.updateForm = function(data){
+        $scope.currObj = data;
+        $scope.edit = data;
+        $scope.edit.price /=100;
+    }
+    $scope.submitItemEdit = function(edit){
+        //construct object to be sent to backend.
+        var editObj = {
+            'type' : $scope.ngDialogData.type,
+            'desc' : edit.description,
+            'price' : edit.price,
+            'keys' : edit.category,
+            'file': edit.photo,
+            'title':edit.title
+        };
+        adminFactory.editProdSub(editObj).then(function(data){
+            $scope.currObj = data;
+            $scope.updateForm($scope.currObj)
+        });
     }
 });

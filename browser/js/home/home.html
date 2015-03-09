@@ -11,7 +11,7 @@
         <br>
         <div class="product-listing-info ng-binding ng-scope">
             Title: {{ product.title }}
-            <br> Price: {{ product.price.toString() | currency }}
+            <br> Price: {{ (product.price/100).toString() | currency }}
             <br> Category: {{ product.category.join(', ') }}
             <br>
             <button ng-click='addtocart(product.title);' class="addtocart">Add to Cart</button>
