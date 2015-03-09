@@ -1,21 +1,24 @@
-<div>
-</div>
-
 <div class='prodDetailBlurb'>
-	<div class="product image">
+	<div class="product-image">
 		<img src = {{thisItem.photo}} /> 
 		<br>
 		Roll over image to zoom in 
 	</div>
 
-	<div class="product description">
+	<div class="product-description">
 		<h1>{{ thisItem.title }}<h1>
-		<h2>List Price: {{ thisItem.price }} + 2;
-		{{ thisItem.price }}
-		{{ thisItem.description }}
+		{{ productId }}
+		<h2>Price: {{ thisItem.price }} </h2>
+		<h2>Product Description </h2>
+		<h2>{{ thisItem.description }} </h2>
 	</div>
 
 <button class='buy' ng-click='addtocart(thistitle);'>Add to Cart</button>
 </div>
 
+<hr>
 
+
+	<a href="/reviews/{{thisItem._id}}">
+	<button class='review'> Write a customer review </button>
+	</a>
