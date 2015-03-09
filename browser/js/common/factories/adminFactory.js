@@ -39,11 +39,17 @@ app.factory('adminFactory', function($http) {
                 return response.data;
             });
         },
-        editProd: function(title){
-        	// return $http.post('/api/admin/editProd',prodObj).then(function(response){
-        	// 	return response.data;
-        	// })
-			//ask user for update info
+        editProd: function(prodObj) {
+            //GET (via post.. i dunno) product to edit
+            return $http.post('/api/admin/editProd', prodObj).then(function(response) {
+                return response.data;
+            });
+        },
+        editProdSub: function(editObj){
+            //SUBMIT the edits 
+            return $http.post('/api/admin/editSubmit',editObj).then(function(response){
+                return response.data;
+            });
         }
     };
 });
