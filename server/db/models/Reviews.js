@@ -11,7 +11,8 @@ var schema = new mongoose.Schema({
     	minLength: 20
     },
     product: {
-    	type: String
+    	type: mongoose.Schema.Types.ObjectId, 
+    	ref: 'Review'
     },
     user: {
     	type: String,
