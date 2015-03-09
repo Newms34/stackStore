@@ -1,7 +1,21 @@
-<div ng-controller="prodDetailCtrl" class='prodDetailImg' style='background-image:url({{prod.photo}})'>
+<div>
 </div>
-<div class='prodDetailBlurb'>{{prod.description}}
 
-{{thistitle}}
+<div class='prodDetailBlurb'>
+	<div class="product image">
+		<img src = {{thisItem.photo}} /> 
+		<br>
+		Roll over image to zoom in 
+	</div>
+
+	<div class="product description">
+		<h1>{{ thisItem.title }}<h1>
+		<h2>List Price: {{ thisItem.price }} + 2;
+		{{ thisItem.price }}
+		{{ thisItem.description }}
+	</div>
+
 <button class='buy' ng-click='addtocart(thistitle);'>Add to Cart</button>
 </div>
+
+

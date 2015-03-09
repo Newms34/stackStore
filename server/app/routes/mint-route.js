@@ -10,3 +10,11 @@ router.get('/', function(req, res, next) {
     res.json(mints);
   });
 });
+
+router.get('/:id', function(req, res, next) {
+	var mintId = req.params.id;
+  mongoose.model('Mint').findOne({_id: mintId}, function(err, mint) {
+    if (err) return next(err);
+    res.json(mint);
+  });
+});

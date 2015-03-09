@@ -3,7 +3,10 @@
     <h1>Mint</h1>
     <div ng-controller="prodDetailCtrl" class="product-listing" ng-repeat="mint in mints">
 
+        <a href="/product/{{mint._id}}/{{mint.isCoffee}}">
         <img class="product-pictures" ng-src="{{ mint.photo }}"/>
+        </a>
+
         <ul>
             <li>Title: {{ mint.title }}
                 <br> Price: {{ mint.price/100 | currency }}

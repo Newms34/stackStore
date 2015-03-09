@@ -7,5 +7,10 @@ app.factory('MintFactory', function($http) {
         return response.data;
       });
     },
+    getOneMintDb: function (id){
+    	return $http.get('api/mints/' + id).then(function(response){
+    		return response.data;
+    	});
+    }
   };
 });
