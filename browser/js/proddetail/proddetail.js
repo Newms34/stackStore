@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('prodDetailCtrl', function($scope, $stateParams, CoffeeFactory, MintFactory, addtocart) {
+app.controller('prodDetailCtrl', function($scope, $state, $stateParams, CoffeeFactory, MintFactory, addtocart) {
     //TEMPORARY! FOR TESTING
     // console.log($stateParams.produ, 'this is produ');
 
@@ -26,7 +26,6 @@ app.controller('prodDetailCtrl', function($scope, $stateParams, CoffeeFactory, M
             $scope.thisItem = data;
         });
     }
-
 
     // $scope.prod = {
     //     title: 'Sample Product',
@@ -45,6 +44,11 @@ app.controller('prodDetailCtrl', function($scope, $stateParams, CoffeeFactory, M
     //     $scope.prod.photo = 'images/placeholderMint.png';
     // }
     // $scope.prod.priceOut = '$' + ($scope.prod.price / 100);
+    $(':radio').change(
+      function(){
+        $('.choice').text( this.value + ' stars' );
+      }
+    )
 
     $scope.addtocart = function(data){
         addtocart.addtocart(data);

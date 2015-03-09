@@ -25,8 +25,13 @@ var schema = new mongoose.Schema({
     photo: {
         type: String,
         default: '/images/placeHolder.jpg'
-    }
+    },
+    reviews: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Review'
+    }]
 });
+
 
 schema.pre('save', function(next) {
     next();
