@@ -10,3 +10,14 @@ router.get('/', function(req, res, next) {
     res.json(coffee);
   });
 });
+
+
+router.get('/:id', function(req, res, next) {
+	var coffeeId = req.params.id;
+  mongoose.model('Coffee').findOne({_id: coffeeId}, function(err, coffee) {
+    if (err) return next(err);
+    res.json(coffee);
+  });
+});
+
+

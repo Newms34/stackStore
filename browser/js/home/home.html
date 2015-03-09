@@ -4,7 +4,10 @@
     <h1>Coffee Meets Mints</h1>
     <div ng-controller="prodDetailCtrl" class="product-listing" ng-repeat="product in products | limitTo: 12">
 
+        <a href="/product/{{product._id}}/{{product.isCoffee}}">
         <img class="product-pictures" ng-src="{{ product.photo }}" />
+        </a>
+
         <br>
         <div class="product-listing-info ng-binding ng-scope">
             Title: {{ product.title }}

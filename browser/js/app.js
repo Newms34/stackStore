@@ -32,18 +32,25 @@ app.controller('MainController', function($scope, $cookies, $cookieStore, $windo
   }, {
     label: 'Log In',
     state: 'login'
-  }, {
-    label: 'Profile',
-    state: 'profile'
-  }, {
-    label: 'Log Out',
-    state: 'logout'
   }];
+
+
 
   // removes tabs based on login state ++ removed logout link in navbar from navbar.html and added logout state  
 
-  if ($scope.loggedIn) $scope.menuItems.splice(5, 2);
-  else $scope.menuItems.splice(7, 2);
+  $scope.newMenuItems = $scope.menuItems;
+
+  if (!$scope.loggedIn) $scope.newMenuItems = $scope.menuItems;
+  else {
+    $scope.newMenuItems[5] = {
+    label: 'Profile',
+    state: 'profile'
+   };
+   $scope.newMenuItems[6] = {
+    label: 'Log Out',
+    state: 'logout'
+   };
+  };
 });
 
 app.config(function($urlRouterProvider, $locationProvider) {
