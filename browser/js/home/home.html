@@ -5,7 +5,7 @@
     <div ng-controller="prodDetailCtrl" class="product-listing" ng-repeat="product in products | limitTo: 12">
 
         <a href="/product/{{product._id}}/{{product.isCoffee}}">
-        <img class="product-pictures" ng-src="{{ product.photo }}" />
+            <img class="product-pictures" ng-src="{{ product.photo }}" />
         </a>
 
         <br>
