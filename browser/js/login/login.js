@@ -10,13 +10,9 @@ app.config(function ($stateProvider) {
 
 });
 
-app.controller('loginController', function ($scope, $window, $state, $location, AuthService, loginFactory) {
-	// $scope.user = {
- //        email: "",
- //        password: ""
-	// };
+app.controller('loginController', function ($scope, $window, $state, $location, AuthService, loginFactory)
 
-    $scope.userLogin = function(users){
+    { $scope.userLogin = function(users){
         loginFactory.checkUser(users).then(function(loggedin){
             sessionStorage.loggedinUser = loggedin.email;
             $window.location.href = '/';
