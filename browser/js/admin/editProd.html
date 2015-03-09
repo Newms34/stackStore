@@ -1,0 +1,49 @@
+<div class='dialog-contents customDiag'>
+	<h1>{{ngDialogData.title}}</h1>
+ <form name='editForm' >
+            <table>
+                <tr>
+                    <td>
+                        <label for='editItemName'>Title of item: </label>
+                    </td>
+                    <td>
+                        <input type='text' name='editItemName' ng-model='edit.title' disabled/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='editItemDesc'>Description of item: </label>
+                    </td>
+                    <td>
+                        <input type='text' name='editItemDesc' ng-model='edit.description' required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='editItemPrice'>Price of item: ($)</label>
+                    </td>
+                    <td>
+                        <input type='text' name='editItemPrice' ng-model='edit.price' required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='editItemKeys'>Keywords of item (separate by commas): </label>
+                    </td>
+                    <td>
+                        <input type='text' name='editItemKeys' ng-model='edit.category' required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for='editItemFile'>Want a picture?: </label>
+                    </td>
+                    <td>
+                        <input type='text' name='editItemFile' ng-model='edit.photo'/>
+                    </td>
+                </tr>
+            </table>
+            <button ng-click='submitItemEdit(edit)'>Edit the item!</button>
+        </form>
+	<button ng-click='closeThisDialog(alert("hi"))'>Done</button>
+</div>

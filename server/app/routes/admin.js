@@ -90,17 +90,38 @@ router.post('/addProd', function(req, res, next) {
 });
 
 router.post('/editProd', function(req, res, next) {
-    var title = req.body.name;
+    var title = req.body.title;
     var col = req.body.type;
     mongoose.model(col).findOne({
         title: title
     }, function(err, prod) {
         if (err) return next(err);
         if (prod !== null) {
-            prod.save();
-            res.send(title);
+            res.json(prod);
         } else {
-            res.send('Err: That product already exists!');
+            res.send('Err: That product does not exist!');
         }
+    });
+});
+
+router.post('/editSubmit',function(req,res,next){
+    var title = req.body.title,
+    type = req.body.type,
+    desc = req.body.desc,
+    price = parseInt(req.body.price*100),
+    keys = req.body.keys,
+    file = req.body.file;
+    console.log('E: ',req.body.title);
+    mongoose.model(type).findOne({
+        title: title
+    },function(err,prod){
+        if(err) return next(err);
+        prod.description = desc;
+        prod.price = price;
+        prod.category = keys;
+        prod.file = file;
+        console.log(prod)
+        prod.save();
+        res.json(prod);
     });
 });
