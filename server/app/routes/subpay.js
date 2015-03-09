@@ -14,7 +14,16 @@ router.post('/payCard', function(req, res, next) {
         source: req.body.token,
         description: req.body.manifest
     }, function(err, charge) {
-        res.send('Charged! Details: '+charge);
+        res.send('Charged! Details: ' + charge);
     });
+});
 
+router.post('/getUserId', function(req, res, next) {
+    res.send('meep')
+});
+
+router.get('/getNumUsers', function(req, res, next) {
+    mongoose.model('Users').find({}, function(err, usrs) {
+        res.send(usrs.length);
+    });
 });
