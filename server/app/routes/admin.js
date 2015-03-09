@@ -77,10 +77,10 @@ router.post('/addProd', function(req, res, next) {
         if (err) return next(err);
         if (prod === null) {
             mongoose.model(col).create({
-                'title':req.body.name,
-                'description':req.body.desc,
-                'price':req.body.price,
-                'category':req.body.keys
+                'title': req.body.name,
+                'description': req.body.desc,
+                'price': req.body.price,
+                'category': req.body.keys
             });
             res.send(title);
         } else {
@@ -104,24 +104,49 @@ router.post('/editProd', function(req, res, next) {
     });
 });
 
-router.post('/editSubmit',function(req,res,next){
+router.post('/editSubmit', function(req, res, next) {
     var title = req.body.title,
-    type = req.body.type,
-    desc = req.body.desc,
-    price = parseInt(req.body.price*100),
-    keys = req.body.keys,
-    file = req.body.file;
-    console.log('E: ',req.body.title);
+        type = req.body.type;
+    console.log('E: ', req.body.title);
     mongoose.model(type).findOne({
         title: title
-    },function(err,prod){
-        if(err) return next(err);
-        prod.description = desc;
-        prod.price = price;
-        prod.category = keys;
-        prod.file = file;
-        console.log(prod)
+    }, function(err, prod) {
+        if (err) return next(err);
+        prod.description = req.body.desc;
+        prod.price = parseInt(req.body.price*100);
+        prod.category = req.body.keys;
+        prod.photo = req.body.file;
         prod.save();
         res.json(prod);
     });
 });
+
+router.get('/proms',function(req,res,next){
+    mongoose.model('Promo').find({},function(err,proms){
+        if (err) return next(err);
+        console.log('Proms ',proms)
+        res.send('Hi');
+    });
+});
+
+router.post('/addProm',function(req,res,next){
+    var code = req.body.code;
+    var expDate = req.body.expDate;
+    var creDate = req.body.creDate;
+    var cat = req.body.cat;
+    var pricePerc = req.body.pricePerc;
+    mongoose.model('Promo').create({
+        'code':code,
+        'creationDate':creDate,
+        'expireDate':expDate,
+        'promotionOn': cat,
+        'pricePerc':pricePerc
+    });
+})
+
+router.post('/remProm',function(req,res,next){
+    var code = req.body.code;
+    mongoose.model('Promo').findOneAndRemove({code:code},function(err,response){
+        res.send(response);
+    })
+})

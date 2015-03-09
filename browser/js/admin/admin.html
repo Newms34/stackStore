@@ -76,7 +76,7 @@
                         <label for='itemFile'>Want a picture?: </label>
                     </td>
                     <td>
-                        <input type='text' name='itemFile' ng-model='add.file'/>
+                        <input type='text' name='itemFile' ng-model='add.file' />
                     </td>
                 </tr>
                 <tr>
@@ -84,8 +84,8 @@
                         <label for='itemType'>And what kind of item is this?: </label>
                     </td>
                     <td>
-                        <select ng-model="add.type" name ='itemType'>
-                        	<option ng-repeat = 'flavor in allProdCats' value='{{flavor}}'>{{flavor}}</option>
+                        <select ng-model="add.type" name='itemType'>
+                            <option ng-repeat='flavor in allProdCats' value='{{flavor}}'>{{flavor}}</option>
                         </select>
                     </td>
                 </tr>
@@ -93,5 +93,68 @@
 
             <button type='submit'>Add the item!</button>
         </form>
+    </div>
+    <div id='promo'>
+        Manage Promotions:
+        <table>
+            <tr>
+                <th>Promotion Code</th>
+                <th>Categpry</th>
+                <th>Price Discount</th>
+                <th>Creation Date</th>
+                <th>Expiration Date</th>
+                <th>Remove</th>
+            </tr>
+            <tr ng-repeat='prom in proms'>
+                <td>{{prom.code}}</td>
+                <td>{{prom.promotionOn}}</td>
+                <td>{{prom.pricePerc}}</td>
+                <td>{{prom.creationDate}}</td>
+                <td>{{prom.expireDate}}</td>
+                <td>
+                    <button title='Remove Promotion' ng-click='dePromote(prom.code)'>X</button>
+                </td>
+            </tr>
+            <tr>
+                <td class='examp'>--------</td>
+                <td class='examp'>Add Promotions below!</td>
+                <td class='examp'>---------</td>
+                <td class='examp'>---------</td>
+                <td class='examp'>---------</td>
+                <td class='examp'>---------</td>
+            </tr>
+            <tr>
+                <td colspan='6'>
+                    <form name='promAdd'>
+
+                        <p>
+                            <label for='promCode'>Promotion Code: </label>
+                            <input type='text' name='promCode' ng-model='newProm.code' required/>
+                        </p>
+                        <p>
+                            <label for='promCat'>Promotion Category: </label>
+                            <select ng-model="newProm.promotionOn" name='promCat' required>
+                                <option ng-repeat='flavor in allProdCats' value='{{flavor}}'>{{flavor}}</option>
+                            </select>
+                        </p>
+                        <p>
+                            <label for='promPrice'>Promotion Price Discount (%): </label>
+                            <input type='text' name='promPrice' ng-model='newProm.pricePerc' required/>
+                        </p>
+                        <p>
+                            <label for='promStart'>Promotion Start Date: </label>
+                            <input type='text' name='promStart' ng-model='newProm.creationDate' required/>
+                        </p>
+                        <p>
+                            <label for='promEnd'>Promotion End Date: </label>
+                            <input type='text' name='promEnd' ng-model='newProm.expireDate' required/>
+                        </p>
+                        <p>
+                            <button ng-click='addNewPromo(newProm)'>Promote!</button>
+                        </p>
+                    </form>
+                </td>
+            </tr>
+        </table>
     </div>
 </section>

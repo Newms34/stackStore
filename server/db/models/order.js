@@ -12,26 +12,29 @@ var schema = new Schema({
     ref: 'User'
   },
   products: [{
-    prodId: {
+    productId: {
       type: Schema.Types.ObjectId,
       ref: 'Product'
     },
     Price: Number,
     Quantity: Number
   }],
-  status: String
-});
-
-
-schema.pre('save', function(next) {
-  var ord = this;
-  if (ord.user !== 'none') {
-    //save in user's order history
+  status: String,
+  promoted: {
+    type:Boolean,
+    default:false
   }
-  next();
 });
+
+
+// schema.pre('save', function(next) {
+//   var ord = this;
+//   if (ord.user !== 'none') {
+//     //save in user's order history
+//   }
+//   next();
+// });
 
 
 mongoose.model('Order', schema);
 
-//change user, session to strings, default 'none', check to make sure both are not none
