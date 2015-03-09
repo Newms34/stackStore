@@ -14,6 +14,7 @@ app.controller('payCtrl', function($scope, $stateParams, $http) {
     $scope.cartToPay = angular.fromJson(sessionStorage.thisCart);
     console.log('Your cart: ', $scope.cartToPay);
     $scope.total = 0;
+    $scope.proms = {};
     $scope.cartToPay.forEach(function(el) {
         $scope.total += (el.price) * (el.howMany);
     })
@@ -76,15 +77,23 @@ app.controller('payCtrl', function($scope, $stateParams, $http) {
             $http.post('/api/subpay/getUserId', {
                 name: sessionStorage.loggedinUser
             }).then(function(data) {
-                var userId=data;
+                var userId = data;
                 //now send off info to orders db to record
             });
-        }
-        else{
+        } else {
             //not a logged in user. They'll just be user 'Anon N', where N is a number
-            $http.get('/getNumUsers').then(function(data){
+            $http.get('/getNumUsers').then(function(data) {
                 var userId = data;
             })
         }
     };
+    $scope.getAllPromos = function() {
+        promoFactory.getAllProms().then(function(data) {
+            if (data != 'none') {
+                $scope.proms = data;
+            } else {
+                $scope.proms = {};
+            }
+        })
+    }
 });

@@ -82,59 +82,66 @@ app.controller('adminController', function($scope, adminFactory, prodsFactory, p
     $scope.editItem = function(prod) {
         console.log(prod);
         var editDiag = ngDialog.openConfirm({
-            template: '/js/admin/editProd.html', 
-            className:'ngdialog-theme-default',
-            data:{title:prod,type:$scope.whichProd},
-            overlay:false,
-            controller:'editCont'
+            template: '/js/admin/editProd.html',
+            className: 'ngdialog-theme-default',
+            data: {
+                title: prod,
+                type: $scope.whichProd
+            },
+            overlay: false,
+            controller: 'editCont'
         });
     };
-    $scope.$on('ngDialog.closed',function(){
+    $scope.$on('ngDialog.closed', function() {
         $scope.getAllProds($scope.whichProd);
     })
-    $scope.addNewPromo = function(newPromo){
-        console.log('Attempting to add: ',newPromo)
-        // promoFactory.addPromo(newPromo).then(function(data){
-        //     $scope.getAllPromos();
-        // });
-    };
-    $scope.getAllPromos = function(){
-        promoFactory.getAllProms().then(function(data){
-            if (data!=null){
+
+    $scope.getAllPromos = function() {
+        promoFactory.getAllProms().then(function(data) {
+            if (data != 'none') {
                 $scope.proms = data;
-            }
-            else{
+            } else {
                 $scope.proms = {};
             }
-            console.log($scope.proms);
         })
     }
     $scope.getAllPromos();
+
+    $scope.addNewPromo = function(newPromo) {
+        promoFactory.addPromo(newPromo).then(function(data) {
+            $scope.getAllPromos();
+        });
+    };
+    $scope.dePromote = function(toDePromote) {
+        promoFactory.remPromo(toDePromote).then(function(data) {
+            $scope.getAllPromos();
+        });
+    };
 });
 
 
-app.controller('editCont', function($scope,prodsFactory,ngDialog) {
-    $scope.currObj={};
-    prodsFactory.editProd($scope.ngDialogData).then(function(data){
+app.controller('editCont', function($scope, prodsFactory, ngDialog) {
+    $scope.currObj = {};
+    prodsFactory.editProd($scope.ngDialogData).then(function(data) {
         console.log(data);
         $scope.updateForm(data);
     })
-    $scope.updateForm = function(data){
+    $scope.updateForm = function(data) {
         $scope.currObj = data;
         $scope.edit = data;
-        $scope.edit.price /=100;
+        $scope.edit.price /= 100;
     }
-    $scope.submitItemEdit = function(edit){
+    $scope.submitItemEdit = function(edit) {
         //construct object to be sent to backend.
         var editObj = {
-            'type' : $scope.ngDialogData.type,
-            'desc' : edit.description,
-            'price' : edit.price,
-            'keys' : edit.category,
+            'type': $scope.ngDialogData.type,
+            'desc': edit.description,
+            'price': edit.price,
+            'keys': edit.category,
             'file': edit.photo,
-            'title':edit.title
+            'title': edit.title
         };
-        prodsFactory.editProdSub(editObj).then(function(data){
+        prodsFactory.editProdSub(editObj).then(function(data) {
             $scope.currObj = data;
             $scope.updateForm($scope.currObj);
         });

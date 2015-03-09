@@ -3,21 +3,23 @@
     <div id='cartChart' class='cartMisc'>
         Thanks for buying from us! Your total: {{totalOut}}
         <form name='cardForm' id='cardForm'>
-            <label for='cardName'>Name on card: </label>
-            <input type='text' name='cardName' ng-model='card.name' required data-stripe='name'/>
-            <br/>
-            <label for='cardNum'>Card Number: </label>
-            <input type='text' name='cardNum' ng-model='card.number' required data-stripe='number'/>
-            <br/>
-            <b>Expiration Date:</b>
-            <label for='cardExpmo'>Mo: </label>
-            <input type='text' name='cardExpmo' ng-model='card.expmo' maxlength=2 size=2 required data-stripe='exp-month'/>
-            <label for='cardExpyr'> Yr: </label>
-            <input type='text' name='cardExpyr' ng-model='card.expyr' maxlength=4 size=4 required data-stripe='exp-year'/>
-            <br/>
-            <label for='cvv'>CVV Code: </label>
-            <input type='text' name='cvv' ng-model='card.cvv' maxlength=4 size=4 required data-stripe='cvc'/>
-            <br/>
+            <div class='form-group'>
+                <label for='cardName'>Name on card: </label>
+                <input type='text' name='cardName' ng-model='card.name' required data-stripe='name' />
+                <br/>
+                <label for='cardNum'>Card Number: </label>
+                <input type='text' name='cardNum' ng-model='card.number' required data-stripe='number' />
+                <br/>
+                <b>Expiration Date:</b>
+                <label for='cardExpmo'>Mo: </label>
+                <input type='text' name='cardExpmo' ng-model='card.expmo' maxlength=2 size=2 required data-stripe='exp-month' />
+                <label for='cardExpyr'>/</label>
+                <input type='text' name='cardExpyr' ng-model='card.expyr' maxlength=4 size=4 required data-stripe='exp-year' />
+                <br/>
+                <label for='cvv'>CVV Code: </label>
+                <input type='text' name='cvv' ng-model='card.cvv' maxlength=4 size=4 required data-stripe='cvc' />
+                <br/>
+            </div>
             <button type='submit'>Pay</button>
         </form>
     </div>

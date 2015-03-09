@@ -20,6 +20,6 @@ app.factory('adminFactory', function($http) {
             return $http.post('/api/admin/chkUsr', {
                 user: user
             });
-        },
+        }
     };
 });

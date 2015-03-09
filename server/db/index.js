@@ -17,6 +17,7 @@ require('./models/order');
 require('./models/product');
 require('./models/coffee');
 require('./models/mint');
+require('./models/promo');
 
 var startDbPromise = new Q(function (resolve, reject) {
     db.on('open', resolve);
