@@ -7,6 +7,11 @@ app.factory('CoffeeFactory', function($http) {
         return response.data;
       });
     },
-  };
+    getOneCoffeeDb: function (id){
+    	return $http.get('api/coffee/' + id).then(function(response){
+    		return response.data;
+    	});
+    }
+    };
 });
 
