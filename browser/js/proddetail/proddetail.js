@@ -44,6 +44,11 @@ app.controller('prodDetailCtrl', function($scope, $state, $stateParams, CoffeeFa
     //     $scope.prod.photo = 'images/placeholderMint.png';
     // }
     // $scope.prod.priceOut = '$' + ($scope.prod.price / 100);
+    $(':radio').change(
+      function(){
+        $('.choice').text( this.value + ' stars' );
+      }
+    )
 
     $scope.addtocart = function(data){
         addtocart.addtocart(data);
