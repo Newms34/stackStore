@@ -28,7 +28,11 @@ app.controller('payCtrl', function($scope, $stateParams, $http, promoFactory) {
         expmo: 0,
         expyr: 0,
         cvv: 0,
-        total: 0
+        total: 0,
+        addr: "",
+        city:"",
+        state:"",
+        zip:0
     }
     console.log('items buying: ', $scope.cartToPay);
     $scope.manifest = function() {

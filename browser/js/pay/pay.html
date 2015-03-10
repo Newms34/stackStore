@@ -28,8 +28,15 @@
 
                 <label for='address'>Street: </label>
                 <input type='text' name='address' ng-model='card.addr' required data-stripe='address-line1' />
-                <label for='address'>Street: </label>
-                <input type='text' name='address' ng-model='card.addr' required data-stripe='address-line1' />
+                <br/>
+                <label for='address'>City: </label>
+                <input type='text' name='address' ng-model='card.city' required data-stripe='address-city' />
+                <br/>
+                <label for='address'>State: </label>
+                <input type='text' name='address' ng-model='card.state' required data-stripe='address-state' maxlength=2 size=2  />
+
+                <label for='address'>Zip: </label>
+                <input type='text' name='address' ng-model='card.zip' required data-stripe='address-zip' maxlength=5 size=5 />
             </div>
 
             <div class='form-group paygrpTit'>Promo Code</div>
@@ -41,5 +48,3 @@
         </form>
     </div>
 </section>
-
-THIS IS BROKEN NOW BECAUSE I NEED TO ADD ADDRESS. ILL BREAK YER FACE IF U UNBREAK IT. 
