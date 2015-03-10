@@ -9,7 +9,8 @@
         </div>
     </div>
 
-    {{ order }}
+
+    {{ orders }}
 
 <!--     {{ order }} -->
     <div id="pastOrder">
@@ -19,15 +20,15 @@
 
     <div class="panel panel-default" ng-repeat="order in orders">
       <div class="panel-heading">
-        Order Placed: 
-        Total: 
+        Order Placed: {{ order.date }}
+        Total: {{ order.totalPrice | currency }}
         Order #: {{ order._id }}
       </div>
 
      <!--  add ng-repeat="pastorder in pastorders" when we them!!! -->
       <div class="panel-body">      
         <div class="row">
-            <div class="col-xs-6 col-md-3"> price: {{ order.products.price }}</div>
+            <div class="col-xs-6 col-md-3"> price: </div>
             <div class="col-xs-12 col-md-9"> Product: {{ order.products }} </div>
         </div>
       </div>

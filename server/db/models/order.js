@@ -23,6 +23,9 @@ var schema = new Schema({
   promoted: {
     type:Boolean,
     default:false
+  },
+  date: {
+    type: String
   }
 });
 
