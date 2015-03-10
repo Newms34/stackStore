@@ -7,7 +7,13 @@ app.factory('promoFactory', function($http) {
             });
         },
         addPromo: function(promToAdd){
-            return $http.post('/api/admin/addPromo',promToAdd).then(function(response){
+            return $http.post('/api/admin/addProm',promToAdd).then(function(response){
+                return response.data;
+            });
+        },
+        remPromo: function(promToRem){
+            console.log('Remove: ',promToRem)
+            return $http.post('/api/admin/remProm',{code:promToRem}).then(function(response){
                 return response.data;
             });
         }

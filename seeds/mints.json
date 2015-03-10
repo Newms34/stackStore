@@ -9,11 +9,17 @@
     "description": "Taken from the northern slopes of Narnia.",
     "price": 2099,
     "isCoffee": false,
-    "category": ["may contain traces of elves", "cenaturi te salutamus", "spearmint"]
+    "category": ["may contain traces of elves", "cenaturi te salutamus", "dubious"]
 }, {
     "title": "Stuff I Found On The Sidewalk",
     "description": "Im not sure what this is. It might be a minty. Or just poison.",
     "price": 10,
     "isCoffee": false,
     "category": ["nearly free", "dubious", "almost as bad as Starbucks coffee"]
+}, {
+    "title": "Methyl 2-hydroxybenzoate Neurotoxin",
+    "description": "It's mint. But with 20% more Science.",
+    "price": 1856,
+    "isCoffee": false,
+    "category": ["middle-price", "20% more science by volume", "extra minty"]
 }]

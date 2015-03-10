@@ -9,6 +9,7 @@ app.config(function($stateProvider) {
 
 });
 
+
 app.controller('prodDetailCtrl', function($scope, $state, $stateParams, CoffeeFactory, MintFactory, addtocart, ReviewsFactory) {
 
     $scope.productId = $stateParams.productId;
@@ -16,6 +17,7 @@ app.controller('prodDetailCtrl', function($scope, $state, $stateParams, CoffeeFa
     var total = 0;
    
     if($stateParams.productType !== "true"){
+        console.log('A mint:',$scope.productId,'|',$scope.item);
         MintFactory.getOneMintDb($stateParams.productId).then(function(data){
             $scope.thisItem = data;
         });
@@ -72,7 +74,7 @@ app.controller('prodDetailCtrl', function($scope, $state, $stateParams, CoffeeFa
       }
     )
 
-    $scope.addtocart = function(data){
-        addtocart.addtocart(data);
+    $scope.addtocart = function(id, isCoffee){
+        addtocart.addtocart(id, isCoffee);
     }
 });

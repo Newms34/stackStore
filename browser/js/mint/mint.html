@@ -1,19 +1,21 @@
-
 <div class="product-list">
     <h1>Mint</h1>
-    <div ng-controller="prodDetailCtrl" class="product-listing" ng-repeat="mint in mints">
-
-        <a href="/product/{{mint._id}}/{{mint.isCoffee}}">
-        <img class="product-pictures" ng-src="{{ mint.photo }}"/>
+    <div ng-controller="MintCtrl" class="product-listing" ng-repeat="food in things| limitTo: 6">
+  
+        <a href="/product/{{food._id}}/{{food.isCoffee}}">
+            <img class="product-pictures" ng-src="{{ food.photo }}" />
         </a>
+        <br>
+
 
         <ul>
             <li>Title: {{ mint.title }}
                 <br> Price: {{ mint.price/100 | currency }}
                 <br> Category: {{ mint.category.join(', ') }}
                 <br>
-                <button ng-click="addtocart(mint.title)" class="addtocart">Add to Cart</button>
+                <button ng-click="addtocart(mint._id, mint.isCoffee)" class="addtocart">Add to Cart</button>
             </li>
         </ul>
+
     </div>
 </div>
