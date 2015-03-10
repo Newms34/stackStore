@@ -30,7 +30,7 @@ app.controller('profileController', function ($scope, $state,  AuthService, prof
                 elem.products.forEach(function(element){
                     sum += element.Price;
                 })
-                sumArray.push(sum);
+                sumArray.push(sum/100);
             })
             return sumArray;
         }
