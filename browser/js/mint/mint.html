@@ -7,12 +7,15 @@
         </a>
         <br>
 
-        <div class="product-listing-info ng-binding ng-scope">
-            <u>{{ food.title }}</u>
-            <br> Price: {{ food.price/100 | currency }}
-            <br> Category: <div class='prodCat' ng-repeat='kitty in food.category' ng-click='getKitties(kitty)'>{{kitty}}</div>
-            <br>
-            <button ng-click='addtocart(food.title);' class="addtocart">Add to Cart</button>
-        </div>
+
+        <ul>
+            <li>Title: {{ mint.title }}
+                <br> Price: {{ mint.price/100 | currency }}
+                <br> Category: {{ mint.category.join(', ') }}
+                <br>
+                <button ng-click="addtocart(mint._id, mint.isCoffee)" class="addtocart">Add to Cart</button>
+            </li>
+        </ul>
+
     </div>
 </div>
