@@ -66,7 +66,7 @@ app.controller('cartCtrl', function($scope, $cookies, $http, $state, removeitem,
             function pricequant() {
                     $scope.seshOrders.map(function(obj, index) {
                             obj.howMany = 1;
-                            
+
                             for (var i = 0; i < $scope.seshOrders.length; i++) {
                                if (i === index) continue;
                             if (obj._id === $scope.seshOrders[i]._id) {
@@ -74,13 +74,13 @@ app.controller('cartCtrl', function($scope, $cookies, $http, $state, removeitem,
                                     $scope.seshOrders.splice(i, 1);
                                     i--;
 
-                                } 
+                                }
 
                             }
                         })
-                
 
-                        
+
+
 
                         $scope.seshOrders.map(function(el) {
                             el.priceOut = '$' + el.price / 100;
@@ -92,7 +92,7 @@ app.controller('cartCtrl', function($scope, $cookies, $http, $state, removeitem,
                         $scope.total = 0;
 
                         $scope.seshOrders.forEach(function(el) {
-                           
+
                             $scope.total += el.price * el.howMany;
                         });
 
@@ -102,7 +102,7 @@ app.controller('cartCtrl', function($scope, $cookies, $http, $state, removeitem,
 
                     $scope.goPay = function() {
                         sessionStorage.thisCart = angular.toJson($scope.seshOrders);
-                        
+
                         $scope.recordOrder($scope.seshOrders);
                     };
 
@@ -124,7 +124,7 @@ app.controller('cartCtrl', function($scope, $cookies, $http, $state, removeitem,
                         orderObj.promoted = false;
                         theCart.forEach(function(theItem){
                             orderObj.products.push({
-                                productId:theItem._id,
+                                productName:theItem.title,
                                 Price:theItem.price,
                                 Quantity:theItem.howMany
                             })

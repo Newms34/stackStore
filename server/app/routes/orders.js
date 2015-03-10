@@ -17,14 +17,12 @@ router.post('/submit', function(req, res, next) {
     }, function(err, usr) {
         if (usr !== null) {
             ordersToDb.user = usr[0]._id;
-            console.log('ordersToDb',ordersToDb)
-            mongoose.model('Order').create(ordersToDb,function(err,theOrd){
-                res.send(theOrd._id)
-            });
-            // var newOrder = mongoose.model('Order');
-            // mongoose
-            
-        } else
+            ordersToDb.date = new Date().toString();
+            console.log(ordersToDb)
+            res.send('ordersToDb: ',ordersToDb)
+            mongoose.model('Order').create(ordersToDb);
+        }
+        else{
             res.send('No User');
         }
     })
@@ -33,6 +31,20 @@ router.post('/submit', function(req, res, next) {
 router.post('/payOrder', function(req, res, next) {
     var ordId = req.body.id;
     console.log('ordId: ', ordId)
+    var promoted = req.body.prom;
+    mongoose.model('Order').findById(ordId, function(err, theOrder) {
+        theOrder.status='paid';
+        if (promoted!=0){
+            theOrder.promoted=true;
+        }
+        console.log(theOrder);
+        theOrder.save()
+        res.send('Done');
+    })
+})
+
+router.get('/findOrders', function(req, res, next) {
+    var ordId = req.body.id;
     var promoted = req.body.prom;
     mongoose.model('Order').findById(ordId, function(err, theOrder) {
         theOrder.status='paid';

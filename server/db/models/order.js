@@ -12,10 +12,7 @@ var schema = new Schema({
     ref: 'User'
   },
   products: [{
-    productId: {
-      type: Schema.Types.ObjectId,
-      ref: 'Product'
-    },
+    productName: String,
     Price: Number,
     Quantity: Number
   }],
@@ -24,8 +21,12 @@ var schema = new Schema({
     type:Boolean,
     default:false
   },
-  date: String
+  date: {
+    type: String
+  }
 });
+
+
 
 mongoose.model('Order', schema);
 
