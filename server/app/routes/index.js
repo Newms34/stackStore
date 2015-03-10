@@ -12,4 +12,6 @@ router.use('/admin', require('./admin.js'));
 router.use('/profile', require('./profile.js'));
 router.use('/login', require('./login.js'));
 router.use('/logout', require('./logout.js'));
-router.use('/reviews', require('./reviews.js'))
+router.use('/reviews', require('./reviews.js'));
+router.use('/cat',require('./cat.js'));
+

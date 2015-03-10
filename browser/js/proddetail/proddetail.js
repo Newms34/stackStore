@@ -10,14 +10,13 @@ app.config(function($stateProvider) {
 });
 
 app.controller('prodDetailCtrl', function($scope, $state, $stateParams, CoffeeFactory, MintFactory, addtocart) {
-    //TEMPORARY! FOR TESTING
-    // console.log($stateParams.produ, 'this is produ');
 
     $scope.productId = $stateParams.productId;
     $scope.item = $stateParams.title;
 
 
     if($stateParams.productType !== "true"){
+        console.log('A mint:',$scope.productId,'|',$scope.item);
         MintFactory.getOneMintDb($stateParams.productId).then(function(data){
             $scope.thisItem = data;
         });
