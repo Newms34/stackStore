@@ -102,7 +102,7 @@ app.controller('cartCtrl', function($scope, $cookies, $http, $state, removeitem,
 
                     $scope.goPay = function() {
                         sessionStorage.thisCart = angular.toJson($scope.seshOrders);
-                        $state.go('pay');
+                        
                         $scope.recordOrder($scope.seshOrders);
                     };
 
@@ -133,7 +133,8 @@ app.controller('cartCtrl', function($scope, $cookies, $http, $state, removeitem,
                         //Only change we need to make on the backend is
                         //to replace username with user id
                         AddToCart.submitOrder(orderObj).then(function(result){
-                            console.log('order:',result);
+                            sessionStorage.idForOrder = result;
+                            $state.go('pay');
                         });
                     }
                 });

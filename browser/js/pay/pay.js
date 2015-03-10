@@ -9,17 +9,17 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('payCtrl', function($scope, $stateParams, $state,$http, promoFactory) {
+app.controller('payCtrl', function($scope, $stateParams, $state, $http, promoFactory) {
     $scope.cartToPay = angular.fromJson(sessionStorage.thisCart);
     $scope.codeLen = 0;
-    $scope.validCode=0;
+    $scope.validCode = 0;
     console.log('Your cart: ', $scope.cartToPay);
     $scope.total = 0;
     $scope.proms = {};
-    $scope.currPromo={
-            item:'Mint',
-            amount:0
-        }
+    $scope.currPromo = {
+        item: 'Mint',
+        amount: 0
+    }
 
     //clear card data
     $scope.card = {
@@ -30,9 +30,9 @@ app.controller('payCtrl', function($scope, $stateParams, $state,$http, promoFact
         cvv: 0,
         total: 0,
         addr: "",
-        city:"",
-        state:"",
-        zip:0
+        city: "",
+        state: "",
+        zip: 0
     }
     console.log('items buying: ', $scope.cartToPay);
     $scope.manifest = function() {
@@ -71,27 +71,18 @@ app.controller('payCtrl', function($scope, $stateParams, $state,$http, promoFact
                 manifest: $scope.manifest()
             }).then(function(response) {
                 $scope.recordOrder();
-                console.log(response.data);
             });
         }
     }
     var prodsArr = [];
     $scope.recordOrder = function() {
-        var status = 'paid';
-        if (sessionStorage.loggedinUser) {
-            //a logged in user
-            $http.post('/api/subpay/getUserId', {
-                name: sessionStorage.loggedinUser
-            }).then(function(data) {
-                var userId = data;
-                //now send off info to orders db to record
-            });
-        } else {
-            //not a logged in user. They'll just be user 'Anon N', where N is a number
-            $http.get('/getNumUsers').then(function(data) {
-                var userId = data;
-            })
-        }
+        //record order as paid, promoted if applicable
+        $http.post('/api/orders/payOrder', {
+            id: sessionStorage.idForOrder,
+            prom: $scope.validCode
+        }).then(function(result) {
+            console.log(result);
+        })
     };
     $scope.getAllPromos = function() {
         promoFactory.getAllProms().then(function(data) {
@@ -103,38 +94,36 @@ app.controller('payCtrl', function($scope, $stateParams, $state,$http, promoFact
         })
     }
     $scope.getAllPromos();
-    $scope.checkCode = function(){
+    $scope.checkCode = function() {
         $scope.codeLen = $scope.card.promo.length;
-        $scope.validCode=0;
-        $scope.currPromo.item='Mint';
+        $scope.validCode = 0;
+        $scope.currPromo.item = 'Mint';
         //default back to mint. the code is in... mint condition
         //HUEHUEHUEHUEHUE
-        $scope.currPromo.amount=0;
-        $scope.proms.forEach(function(el){
-            if (el.code==$scope.card.promo){
-                $scope.validCode=1;
-                $scope.currPromo.item=el.promotionOn;
-                $scope.currPromo.amount=el.pricePerc;
+        $scope.currPromo.amount = 0;
+        $scope.proms.forEach(function(el) {
+            if (el.code == $scope.card.promo) {
+                $scope.validCode = 1;
+                $scope.currPromo.item = el.promotionOn;
+                $scope.currPromo.amount = el.pricePerc;
             }
             $scope.adjustPrice();
         });
     }
-    $scope.adjustPrice = function(){
+    $scope.adjustPrice = function() {
         console.log($scope.cartToPay);
         $scope.total = 0;
-        var discountedPricePerc = (100-$scope.currPromo.amount)/100;
-        $scope.cartToPay.forEach(function(el){
-            if (el.isCoffee && $scope.currPromo.item=='Coffee'){
+        var discountedPricePerc = (100 - $scope.currPromo.amount) / 100;
+        $scope.cartToPay.forEach(function(el) {
+            if (el.isCoffee && $scope.currPromo.item == 'Coffee') {
                 //promo on coffee! reduced price on all 1,3,7-Trimethylpurine-2,6-dione stimulants
-                $scope.total += (el.price*discountedPricePerc*el.howMany);
-            }
-            else if (!el.isCoffee && $scope.currPromo.item=='Mint'){
+                $scope.total += (el.price * discountedPricePerc * el.howMany);
+            } else if (!el.isCoffee && $scope.currPromo.item == 'Mint') {
                 //promo on coffee! reduced price on all Methyl 2-hydroxybenzoate neurotoxins!
-                $scope.total += (el.price*discountedPricePerc*el.howMany);
-            }
-            else{
+                $scope.total += (el.price * discountedPricePerc * el.howMany);
+            } else {
                 //I got nothin clever to say here
-                $scope.total+=(el.howMany*el.price);
+                $scope.total += (el.howMany * el.price);
             }
         })
     }

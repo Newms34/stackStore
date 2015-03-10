@@ -45,6 +45,7 @@
                 <input type='text' name='promo' ng-model='card.promo' ng-change='checkCode()'/><span id='invalSpan' ng-show="validCode==0 && codeLen>0">Invalid Code!</span>
             </div>
             <button type='submit'>Pay</button>
+            <button ng-click='recordOrder()'>Test Order Thingy</button>
         </form>
     </div>
 </section>
