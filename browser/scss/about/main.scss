@@ -1,21 +1,16 @@
 #about {
 
-  padding-bottom: 50px;
+  padding-left: 20px;
 
-  p {
-    width: 400px;
-    margin: 0 auto;
-    margin-top: 50px;
-    text-align: justify;
-    font-size: 25px;
-    font-weight: 300;
+  h3{
+    text-decoration: underline;
   }
 
   img {
     display: block;
+    position:relative;
     width: 600px;
     margin: 0 auto;
-    margin-top: 50px;
+    top: 10px;
   }
-
 }
