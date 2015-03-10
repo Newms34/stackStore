@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('cartCtrl', function($scope, $cookies, $http, removeitem, clearcart, CoffeeFactory, MintFactory) {
+app.controller('cartCtrl', function($scope, $cookies, $http, $state, removeitem, clearcart, CoffeeFactory, MintFactory) {
 
             console.log($cookies, 'this is cookies from cartCtrl');
 
