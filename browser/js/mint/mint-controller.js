@@ -1,5 +1,5 @@
 'use strict';
-app.controller('MintCtrl', function($scope, MintFactory, CoffeeFactory) {
+app.controller('MintCtrl', function($scope, MintFactory, CoffeeFactory, addtocart) {
     MintFactory.getMintsDb().then(function(data) {
         $scope.things = data;
     });
@@ -9,5 +9,9 @@ app.controller('MintCtrl', function($scope, MintFactory, CoffeeFactory) {
         CoffeeFactory.getByCatDb(kitty).then(function(data) {
             $scope.things = data;
         })
+    }
+
+    $scope.addtocart = function(id, type){
+    	addtocart.addtocart(id, type);
     }
 });
