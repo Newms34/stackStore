@@ -24,7 +24,7 @@ router.post('/submit', function(req, res, next) {
             // var newOrder = mongoose.model('Order');
             // mongoose
             
-        } else {
+        } else
             res.send('No User');
         }
     })
