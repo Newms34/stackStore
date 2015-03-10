@@ -11,7 +11,7 @@
             <br> Price: {{ food.price/100 | currency }}
             <br> Category: <div class='prodCat' ng-repeat='kitty in food.category' ng-click='getKitties(kitty)'>{{kitty}}</div>
             <br>
-            <button ng-click='addtocart(food.title);' class="addtocart">Add to Cart</button>
+            <button ng-click='addtocart(food._id, food.isCoffee);' class="addtocart">Add to Cart</button>
         </div>
     </div>
 </div>
