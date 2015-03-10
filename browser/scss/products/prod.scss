@@ -32,23 +32,25 @@
     padding-left: 15px;
     .product-description {
         width: 90%;
-        h1.prodDetTit {
-            background-color: #aaa;
-            border: 3px outset #aaa;
-            margin-bottom:0;
-        }
-        #desc {
-            color: #fff;
-            font-weight: 100;
-            font-size: 16pt;
-            padding: 10px;
-            margin-top:0;
-            background-color: #042201;
-            min-height:200px;
-            border:3px groove #aaa;
-            border-top:none;
-        }
     }
+}
+.prodDetTit {
+    background-color: #aaa;
+    border: 3px outset #aaa;
+    margin-bottom: 0;
+    width:90%;
+}
+.board {
+    color: #fff;
+    width:90%;
+    font-weight: 100;
+    font-size: 16pt;
+    padding: 10px;
+    margin-top: 0;
+    background-color: #042201;
+    min-height: 200px;
+    border: 3px ridge #aaa;
+    border-top: none;
 }
 .product-listing {
     margin-left: 1.75%;

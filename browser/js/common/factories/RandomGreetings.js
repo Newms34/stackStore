@@ -8,9 +8,9 @@ app.factory('RandomGreetings', function () {
     var greetings = [
         'I know that you just drank some coffee... have a mint...',
         'Ummm...... You need a mint...',
-        'Hello, smelly human.',
-        'So... how do you feel about having a mint right now?',
-        'Dude. You cannot eat egg salad with coffee unless you take a mint.',
+        'You know what would make this day better? Mint.',
+        'You know what would make this day better? Coffee.',
+        'Coffee. Mint. It\'s like peanut butter and jelly',
         'Seriously. Coffee with salmon salad? Take a mint.',
         'What\'s your problem with mints? You need one.',
         'Your breath stinks.'

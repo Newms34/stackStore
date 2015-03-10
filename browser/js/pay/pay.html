@@ -3,14 +3,15 @@
     <div id='cartChart' class='cartMisc'>
         Thanks for buying from us! <p id='tot'>Your total: {{total/100|currency}}</p>
         <form name='cardForm' id='cardForm'>
-            <div class='form-group'>
+            <div class='form-group paygrpTit'>Credit Card</div>
+            <div class='form-group paygrp'>
                 <label for='cardName'>Name on card: </label>
                 <input type='text' name='cardName' ng-model='card.name' required data-stripe='name' />
                 <br/>
                 <label for='cardNum'>Card Number: </label>
                 <input type='text' name='cardNum' ng-model='card.number' required data-stripe='number' />
                 <br/>
-                <b>Expiration Date:</b>
+                <b>Expiration Date: </b>
                 <label for='cardExpmo'>Mo: </label>
                 <input type='text' name='cardExpmo' ng-model='card.expmo' maxlength=2 size=2 required data-stripe='exp-month' />
                 <label for='cardExpyr'>/</label>
@@ -20,7 +21,19 @@
                 <input type='text' name='cvv' ng-model='card.cvv' maxlength=4 size=4 required data-stripe='cvc' />
                 <br/>
             </div>
-            <div class='form-group'>
+
+            <div class='form-group paygrpTit'>Address</div>
+            <div class='form-group paygrp'>
+                Where do you want your stuff sent?<br/>
+
+                <label for='address'>Street: </label>
+                <input type='text' name='address' ng-model='card.addr' required data-stripe='address-line1' />
+                <label for='address'>Street: </label>
+                <input type='text' name='address' ng-model='card.addr' required data-stripe='address-line1' />
+            </div>
+
+            <div class='form-group paygrpTit'>Promo Code</div>
+            <div class='form-group paygrp'>
                 Got a Promo Code?:
                 <input type='text' name='promo' ng-model='card.promo' ng-change='checkCode()'/><span id='invalSpan' ng-show="validCode==0 && codeLen>0">Invalid Code!</span>
             </div>
@@ -28,3 +41,5 @@
         </form>
     </div>
 </section>
+
+THIS IS BROKEN NOW BECAUSE I NEED TO ADD ADDRESS. ILL BREAK YER FACE IF U UNBREAK IT. 
