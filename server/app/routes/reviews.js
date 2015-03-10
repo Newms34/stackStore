@@ -4,8 +4,24 @@ var router = require('express').Router(),
 
 module.exports = router;
 
-router.get('/reviews/:id', function(req, res, next) {
-  mongoose.model('Review').findOne({
+router.post('/', function(req, res, next) {
+  console.log('hello')
+  console.log(req.body)
+
+  mongoose.model('Review').create({
+    'review': req.body.review,
+    'product': req.body.product,
+    'user': req.body.user,
+    'stars': req.body.stars
+  }, function(err, data){
+    if (err) return next(err)
+    res.json(data);
+  });
+});
+
+router.get('/mint/:id', function(req, res, next) {
+
+  mongoose.model('Review').find({
     product: req.params.id
   }, function(err, reviews) {
     if (err) return next(err);
@@ -13,14 +29,16 @@ router.get('/reviews/:id', function(req, res, next) {
   });
 });
 
-router.post('/reviews/:id', function(req, res, next) {
-  mongoose.model('Review').findOne({
-    product: req.params.id
+router.get('/coffee/:id', function(req, res, next) {
+ 
+  mongoose.model('Review').find({
+     product: req.params.id
   }, function(err, reviews) {
-    mongoose.model('Review').create({
-      review: req.body.review,
-      product: req.params.id,
-      user: req.body.user
-    })
-  })
-})
+    if (err) return next(err);
+    else res.json(reviews);
+  });
+});
+
+
+
+

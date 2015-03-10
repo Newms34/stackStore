@@ -5,8 +5,7 @@ var unique = require('mongoose-unique-validator');
 
 var schema = new mongoose.Schema({
     review: {
-        type: String,
-    	minLength: 20
+        type: String
     },
     product: {
     	type: String,
@@ -15,6 +14,9 @@ var schema = new mongoose.Schema({
     user: {
         type: String,
         required: true
+    },
+    stars: {
+    	type: Number
     }
 });
 
@@ -27,8 +29,10 @@ schema.pre('save', function(next) {
         if (product !== null) {
             next();
         } else {
-            console.log('YOU DUN GOOFED');
-            return err.error.type; //do we HAVE an err? I don't think we do
+            console.log('Hook');
+            next();
+
+      	 //do we HAVE an err? I don't think we do
         }
     });
 });
