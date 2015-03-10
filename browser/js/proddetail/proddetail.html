@@ -18,7 +18,8 @@
 
 <div class="jumbotron">
 	<h1>Customer Reviews</h1>
-	<span>Average Customer Rating: </span>
+	<div class='customer-stars container'>
+		<h3>Average Customer Rating:</h3>
 		<span class="star-rating">
 		  <input class="nohover" type="radio" name="rating" value="1"><i></i>
 		  <input class="nohover" type="radio" name="rating" value="2"><i></i>
@@ -26,12 +27,16 @@
 		  <input class="nohover" type="radio" name="rating" value="4"><i></i>
 		  <input class="nohover" type="radio" name="rating" value="5"><i></i>
 		</span>
+	</div>
+
 		<div class="reviewsfromDb container" ng-repeat="review in reviews">
-		<span class="panel panel-default">{{ review.review }}</span>
-		<span class="panel panel-default">{{ review.user }}</span>
+			<div class="panel panel-default one-review">
+					<div>{{ review.review }}</div>
+					<div class="review-user"><b>{{ review.user }}</b></div>
+			</div>
+
 		<hr>
 		</div>
-		average: {{ average }}
 </div>
 
 <hr>
