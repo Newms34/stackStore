@@ -30,7 +30,16 @@ app.controller('prodDetailCtrl', function($scope, $state, $stateParams, CoffeeFa
             })
             return total;
             }
-            $scope.average = starTotal() / reviewArray.length;    
+            $scope.average = Math.round(starTotal() / reviewArray.length); 
+
+
+            var ratings = document.getElementsByName('rating');
+            var rate_value;
+            for (var i = 0; i < ratings.length; i++){
+              if(ratings[i].value === $scope.average.toString()){
+                ratings[i].setAttribute('checked', 'checked')
+              }
+            }
          });
     } else {
         CoffeeFactory.getOneCoffeeDb($stateParams.productId).then(function(data){
@@ -39,13 +48,20 @@ app.controller('prodDetailCtrl', function($scope, $state, $stateParams, CoffeeFa
         ReviewsFactory.getCoffeeReviewsDb($stateParams.productId).then(function(reviewArray){
             $scope.reviews = reviewArray;
 
-
             var starTotal = function (){ reviewArray.forEach(function(elem){
                 total += elem.stars
             })
             return total;
             }
-            $scope.average = starTotal() / reviewArray.length;   
+            $scope.average = Math.round(starTotal() / reviewArray.length);  
+
+            var ratings = document.getElementsByName('rating');
+            var rate_value;
+            for (var i = 0; i < ratings.length; i++){
+              if(ratings[i].value === $scope.average.toString()){
+                ratings[i].setAttribute('checked', 'checked')
+              }
+            } 
         });
     }
 

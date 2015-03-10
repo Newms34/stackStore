@@ -14,6 +14,7 @@ app.controller('profileController', function ($scope, $state,  AuthService, prof
     profileFactory.getProfile().then(function(data){
         $scope.userinfo = data[0];
         $scope.email = data[0].email;
+        $scope.pastorder = data[0].pastOrder;
         // $scope.useremail = data[0].email;
     })
 });

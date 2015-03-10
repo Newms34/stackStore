@@ -1,16 +1,31 @@
 <div class="product-list">
-    <h1>Profile</h1>
+    <h1>Your Account</h1>
     <div ng-controller="profileController" class="product-listing">
-        <img class="product-pictures" ng-src="{{ coffee.photo }}" />
+        <img class="product-pictures" ng-src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRa-qWiCcaYdEV9qLKnQa6ghSxOyB36q4hnJNXf0U6XYye_iZCW" />
         <br>
         <div class="product-listing-info ng-binding ng-scope">
            UserID: {{ email }}
-
-           <!--  Title: {{ coffee.title }}
-            <br> Price: {{ coffee.price.toString() | currency }}
-            <br> Category: {{ coffee.category.join(', ') }}
-            <br>
-            <button ng-click='addtocart(coffee.title);' class="addtocart">Add to Cart</button> -->
+           <br>
         </div>
+    </div>
+
+    <div id="pastOrder">
+        Your Past Orders
+        <br>
+        <hr>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        Order Placed: 
+        Total: 
+        Order #: order objectId
+      </div>
+
+     <!--  add ng-repeat="pastorder in pastorders" when we them!!! -->
+      <div class="panel-body">      
+        <div class="row">
+            <div class="col-xs-6 col-md-3"> image: {{ pastorder.image }}</div>
+            <div class="col-xs-12 col-md-9"> Product: {{ pastorder}} </div>
+        </div>
+      </div>
     </div>
 </div>
