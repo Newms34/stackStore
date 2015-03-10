@@ -9,7 +9,7 @@ app.config(function ($stateProvider) {
     });
 });
 
-app.controller('profileController', function ($scope, $state,  AuthService, profileFactory) {
+app.controller('profileController', function ($scope, $state,  AuthService, profileFactory, orderFactory) {
 
     profileFactory.getProfile().then(function(data){
         $scope.userinfo = data[0];
@@ -17,4 +17,10 @@ app.controller('profileController', function ($scope, $state,  AuthService, prof
         $scope.pastorder = data[0].pastOrder;
         // $scope.useremail = data[0].email;
     })
+
+    orderFactory.getOrder().then(function(data){
+        $scope.orders = data;
+        $scope.order = data[0];
+    })
+
 });
