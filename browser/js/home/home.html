@@ -14,7 +14,7 @@
             <br> Price: {{ (product.price/100).toString() | currency }}
             <br> Category: {{ product.category.join(', ') }}
             <br>
-            <button ng-click='addtocart(product.title);' class="addtocart">Add to Cart</button>
+            <button ng-click='addtocart(product._id, product.isCoffee);' class="addtocart">Add to Cart</button>
         </div>
     </div>
 </div>

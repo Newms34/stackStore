@@ -26,6 +26,6 @@ app.controller('ReviewCtrl', function($scope, $state, $stateParams, ReviewsFacto
         $window.location.href = '/product/' + $stateParams.productId + '/';
      });
     };
-    // $scope.starValue = function 
+    // $scope.starValue = function
 });
 
