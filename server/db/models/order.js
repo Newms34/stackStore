@@ -23,7 +23,8 @@ var schema = new Schema({
   promoted: {
     type:Boolean,
     default:false
-  }
+  },
+  date: String
 });
 
 mongoose.model('Order', schema);

@@ -15,6 +15,7 @@ router.post('/submit', function(req, res, next) {
     mongoose.model('User').find({email:ordersToDb.user},function(err,usr){
         if (usr!==null){
             ordersToDb.user = usr[0]._id;
+            ordersToDb.date = new Date().toString();
             console.log(ordersToDb)
             res.send('ordersToDb: ',ordersToDb)
             mongoose.model('Order').create(ordersToDb);
