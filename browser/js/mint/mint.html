@@ -12,7 +12,7 @@
                 <br> Price: {{ mint.price/100 | currency }}
                 <br> Category: {{ mint.category.join(', ') }}
                 <br>
-                <button ng-click="addtocart(mint.title)" class="addtocart">Add to Cart</button>
+                <button ng-click="addtocart(mint._id, mint.isCoffee)" class="addtocart">Add to Cart</button>
             </li>
         </ul>
     </div>
