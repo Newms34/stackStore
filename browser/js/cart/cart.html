@@ -10,13 +10,13 @@
                 <th>Quantity</th>
                 <th>Subtotal</th>
             </tr>
-            <tr id='cart-single-order' ng-repeat='order in seshOrders' ng-class '{mintProd:!isCoffee, coffeeProd:isCoffee}'>
+            <tr id='cart-single-order' ng-repeat='order in seshOrders track by $index' ng-class '{mintProd:!isCoffee, coffeeProd:isCoffee}'>
                 <td>{{order.title}}</td>
                 <td>{{order.description}}</td>
                 <td>{{order.priceOut}}</td>
                 <td>{{order.howMany}}</td>
                 <td>{{order.sTot}}</td>
-                <td><button class='cartBut' ng-click="deleteitem(order.title)" type="submit">Remove Item</button></td>
+                <td><button class='cartBut' ng-click="deleteitem(order._id)" type="submit">Remove Item</button></td>
             </tr>
         </table>
         Total: {{total}}<br/>
