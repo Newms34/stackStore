@@ -31,10 +31,6 @@ var schema = new mongoose.Schema({
     isAdmin: {
         type: Boolean,
         default: false
-    },
-    pastOrder: {
-        type: [String],
-        default: false
     }
 });
 
