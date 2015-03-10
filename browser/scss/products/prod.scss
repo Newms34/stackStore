@@ -1,22 +1,54 @@
-.prodDetailImg {
-    width: 20vw;
-    height: 20vw;
+#prodDetailImg {
     box-shadow: 4px 4px 9px #000;
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
+    padding: 5px;
     background-size: cover;
-    margin-bottom:20px;
+    font-style: italic;
+    width: 40%;
+    img {
+        position: relative;
+        width: 20vw;
+        height: 20vw;
+        transition-duration: .5s;
+        padding-bottom: 5px;
+    }
+    &:hover {
+        width: 100%;
+        height: auto;
+    }
+    &:hover > img {
+        width: 100%;
+        height: auto;
+    }
 }
 .prodDetailBlurb {
     width: 90vw;
-    height: 300px;
-    background-color: rgba(255, 255, 255, .8);
+    // background-color: rgba(255, 255, 255, .8);
     position: relative;
-    top:0px;
+    top: 0px;
     margin-left: auto;
     margin-right: auto;
     display: inline-block;
+    padding-left: 15px;
+    .product-description {
+        width: 90%;
+        h1.prodDetTit {
+            background-color: #aaa;
+            border: 3px outset #aaa;
+            margin-bottom:0;
+        }
+        #desc {
+            color: #fff;
+            font-weight: 100;
+            font-size: 16pt;
+            padding: 10px;
+            margin-top:0;
+            background-color: #042201;
+            min-height:200px;
+            border:3px groove #aaa;
+            border-top:none;
+        }
+    }
 }
 .product-listing {
     margin-left: 1.75%;
@@ -25,11 +57,10 @@
     margin-bottom: 7vh;
     width: 30%;
     position: relative;
-    border: 1px solid red;
     display: inline-block;
     background-color: white;
     &:hover {
-        opacity: 0.5;
+        box-shadow: 0 0 4px #fff;
     }
 }
 .product-pictures {
@@ -42,21 +73,32 @@
 .product-listing-info {
     text-align: center;
 }
-
 .addtocart {
     margin-bottom: 10px;
     background-color: #bdbdbd;
-    -moz-border-radius: 5px;
-    -webkit-border-radius: 5px;
-    border-radius:6px;
+    border-radius: 6px;
     color: #fff;
-    font-family: 'Oswald';
     font-size: 20px;
     text-decoration: none;
     cursor: pointer;
-    border:none;
+    border: none;
+    &:hover {
+        background-color: #acacac;
+    }
 }
-
 .product-list h1 {
     text-align: center;
+}
+.prodCat {
+    box-shadow: 0 0 1px 3px #0d1a0d;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    background-color: #0d1a0d;
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0 0 1px 3px #1b371a;
+        background-color: #1b371a;
+    }
 }
