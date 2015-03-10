@@ -1,13 +1,28 @@
 "use strict";
 app.factory('ReviewsFactory', function($http){
   return {
-    getReviews: function(id){
-      return $http.get('/api/reviews/' + id, function(response) {
+    getMintReviewsDb: function(productId){
+      return $http.get('/api/reviews/mint/' + productId).then(function(response) {
         return response.data;
       });
     },
-    addReviews: function (user) {
-      return $http.post('/api/signup/newUser', user);
+
+    getCoffeeReviewsDb: function(productId){
+      return $http.get('/api/reviews/coffee/' + productId).then(function(response) {
+        return response.data;
+      });
+    },
+
+    addReviewsDb: function (review, productId, starValue) {
+      var reviewObj = {
+        review: review,
+        user: sessionStorage.loggedinUser,
+        product: productId,
+        stars: starValue
+      }
+      return $http.post('/api/reviews', reviewObj).then(function(response) {
+        return response.data;
+      });
     }
   };
 });
