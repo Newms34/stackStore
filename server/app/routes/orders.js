@@ -19,7 +19,8 @@ router.post('/view', function(req, res) {
 });
 
 router.post('/submit', function(req, res, next) {
-    var user = req.body.user;
+    //record an order.
+    var user = sessionStorage.loggedinUser;
     var session = req.body.session;
     var products = req.body.products;
     var status = req.body.status;

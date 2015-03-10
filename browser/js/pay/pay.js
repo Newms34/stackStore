@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('payCtrl', function($scope, $stateParams, $http, promoFactory) {
+app.controller('payCtrl', function($scope, $stateParams, $state,$http, promoFactory) {
     $scope.cartToPay = angular.fromJson(sessionStorage.thisCart);
     $scope.codeLen = 0;
     $scope.validCode=0;
