@@ -50,7 +50,7 @@ app.controller('prodDetailCtrl', function($scope, $state, $stateParams, CoffeeFa
       }
     )
 
-    $scope.addtocart = function(data){
-        addtocart.addtocart(data);
+    $scope.addtocart = function(id, isCoffee){
+        addtocart.addtocart(id, isCoffee);
     }
 });
