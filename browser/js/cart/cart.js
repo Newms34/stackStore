@@ -121,4 +121,5 @@ app.controller('cartCtrl', function($scope, $cookies, $http, removeitem, clearca
                         $scope.seshOrdersCreate();
                     }
 
+
                 });
