@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('payCtrl', function($scope, $stateParams, $http, promoFactory) {
+app.controller('payCtrl', function($scope, $stateParams, $state,$http, promoFactory) {
     $scope.cartToPay = angular.fromJson(sessionStorage.thisCart);
     $scope.codeLen = 0;
     $scope.validCode=0;
@@ -28,7 +28,11 @@ app.controller('payCtrl', function($scope, $stateParams, $http, promoFactory) {
         expmo: 0,
         expyr: 0,
         cvv: 0,
-        total: 0
+        total: 0,
+        addr: "",
+        city:"",
+        state:"",
+        zip:0
     }
     console.log('items buying: ', $scope.cartToPay);
     $scope.manifest = function() {

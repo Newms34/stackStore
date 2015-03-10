@@ -26,15 +26,5 @@ var schema = new Schema({
   }
 });
 
-
-// schema.pre('save', function(next) {
-//   var ord = this;
-//   if (ord.user !== 'none') {
-//     //save in user's order history
-//   }
-//   next();
-// });
-
-
 mongoose.model('Order', schema);
 

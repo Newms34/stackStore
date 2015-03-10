@@ -9,7 +9,7 @@ app.config(function($stateProvider) {
 
 });
 
-app.controller('cartCtrl', function($scope, $cookies, $http, removeitem, clearcart, CoffeeFactory, MintFactory) {
+app.controller('cartCtrl', function($scope, $cookies, $http, $state, removeitem, clearcart, CoffeeFactory, MintFactory,AddToCart) {
 
             console.log($cookies, 'this is cookies from cartCtrl');
 
@@ -64,24 +64,18 @@ app.controller('cartCtrl', function($scope, $cookies, $http, removeitem, clearca
             $scope.seshOrdersCreate();
 
             function pricequant() {
-                console.log($scope.seshOrders, 'this is scopeseshorders');
-
-                
-
                     $scope.seshOrders.map(function(obj, index) {
                             obj.howMany = 1;
                             
                             for (var i = 0; i < $scope.seshOrders.length; i++) {
                                if (i === index) continue;
                             if (obj._id === $scope.seshOrders[i]._id) {
-                                console.log('this is obj.id', obj._id, 'this is seshordid', $scope.seshOrders[i]._id);
                                     obj.howMany += 1;
                                     $scope.seshOrders.splice(i, 1);
                                     i--;
 
                                 } 
 
-                                console.log(obj.howMany, 'this is obj howmany');
                             }
                         })
                 
@@ -109,6 +103,7 @@ app.controller('cartCtrl', function($scope, $cookies, $http, removeitem, clearca
                     $scope.goPay = function() {
                         sessionStorage.thisCart = angular.toJson($scope.seshOrders);
                         $state.go('pay');
+                        $scope.recordOrder($scope.seshOrders);
                     };
 
                     $scope.deleteitem = function(data) {
@@ -120,5 +115,25 @@ app.controller('cartCtrl', function($scope, $cookies, $http, removeitem, clearca
                         clearcart.clearoutcart(info);
                         $scope.seshOrdersCreate();
                     }
-
+                    $scope.recordOrder = function(theCart){
+                        console.log('cart to record',theCart);
+                        var orderObj={};
+                        orderObj.user = sessionStorage.loggedinUser;
+                        orderObj.products = [];
+                        orderObj.status = 'placed'
+                        orderObj.promoted = false;
+                        theCart.forEach(function(theItem){
+                            orderObj.products.push({
+                                productId:theItem._id,
+                                Price:theItem.price,
+                                Quantity:theItem.howMany
+                            })
+                        })
+                        //We should now have the entire orders object.
+                        //Only change we need to make on the backend is
+                        //to replace username with user id
+                        AddToCart.submitOrder(orderObj).then(function(result){
+                            console.log('order:',result);
+                        });
+                    }
                 });
