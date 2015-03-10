@@ -70,3 +70,30 @@ th{
 	margin-top:5px;
 	box-shadow: 0 0 5px 4px rgba(255,250,200,.7);
 }
+.paygrpTit{
+	width:50%;
+	background-color: #aaa;
+	border:2px outset #aaa;
+	margin-bottom:0px;
+}
+.paygrp{
+	border:3px groove #aaa;
+	background-color:#042201;
+	padding:2px;
+	width:50%;
+	color:#fff;
+	position:relative;
+	label{
+		left:2px;
+		position:relative;
+	}
+	input{
+		right:0px;
+		display:inline-block;
+		position:relative;
+		background-color:#042201;
+		&:focus, &:active{
+			box-shadow:0 0 2px #fff;
+		}
+	}
+}

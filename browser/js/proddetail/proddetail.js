@@ -65,24 +65,6 @@ app.controller('prodDetailCtrl', function($scope, $state, $stateParams, CoffeeFa
         });
     }
 
-    // $scope.prod = {
-    //     title: 'Sample Product',
-    //     description: 'This product is so awesome! It\'s tasty.',
-    //     price: 3999,
-    //     isCoffee: false,
-    //     category: ['tasty', 'beans', 'mmm', 'srsly i got nothin'],
-    //     photo: 'none'
-    // };
-
-    // $scope.prod.photo = 'images/' + $scope.prod.photo;
-    // if ($scope.prod.isCoffee && $scope.prod.photo === 'images/none') {
-    //     console.log('beans')
-    //     $scope.prod.photo = 'images/placeholderCof.jpg';
-    // } else if (!$scope.prod.isCoffee && $scope.prod.photo === 'images/none') {
-    //     $scope.prod.photo = 'images/placeholderMint.png';
-    // }
-    // $scope.prod.priceOut = '$' + ($scope.prod.price / 100);
-
 
     $(':radio').change(
       function(){
