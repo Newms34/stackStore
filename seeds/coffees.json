@@ -17,4 +17,10 @@
     "price": 100,
     "isCoffee": true,
     "category": ["cheap", "tasty", "made by mom"]
+}, {
+    "title": "1,3,7-Trimethylpurine-2,6-dione",
+    "description": "Just Caffeine. Because let's be honest: that's why you're really drinking this stuff, isn't it?",
+    "price": 10,
+    "isCoffee": true,
+    "category": ["cheap", "extra-bitter", "this is wrong, dude"]
 }]
