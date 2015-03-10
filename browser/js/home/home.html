@@ -1,7 +1,7 @@
 
 <div class="product-list">
 
-    <h1>Coffee Meets Mints</h1>
+    <div class='pageTitle' style='background-image: url("images/coffMint.jpg");'>Coffee Meets Mint</div>
     <div ng-controller="prodDetailCtrl" class="product-listing" ng-repeat="product in products | limitTo: 12">
 
         <a href="/product/{{product._id}}/{{product.isCoffee}}">
