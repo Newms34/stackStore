@@ -12,9 +12,16 @@ module.exports = {
     "callbackURL": "http://localhost:1337/auth/facebook/callback"
   },
   "GOOGLE": {
-    "clientID": "493618907544-5gdjmsm88e6n1pqu1f0ij7f8nvh2kn28.apps.googleusercontent.com",
+    "clientID": "369003002521-88250fc9kjpkfqvhicu7vokbnvu88ud6.apps.googleusercontent.com",
     "clientSecret": "mL5-7L6fb1pzfHXQv4vT0UFU",
     "callbackURL": "http://localhost:1337/auth/google/callback"
   }
 };
 // https://tranquil-ocean-8233.herokuapp.com/oauth2callback
+
+
+  // "GOOGLE": {
+  //   "clientID": "493618907544-5gdjmsm88e6n1pqu1f0ij7f8nvh2kn28.apps.googleusercontent.com",
+  //   "clientSecret": "mL5-7L6fb1pzfHXQv4vT0UFU",
+  //   "callbackURL": "http://localhost:1337/auth/google/callback"
+  // }
