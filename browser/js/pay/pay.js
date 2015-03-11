@@ -82,6 +82,7 @@ app.controller('payCtrl', function($scope, $stateParams, $state, $http, promoFac
             prom: $scope.validCode
         }).then(function(result) {
             console.log(result);
+            alert('Thank you for your payment!')
         })
     };
     $scope.getAllPromos = function() {
