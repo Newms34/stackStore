@@ -16,7 +16,7 @@ module.exports = {
     //     "clientSecret": process.env.GOOGLE_CLIENT_SECRET,
     //     "callbackURL": process.env.CALLBACK_URL
     // }
-  // "DATABASE_URI": "mongodb://heroku_app34612086:eotpkuschu3ftm137op9oq688q@ds051851.mongolab.com:51851/heroku_app34612086",
+  "DATABASE_URI": "mongodb://heroku_app34612086:eotpkuschu3ftm137op9oq688q@ds051851.mongolab.com:51851/heroku_app34612086",
   "SESSION_SECRET": "Optimus Prime is my real dad",
   "TWITTER": {
     "consumerKey": "ZVQ2NZscYX1aa6nZI81Fg8HBg",
@@ -24,8 +24,8 @@ module.exports = {
     "callbackUrl": "http://127.0.0.1:1337/auth/twitter/callback"
   },
   "FACEBOOK": {
-    "clientID": "336560806541655",
-    "clientSecret": "2f117d2a289fd321e411fdb568d263f2",
+    "clientID": "375592052644640",
+    "clientSecret": "ff9ca279a390ece0b2b5a24bbedc7b97",
     "callbackURL": "http://localhost:1337/auth/facebook/callback"
   },
   "GOOGLE": {
@@ -33,5 +33,5 @@ module.exports = {
     "clientSecret": "DB1-q81E4ODEuL8cFGCm5QS1",
     "callbackURL": "http://localhost:1337/auth/google/callback"
   }
-
+};
 };
