@@ -1,6 +1,6 @@
 <div class="product-list">
    <div class='pageTitle' style='background-image: url("images/mint.jpg");'>Mint</div>
-    <div ng-controller="MintCtrl" class="product-listing" ng-repeat="food in things| limitTo: 6">
+    <div class="product-listing" ng-repeat="food in things| limitTo: 6">
 
         <a href="/product/{{food._id}}/{{food.isCoffee}}">
             <img class="product-pictures" ng-src="{{ food.photo }}" />

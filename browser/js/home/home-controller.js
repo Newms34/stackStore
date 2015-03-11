@@ -6,6 +6,13 @@ app.controller('HomeCtrl', function($scope, CoffeeFactory, MintFactory) {
     });
   });
 
+  $scope.getKitties = function(kitty) {
+    //search thru both dbs (on backend) and return concatenated arr
+    CoffeeFactory.getByCatDb(kitty).then(function(data) {
+      angular.copy(data, $scope.products);
+    });
+  };
+
   function shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -16,3 +23,4 @@ app.controller('HomeCtrl', function($scope, CoffeeFactory, MintFactory) {
     return array;
   }
 });
+
