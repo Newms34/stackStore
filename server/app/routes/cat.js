@@ -21,7 +21,8 @@ router.get('/:cat', function(req, res, next) {
                     allItems.push(item);
                 }
             })
-            res.send(allItems);
+            console.log(allItems);
+            res.json(allItems);
         })
     })
 

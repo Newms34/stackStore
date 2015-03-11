@@ -1,15 +1,16 @@
 <div class="product-list">
     <div class='pageTitle' style='background-image: url("images/coffee.jpg");color:#fff;'>Coffee</div>
-    <div ng-controller="CoffeeCtrl" class="product-listing" ng-repeat="food in things| limitTo: 6">
+    
+    <div class="product-listing" ng-repeat="food in things| limitTo: 6">
   
         <a href="/product/{{food._id}}/{{food.isCoffee}}">
             <img class="product-pictures" ng-src="{{ food.photo }}" />
         </a>
         <br>
-        <div class="product-listing-info ng-binding ng-scope">
+        <div class="product-listing-info">
             <u>{{ food.title }}</u>
             <br> Price: {{ food.price/100 | currency }}
-            <br> Category: <div class='prodCat' ng-repeat='kitty in food.category' ng-click='getKitties(kitty)'>{{kitty}}</div>
+            <br> Category: <div class='prodCat' ng-repeat='kitty in food.category' ng-click='getKitties(kitty)'>{{kitty}}{{meh}}</div>
             <br>
             <button ng-click='addtocart(food._id, food.isCoffee);' class="addtocart">Add to Cart</button>
         </div>
