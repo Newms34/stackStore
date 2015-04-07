@@ -1,6 +1,6 @@
 # Stack Store
 ![Badge of Honor](https://img.shields.io/badge/Built%20at-Fullstack-green.svg?style=flat-square)
->A mock e-commerce site selling mints and chocolates
+>A mock e-commerce site selling mints and coffee
 ##Table of Contents:
  - [Explanation](#Explanation)
  - [Installation](#Installation)
