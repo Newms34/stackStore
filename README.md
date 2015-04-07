@@ -1,6 +1,6 @@
-# tiltMusic
+# Stack Store
 ![Badge of Honor](https://img.shields.io/badge/Built%20at-Fullstack-green.svg?style=flat-square)
->A music generation app using phone accelerometer input.
+>A mock e-commerce site selling mints and chocolates
 ##Table of Contents:
  - [Explanation](#Explanation)
  - [Installation](#Installation)
