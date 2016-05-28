@@ -8,7 +8,12 @@ var UserModel = mongoose.model('User');
 
 module.exports = function (app) {
 
-    var twitterConfig = app.getValue('env').TWITTER;
+    // var twitterConfig = app.getValue('env').TWITTER;
+    var twitterConfig = {
+        "consumerKey": "ZVQ2NZscYX1aa6nZI81Fg8HBg",
+        "consumerSecret": "FkNrAsPhXVwr1qKgV5fSMGtuTsQNoWqybHlkKFf4g6FG1n4J1V",
+        "callbackUrl": "http://127.0.0.1:1337/auth/twitter/callback"
+    }
 
     var twitterCredentials = {
         consumerKey: twitterConfig.consumerKey,

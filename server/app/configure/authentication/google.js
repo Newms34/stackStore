@@ -7,7 +7,11 @@ var UserModel = mongoose.model('User');
 
 module.exports = function (app) {
 
-    var googleConfig = app.getValue('env').GOOGLE;
+    var googleConfig ={
+        "clientID": "369003002521-88250fc9kjpkfqvhicu7vokbnvu88ud6.apps.googleusercontent.com",
+        "clientSecret": "DB1-q81E4ODEuL8cFGCm5QS1",
+        "callbackURL": "http://localhost:1337/auth/google/callback"
+    };
 
     var googleCredentials = {
         clientID: googleConfig.clientID,

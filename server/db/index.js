@@ -3,7 +3,8 @@ var Q = require('q');
 var path = require('path');
 var chalk = require('chalk');
 
-var DATABASE_URI = require(path.join(__dirname, '../env')).DATABASE_URI;
+// var DATABASE_URI = require(path.join(__dirname, '../env')).DATABASE_URI;
+var DATABASE_URI = 'mongodb://heroku_app34344585:kf2j6lu0q0n479f5gnu87l2db0@ds029787.mlab.com:29787/heroku_app34344585';
 
 var mongoose = require('mongoose');
 var db = mongoose.connect(DATABASE_URI).connection;

@@ -7,7 +7,11 @@ var UserModel = mongoose.model('User');
 
 module.exports = function(app) {
 
-  var facebookConfig = app.getValue('env').FACEBOOK;
+  var facebookConfig = {
+        "clientID": "375592052644640",
+        "clientSecret": "ff9ca279a390ece0b2b5a24bbedc7b97",
+        "callbackURL": "http://localhost:1337/auth/facebook/callback"
+    };
 
   var facebookCredentials = {
     clientID: facebookConfig.clientID,
