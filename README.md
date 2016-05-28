@@ -29,7 +29,7 @@
 
 ##Contributors
 The following people (and a few others!) helped with this project:
-- [Sehwan Choi](github.com/sehwanchoi)
-- [David Newman](github.com/Newms34)
-- [Michael Bae](github.com/michaelbbae)
-- [Noelle Wandel](github.com/noelleantoinette)
+- [Sehwan Choi](https://github.com/sehwanchoi)
+- [David Newman](https://github.com/Newms34)
+- [Michael Bae](https://github.com/michaelbbae)
+- [Noelle Wandel](https://github.com/noelleantoinette)
