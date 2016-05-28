@@ -17,6 +17,7 @@
     "express": "^4.12.0",
     "express-session": "^1.10.3",
     "lodash": "^3.3.0",
+    "mongodb": "^2.1.16",
     "mongoose": "^4.4.13",
     "mongoose-schema-extend": "^0.1.7",
     "mongoose-unique-validator": "^0.4.1",
