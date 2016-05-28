@@ -73,7 +73,7 @@ gulp.task('buildJSProduction', function () {
     return gulp.src(['./browser/js/app.js', './browser/js/**/*.js'])
         .pipe(concat('main.js'))
         .pipe(ngAnnotate())
-        .pipe(uglify())
+        .pipe(uglify({mangle: false}))
         .pipe(gulp.dest('./public'));
 });
 
