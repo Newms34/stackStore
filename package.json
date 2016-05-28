@@ -5,7 +5,7 @@
   "main": "server/start.js",
   "scripts": {
     "start": "nodemon server/start.js",
-    "postinstall": "bower install && /app/node_modules/mongoose npm install && gulp buildProduction",
+    "postinstall": "bower install && /node_modules/mongoose npm install && gulp buildProduction",
     "test": "istanbul cover -x *.spec.js --print detail _mocha -- server/**/*.spec.js"
   },
   "dependencies": {
